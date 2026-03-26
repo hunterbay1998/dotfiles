@@ -11,7 +11,7 @@ fi
 # =============================
 export PATH="$HOME/.local/bin:$HOME/.claude/bin:$PATH"
 export EDITOR=nvim
-
+export PATH="$HOME/dotfiles/.local/bin:$PATH"
 # =============================
 # History
 # =============================
