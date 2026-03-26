@@ -1,42 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-# Install zsh if not already installed
-if ! command -v zsh &>/dev/null; then
-    sudo pacman -S --needed zsh
-fi
+echo "Configuring zsh..."
 
 # Set zsh as default shell
 if [ "$SHELL" != "/bin/zsh" ]; then
     chsh -s /bin/zsh
 fi
 
-# Install paru (AUR helper) if not already installed
-if ! command -v paru &>/dev/null; then
-    sudo pacman -S --needed base-devel git
-    git clone https://aur.archlinux.org/paru.git /tmp/paru-install
-    cd /tmp/paru-install && makepkg -si --noconfirm
-    cd - && rm -rf /tmp/paru-install
-fi
-
-# Install official repo packages
-sudo pacman -S --needed \
-    zsh-autosuggestions \
-    zsh-syntax-highlighting \
-    eza \
-    zoxide \
-    fd \
-    bat \
-    ripgrep \
-    fzf \
-    tldr \
-    btop \
-    fastfetch \
-    nvtop
-
-# Install AUR packages
-paru -S --needed zsh-theme-powerlevel10k-git
-
-# Add sources to .zshrc if not already there
+# Add sources to .zshrc
 ZSHRC="$HOME/.zshrc"
 
 add_line() {
@@ -52,4 +24,4 @@ add_line 'eval "$(zoxide init zsh)"'
 add_line 'source /usr/share/fzf/key-bindings.zsh'
 add_line 'source /usr/share/fzf/completion.zsh'
 
-echo "Done! Restart your terminal or run: source ~/.zshrc"
+echo "Zsh configured!"
