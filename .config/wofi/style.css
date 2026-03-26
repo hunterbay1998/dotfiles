@@ -1,0 +1,64 @@
+@define-color base    #1a1b26;
+@define-color surface #24283b;
+@define-color text    #c0caf5;
+@define-color muted   #a9b1d6;
+@define-color accent  #7aa2f7;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+window {
+    background-color: @base;
+    border: 1px solid alpha(@accent, 0.15);
+    border-radius: 16px;
+}
+
+#outer-box {
+    padding: 16px;
+}
+
+#input {
+    background-color: @surface;
+    color: @text;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid alpha(@accent, 0.1);
+    outline: none;
+}
+
+#input:focus {
+    border: 1px solid alpha(@accent, 0.3);
+}
+
+#scroll {
+    margin: 0;
+}
+
+#entry {
+    padding: 8px 12px;
+    margin: 2px 0;
+    border-radius: 8px;
+    color: @muted;
+    transition: all 0.2s ease;
+}
+
+#entry:selected {
+    background-color: alpha(@accent, 0.15);
+    color: @text;
+    border: none;
+}
+
+#entry image {
+    margin-right: 8px;
+}
+
+#text {
+    color: inherit;
+}
+
+#text:selected {
+    color: @text;
+}

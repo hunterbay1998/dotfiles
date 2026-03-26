@@ -1,0 +1,27 @@
+/*
+  network module
+  --------------
+*/
+
+{
+  "network": {
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "󰖪",
+   
+"on-click": "kitty --class wifi-menu /home/bailey/.local/bin/wifi",
+
+    "format-icons": {
+      "wifi": [
+        "󰤟",  // 0–20%
+        "󰤢",  // 20–40%
+        "󰤥",  // 40–60%
+        "󰤨",  // 60–80%
+        "󰤨"   // 80–100%
+      ]
+    },
+
+    "tooltip": false
+  }
+}
+

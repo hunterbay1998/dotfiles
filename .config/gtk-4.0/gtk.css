@@ -1,0 +1,127 @@
+/* ==========================================================
+   GTK4 – Nautilus terminal-like theme
+   Matches Foot + Neovim dark background
+   ========================================================== */
+
+/* --- Nautilus window --- */
+window.nautilus-window {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* --- Main file view --- */
+.nautilus-window .view,
+.nautilus-window list {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* --- Sidebar --- */
+.nautilus-window .sidebar {
+  background-color: #16161e;
+  color: #c0caf5;
+}
+
+/* --- Rows --- */
+.nautilus-window row {
+  background-color: transparent;
+}
+
+.nautilus-window row:hover {
+  background-color: rgba(192, 202, 245, 0.06);
+}
+
+.nautilus-window row:selected {
+  background-color: rgba(192, 202, 245, 0.12);
+}
+
+/* --- Headerbar --- */
+.nautilus-window headerbar {
+  background-color: #16161e;
+  color: #c0caf5;
+  box-shadow: none;
+}
+
+/* --- Icons / labels --- */
+.nautilus-window label {
+  color: #c0caf5;
+}
+
+
+/* ==========================================================
+   GTK4 – File chooser (upload dialog)
+   Matches Nautilus / Foot / Neovim theme
+   ========================================================== */
+
+filechooser,
+filechooser dialog {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* File list */
+filechooser listview,
+filechooser columnview {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* Sidebar */
+filechooser .navigation-sidebar {
+  background-color: #16161e;
+  color: #c0caf5;
+}
+
+/* Rows */
+filechooser row {
+  background-color: transparent;
+}
+
+filechooser row:hover {
+  background-color: rgba(192, 202, 245, 0.06);
+}
+
+filechooser row:selected {
+  background-color: rgba(192, 202, 245, 0.12);
+  color: #c0caf5;
+}
+
+/* Headerbar */
+filechooser headerbar {
+  background-color: #16161e;
+  color: #c0caf5;
+  box-shadow: none;
+}
+
+/* Buttons */
+filechooser button {
+  background: transparent;
+  color: #c0caf5;
+}
+
+filechooser button:hover {
+  background-color: rgba(192, 202, 245, 0.08);
+}
+
+/* Open button (accent) */
+filechooser button.suggested-action {
+  background-color: rgba(192, 202, 245, 0.18);
+  color: #c0caf5;
+}
+
+filechooser button.suggested-action:hover {
+  background-color: rgba(192, 202, 245, 0.26);
+}
+
+/* ~/.config/gtk-3.0/gtk.css */
+
+menu {
+  background-color: #1a1b26;
+  color: #c0caf5;
+  border: 1px solid #7aa2f7;
+}
+
+menuitem:hover {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+}

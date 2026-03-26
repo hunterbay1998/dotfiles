@@ -1,0 +1,17 @@
+/* 
+   left side layout
+   ----------------
+   This file controls WHAT appears on the left side of the bar.
+   Module behaviour is defined in separate files.
+*/
+{ 
+  "modules-left": [
+    "custom/power",
+    "clock"
+],
+  "include": [
+    "~/.config/waybar/modules/power.jsonc",
+    "~/.config/waybar/modules/clock.jsonc"
+ ]
+}
+

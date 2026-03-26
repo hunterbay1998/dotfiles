@@ -1,0 +1,26 @@
+/*  
+   waybar main config 
+   ------------------
+   this files only defines:
+   - bar position
+   - size
+   - margins
+   - which layout files to include
+*/
+{
+  "include": [
+    "~/.config/waybar/modules/-left.jsonc",
+    "~/.config/waybar/modules/-center.jsonc",
+    "~/.config/waybar/modules/-right.jsonc"
+  ],
+
+   "layer": "top",
+   "position": "top",
+   "spacing": 0,
+
+   "margin-top": 6,
+   "margin-bottom": 0,
+   "margin-left": 10,
+   "margin-right": 10
+}
+

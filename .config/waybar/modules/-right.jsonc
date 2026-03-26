@@ -1,0 +1,22 @@
+/* 
+   right side layout
+   ----------------
+   This file controls WHAT appears on the right side of the bar.
+   Module behaviour is defined in separate files.
+*/
+{
+  "modules-right": [
+    "battery",
+    "network",
+    "pulseaudio",
+    "custom/notifications",
+    "tray"
+  ],
+  "include": [
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/audio.jsonc",
+    "~/.config/waybar/modules/notifications.jsonc",
+    "~/.config/waybar/modules/tray.jsonc"
+  ]
+}

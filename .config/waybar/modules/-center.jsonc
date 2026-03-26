@@ -1,0 +1,15 @@
+/* 
+   center side layout
+   ----------------
+   This file controls WHAT appears on the center of the bar.
+   Module behaviour is defined in separate files.
+*/
+{
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+
+  "include": [
+    "~/.config/waybar/modules/workspaces.jsonc"
+ ]
+}

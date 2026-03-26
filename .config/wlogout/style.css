@@ -1,0 +1,91 @@
+/* =============================
+   COLOUR PALETTE (Tokyo Night)
+   =============================
+   Change these values throughout the file to retheme.
+
+   --base:      #1a1b26   (window background)
+   --surface:   #24283b   (button background)
+   --border:    #3b4261   (button border)
+   --text:      #c0caf5   (button text)
+   --primary:   #7aa2f7   (blue - lock, default hover)
+   --secondary: #bb9af7   (purple - logout)
+   --green:     #9ece6a   (reboot)
+   --yellow:    #e0af68   (suspend)
+   --red:       #f7768e   (shutdown)
+*/
+
+* {
+    background-image: none;
+    box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+window {
+    background-color: rgba(26, 27, 38, 0.85);
+}
+
+button {
+    background-color: #24283b;
+    color: #c0caf5;
+
+    border: 2px solid #3b4261;
+    border-radius: 16px;
+
+    margin: 10px;
+    padding: 10px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+
+    transition: all 0.3s ease;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: #3b4261;
+    border-color: #7aa2f7;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#lock:hover {
+    border-color: #7aa2f7;
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+
+#logout:hover {
+    border-color: #bb9af7;
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+
+#suspend:hover {
+    border-color: #e0af68;
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+
+#reboot:hover {
+    border-color: #9ece6a;
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+
+#shutdown:hover {
+    border-color: #f7768e;
+}

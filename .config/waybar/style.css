@@ -1,0 +1,227 @@
+/* =============================
+   COLOUR PALETTE (Tokyo Night)
+   =============================
+   Change these to retheme the entire bar.
+*/
+@define-color base    #1a1b26;  /* bar background */
+@define-color surface #24283b;  /* module/pill background */
+@define-color text    #c0caf5;  /* default text */
+@define-color muted   #c0caf5;  /* inactive/dimmed text */
+
+@define-color primary   #7aa2f7;  /* blue - pulseaudio, accents */
+@define-color secondary #bb9af7;  /* purple - clock */
+
+@define-color green  #9ece6a;  /* battery */
+@define-color yellow #e0af68;  /* memory */
+@define-color red    #f7768e;  /* cpu, battery critical */
+@define-color cyan   #7dcfff;  /* network */
+
+/* transparency values */
+@define-color surface-alpha rgba(36, 40, 59, 1);   /* pill backgrounds */
+@define-color border-alpha  rgba(122, 162, 247, 0.35); /* pill borders */
+@define-color hover-alpha   rgba(122, 162, 247, 0.15); /* hover highlight */
+
+/* ========================= */
+/* GLOBAL SIZE CONTROL       */
+/* ========================= */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+
+  font-size: 15px; /* 👈 MAIN CONTROL: lower = smaller whole bar */
+
+  border: none;
+}
+
+/* ========================= */
+/* BAR CONTAINER             */
+/* ========================= */
+
+window#waybar {
+  background: transparent;
+  color: @text;
+
+  border-radius: 0px; /* slightly tighter */
+  margin: 4px; /* 👈 reduces space around entire bar */
+
+  min-height: 28px; /* 👈 helps force slimmer bar */
+}
+
+/* ========================= */
+/* WORKSPACES (pill group)   */
+/* ========================= */
+
+#workspaces {
+  background: @base;
+  border: 1px solid @border-alpha;
+
+  border-radius: 8px;
+
+  padding: 0px; /* 👈 smaller = less chunky */
+  margin: 4px 3px; /* 👈 tighter spacing */
+}
+
+#workspaces button {
+  padding: 2px 6px; /* 👈 reduced from 6px 10px */
+  margin: 1px;
+
+  border-radius: 6px;
+
+  background: transparent;
+  color: @muted;
+
+  transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+  background: @primary;
+  color: @base;
+}
+
+#workspaces button:hover {
+  background: @hover-alpha;
+  color: @text;
+}
+
+/* ========================= */
+/* SOFT PILLS (modules)      */
+/* ========================= */
+
+#clock,
+#cpu,
+#memory,
+#tray {
+  background: @base;
+  border: 1px solid @border-alpha;
+
+  padding: 3px 8px;
+  margin: 4px 3px;
+
+  border-radius: 8px;
+
+  color: @text;
+
+  transition: all 0.2s ease;
+}
+
+/* battery, network, pulseaudio grouped into one pill */
+#battery,
+#network,
+#pulseaudio {
+  background: @base;
+  border: 1px solid @border-alpha;
+
+  padding: 3px 8px;
+  margin: 4px 0px;
+
+  border-radius: 0px;
+
+  color: @text;
+
+  transition: all 0.2s ease;
+}
+
+#battery {
+  border-radius: 8px 0px 0px 8px;
+  margin-left: 3px;
+  border-right: none;
+}
+
+#pulseaudio {
+  border-radius: 0px 8px 8px 0px;
+  margin-right: 3px;
+  border-left: none;
+}
+
+#network {
+  border-left: none;
+  border-right: none;
+}
+
+/* ========================= */
+/* HOVER (kept subtle)       */
+/* ========================= */
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#battery:hover,
+#pulseaudio:hover {
+  background: @hover-alpha;
+}
+
+/* ========================= */
+/* INDIVIDUAL MODULE COLORS  */
+/* ========================= */
+
+#clock {
+  color: @secondary;
+}
+
+#cpu {
+  color: @red;
+}
+
+#memory {
+  color: @yellow;
+}
+
+#network {
+  color: @cyan;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#pulseaudio {
+  color: @primary;
+}
+
+/* Tray stays neutral */
+#tray {
+  color: @text;
+}
+
+/* Notifications */
+#custom-notifications {
+  background: @base;
+  border: 1px solid @border-alpha;
+
+  padding: 3px 8px;
+  margin: 4px 3px;
+
+  border-radius: 8px;
+
+  color: @primary;
+
+  transition: all 0.2s ease;
+}
+
+#custom-notifications:hover {
+  background: @hover-alpha;
+}
+
+/* Power button */
+#custom-power {
+  background: @base;
+  border: 1px solid @border-alpha;
+
+  padding: 3px 8px;
+  margin: 4px 3px;
+
+  border-radius: 8px;
+
+  color: @red;
+
+  transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+  background: @hover-alpha;
+}

@@ -1,0 +1,27 @@
+/*
+  pulseaudio module
+  -----------------
+*/
+
+{
+  "pulseaudio": {
+    "format": "{icon}{volume}%",
+    "format-muted": "󰝟 muted",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+    "on-click-right": "pavucontrol",
+    "smooth-scrolling-threshold": 1,
+    "max-volume": 100,
+    "scroll-step": 2,
+
+    "format-icons": {
+    "headphone": "󰋋 ",
+    "handsfree": "󰋎 ",
+    "headset": "󰋎 ",
+    "phone": "󰏲 ",
+    "portable": "󰏲 ",
+    "car": "󰄋 ",
+    "default": ["󰕿 ", "󰖀 ", "󰕾 "]
+  }
+ }
+}

@@ -1,0 +1,13 @@
+mode=drun
+prompt=Search
+show=drun
+width=35%
+height=45%
+location=center
+allow_images=true
+image_size=32
+insensitive=true
+gtk_dark=true
+term=kitty
+style=~/.config/wofi/style.css
+
