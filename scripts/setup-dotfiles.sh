@@ -12,6 +12,5 @@ fi
 
 # Create symlinks
 cd "$DOTFILES_DIR"
-stow .
-
+stow --ignore='scripts' --ignore='packages' --ignore='README.md' .
 echo "Dotfiles setup complete!"
