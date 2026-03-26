@@ -22,7 +22,7 @@ function Launcher() {
       name="launcher"
       namespace="launcher"
       anchor={TOP | BOTTOM | LEFT}
-      exclusivity={Astal.Exclusivity.IGNORE}
+      exclusivity={Astal.Exclusivity.NORMAL}
       layer={Astal.Layer.OVERLAY}
       class="launcher"
       keymode={Astal.Keymode.ON_DEMAND}
@@ -34,18 +34,20 @@ function Launcher() {
               setResults(apps.fuzzy_query(self.text).slice(0, 10))
             }}
         />
-        <box class="app-list" orientation={Gtk.Orientation.VERTICAL} vexpand={true}>
-          <For each={results}>
-            {(a) => (
-              <button onClicked={() => a.launch()}>
-                <box>
-                  <image iconName={a.iconName} pixelSize={16} />
-                  <label label={a.name} />
-                </box>
-              </button>
-            )}
-          </For>
-        </box>
+        <scrolledwindow class="app-list" vexpand={false} heightRequest={300}>
+          <box orientation={Gtk.Orientation.VERTICAL}>
+            <For each={results}>
+              {(a) => (
+                <button onClicked={() => a.launch()}>
+                  <box>
+                    <image iconName={a.iconName} pixelSize={16} />
+                    <label label={a.name} />
+                  </box>
+                </button>
+              )}
+            </For>
+          </box>
+        </scrolledwindow>
         <SysStats />
       </box>
     </window>  
