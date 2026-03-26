@@ -72,6 +72,7 @@ base-devel
 neovim
 nodejs
 npm
+stow
 
 # Zsh
 zsh

@@ -69,7 +69,8 @@ alias gp='git push'
 alias gl='git log --oneline'
 alias gd='git diff'
 alias gpl='git pull'
-
+# Dotfiles
+alias stowdots='cd ~/dotfiles && stow --ignore="scripts" --ignore="packages" --ignore="README.md" .'
 
 # =============================
 # Plugins
