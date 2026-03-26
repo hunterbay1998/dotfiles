@@ -71,6 +71,8 @@ less
 git
 base-devel
 neovim
+tree-sitter
+tree-sitter-cli
 nodejs
 npm
 stow
