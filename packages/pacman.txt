@@ -65,6 +65,7 @@ flatpak
 btop
 nvtop
 fastfetch
+less
 
 # Dev tools
 git
