@@ -29,7 +29,7 @@ sudo pacman -Syu --noconfirm
 # =============================
 if ! command -v paru &>/dev/null; then
     echo "Installing paru..."
-    sudo pacman -S --needed base-devel git
+    sudo pacman -S --needed --noconfirm base-devel git
     git clone https://aur.archlinux.org/paru.git /tmp/paru-install
     cd /tmp/paru-install && makepkg -si --noconfirm
     cd - && rm -rf /tmp/paru-install
@@ -46,19 +46,25 @@ sudo pacman -Sy
 # Install packages
 # =============================
 echo "Installing pacman packages..."
-grep -v '^\s*#' "$DOTFILES_DIR/packages/pacman.txt" | grep -v '^\s*$' | sudo pacman -S --needed -
+sudo pacman -S --needed --noconfirm $(grep -v '^\s*#' "$DOTFILES_DIR/packages/pacman.txt" | grep -v '^\s*$')
 
 echo "Installing multilib packages..."
-grep -v '^\s*#' "$DOTFILES_DIR/packages/multilib.txt" | grep -v '^\s*$' | sudo pacman -S --needed -
+sudo pacman -S --needed --noconfirm $(grep -v '^\s*#' "$DOTFILES_DIR/packages/multilib.txt" | grep -v '^\s*$')
 
 echo "Installing AUR packages..."
-grep -v '^\s*#' "$DOTFILES_DIR/packages/aur.txt" | grep -v '^\s*$' | paru -S --needed -
+paru -S --needed --noconfirm $(grep -v '^\s*#' "$DOTFILES_DIR/packages/aur.txt" | grep -v '^\s*$')
 
 # =============================
 # Flatpak
 # =============================
 echo "Setting up Flatpak..."
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+FLATPAKS=$(grep -v '^\s*#' "$DOTFILES_DIR/packages/flatpak.txt" | grep -v '^\s*$')
+if [ -n "$FLATPAKS" ]; then
+    echo "Installing Flatpak packages..."
+    flatpak install -y flathub $FLATPAKS
+fi
 
 # =============================
 # Run sub scripts

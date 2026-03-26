@@ -7,7 +7,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 # Install stow if not installed
 if ! command -v stow &>/dev/null; then
-    sudo pacman -S --needed stow
+    sudo pacman -S --needed --noconfirm stow
 fi
 
 # Create symlinks
