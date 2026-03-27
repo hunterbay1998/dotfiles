@@ -1,0 +1,5 @@
+set recolor true          # dark mode always on
+set recolor-darkcolor "#FFFFFF"
+set recolor-lightcolor "#1E1E2E"
+set font "monospace 12"
+set scroll-step 50

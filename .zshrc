@@ -11,7 +11,7 @@ fi
 # =============================
 export PATH="$HOME/.local/bin:$HOME/.claude/bin:$PATH"
 export EDITOR=nvim
-export PATH="$HOME/dotfiles/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"   
 # =============================
 # History
 # =============================
@@ -72,7 +72,7 @@ alias gl='git log --oneline'
 alias gd='git diff'
 alias gpl='git pull'
 # Dotfiles
-alias stowdots='cd ~/dotfiles && stow --ignore="scripts" --ignore="packages" --ignore="README.md" .'
+alias stowdots='cd ~/dotfiles && stow --ignore="packages" --ignore="README.md" --ignore="books" .'
 
 # =============================
 # Plugins

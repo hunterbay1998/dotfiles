@@ -1,0 +1,110 @@
+/* ==========================================================
+   GTK3 – xdg-desktop-portal-gtk file chooser
+   Matches Nautilus / Foot / Neovim
+   ========================================================== */
+
+GtkFileChooserDialog,
+filechooser,
+dialog {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* Sidebar */
+.sidebar,
+.navigation-sidebar,
+.places-sidebar {
+  background-color: #16161e;
+  color: #c0caf5;
+}
+
+/* File list */
+.view,
+treeview,
+iconview {
+  background-color: #1a1b26;
+  color: #c0caf5;
+}
+
+/* Rows */
+treeview row:hover {
+  background-color: rgba(192, 202, 245, 0.06);
+}
+
+treeview row:selected {
+  background-color: rgba(192, 202, 245, 0.12);
+  color: #c0caf5;
+}
+
+
+/* ==========================================================
+   File chooser top bar (FIXED & scoped)
+   ========================================================== */
+
+GtkFileChooserDialog headerbar {
+  background-color: #16161e;
+  color: #c0caf5;
+  box-shadow: none;
+  border: none;
+  min-height: 36px;
+  padding: 4px 8px;
+}
+
+/* Title text */
+GtkFileChooserDialog headerbar label {
+  color: #c0caf5;
+  font-weight: 500;
+}
+
+/* Headerbar buttons (Cancel / Open / Search) */
+GtkFileChooserDialog headerbar button {
+  background: transparent;
+  color: #c0caf5;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+GtkFileChooserDialog headerbar button:hover {
+  background-color: rgba(192, 202, 245, 0.08);
+}
+
+/* Open button (accent) */
+GtkFileChooserDialog headerbar button.suggested-action {
+  background-color: rgba(192, 202, 245, 0.18);
+  color: #c0caf5;
+}
+
+GtkFileChooserDialog headerbar button.suggested-action:hover {
+  background-color: rgba(192, 202, 245, 0.26);
+}
+
+
+/* Buttons */
+button {
+  background: transparent;
+  color: #c0caf5;
+}
+
+button:hover {
+  background-color: rgba(192, 202, 245, 0.08);
+}
+
+button.suggested-action {
+  background-color: rgba(192, 202, 245, 0.18);
+  color: #c0caf5;
+}
+
+
+
+/* ~/.config/gtk-3.0/gtk.css */
+
+menu {
+  background-color: #1a1b26;
+  color: #c0caf5;
+  border: 1px solid #7aa2f7;
+}
+
+menuitem:hover {
+  background-color: #7aa2f7;
+  color: #1a1b26;
+}
