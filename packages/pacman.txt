@@ -66,6 +66,7 @@ btop
 nvtop
 fastfetch
 less
+pacman-contrib
 
 # Dev tools
 git

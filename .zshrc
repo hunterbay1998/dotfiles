@@ -32,7 +32,9 @@ alias update='sudo pacman -Syu'
 alias remove='sudo pacman -Rns'
 alias search='pacman -Ss'
 alias installed='pacman -Q'
-
+alias explicit='pacman -Qe'
+alias orphans='pacman -Qdt'
+alias cleanup='sudo pacman -Rns $(pacman -Qdtq)'
 # =============================
 # Aliases - modern replacements
 # =============================
@@ -54,7 +56,7 @@ alias umount-server='fusermount -u ~/server'
 # =============================
 alias ff='fastfetch'
 alias suyazi='sudo -E yazi'
-alias reload='source ~/.zshrc'
+alias reloadsh='source ~/.zshrc'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -78,7 +80,11 @@ alias stowdots='cd ~/dotfiles && stow --ignore="scripts" --ignore="packages" --i
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source /usr/share/zsh/plugins/zsh-autopair/autopair.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/zsh-you-should-use.plugin.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 # =============================
 # Tools
 # =============================

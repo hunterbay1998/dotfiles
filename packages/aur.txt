@@ -1,3 +1,6 @@
 # AUR packages
 hyprlauncher
 zsh-theme-powerlevel10k-git
+zsh-autopair
+zsh-history-substring-search
+zsh-you-should-use
