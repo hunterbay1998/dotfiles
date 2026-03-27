@@ -93,11 +93,16 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # =============================
-# Powerlevel10k config
+# Powerlevel10k instant prompt
 # =============================
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet   # <-- add this
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # =============================
 # Startup
 # =============================
 if [ "$(pgrep -c -u $USER kitty)" -le 1 ]; then fastfetch; fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
