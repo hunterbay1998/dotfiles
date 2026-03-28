@@ -57,6 +57,7 @@ alias umount-server='fusermount -u ~/server'
 alias ff='fastfetch'
 alias suyazi='sudo -E yazi'
 alias reloadsh='source ~/.zshrc'
+alias zshgo='nvim ~/dotfiles/.zshrc'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -74,6 +75,8 @@ alias gpl='git pull'
 # Dotfiles
 alias stowdots='cd ~/dotfiles && stow --ignore="packages" --ignore="README.md" --ignore="books" .'
 
+#vimium-c key-bindingsy
+alias vimium-c='bat ~/Documents/vimium-C_keybinding.md'
 # =============================
 # Plugins
 # =============================

@@ -1,0 +1,90 @@
+/**
+ * Rofi Configuration File
+ * Location: ~/.config/rofi/config.rasi
+ *
+ * This file controls HOW Rofi behaves.
+ * For colours and visuals, see theme.rasi
+ */
+
+configuration {
+
+    /* ── Modes ─────────────────────────────────────────────
+     * Which modes are available when Rofi opens.
+     *   drun  = application launcher (reads .desktop files)
+     *   run   = run any command
+     *   window = switch between open windows
+     * You can add more like "ssh", "filebrowser" etc.
+     */
+    modi: "drun,run,window";
+
+    /* ── Font ───────────────────────────────────────────────
+     * Format: "Font Name Size"
+     * Use fc-list to see available fonts on your system:
+     *   fc-list | grep -i "jetbrains"
+     */
+    font: "JetBrainsMono Nerd Font 12";
+
+    /* ── Icons ──────────────────────────────────────────────
+     * Show application icons in the launcher.
+     * icon-theme should match an installed icon pack.
+     * Common choices: Papirus, Papirus-Dark, hicolor
+     */
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+
+    /* ── Terminal ───────────────────────────────────────────
+     * Which terminal Rofi uses when launching terminal apps.
+     * Change to: kitty, alacritty, foot, wezterm etc.
+     */
+    terminal: "kitty";
+
+    /* ── App Launcher Display ───────────────────────────────
+     * What text shows for each app in drun mode.
+     *   {name}        = app name only (e.g. "Firefox")
+     *   {generic}     = generic name (e.g. "Web Browser")
+     *   {name} - {generic} = both
+     */
+    drun-display-format: "{name}";
+
+    /* ── Location ───────────────────────────────────────────
+     * Where on screen Rofi appears.
+     * 0 = center (default)
+     * Use a number 1-9 like a numpad for corners/edges:
+     *   7  8  9
+     *   4  5  6
+     *   1  2  3
+     */
+    location: 0;
+
+    /* ── Mode Labels ────────────────────────────────────────
+     * Custom labels shown in the mode switcher.
+     * Nerd Font icons work here if your font supports them.
+     */
+    display-drun:   "  Apps";
+    display-run:    "  Run";
+    display-window: "  Windows";
+
+    /* ── Search ─────────────────────────────────────────────
+     * true  = fuzzy matching (more forgiving typos)
+     * false = exact substring match (faster, stricter)
+     */
+    matching: "fuzzy";
+
+    /* ── Sorting ────────────────────────────────────────────
+     * Sort results by frecency (frequency + recency).
+     * Rofi learns which apps you open most.
+     */
+    sort: true;
+    sorting-method: "fzf";
+
+    /* ── Scrolling ──────────────────────────────────────────
+     * 0 = scroll the list
+     * 1 = scroll the selection highlight
+     */
+    scroll-method: 0;
+
+    /* ── Point the config at your theme ────────────────────
+     * Uncomment this once you have a theme.rasi ready.
+     * theme: "~/.config/rofi/theme.rasi";
+     */
+}
