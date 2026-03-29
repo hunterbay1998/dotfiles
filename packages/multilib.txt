@@ -1,4 +1,0 @@
-# Multilib
-steam
-discord
-lib32-nvidia-utils

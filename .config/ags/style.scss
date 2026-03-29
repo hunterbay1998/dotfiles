@@ -1,40 +1,5 @@
-.bar {
-  background: transparent;
-
-  centerbox {
-    background: #1a1a2e;
-    border-radius: 12px;
-    padding: 4px 12px;
-    min-height: 36px;
-  }
-}
-
-.workspace {
-  border-radius: 8px;
-  padding: 4px 10px;
-  color: #cdd6f4;
-
-  &.active {
-    background: #89b4fa;
-    color: #1a1a2e;
-  }
-}
-
-.power-button {
-  background: transparent;
-  border: none;
-  color: #f38ba8;
-  padding: 0 4px;
-
-  label {
-    font-size: 18px;
-  }
-}
-
-.battery {
-  color: #a6e3a1;
-}
-
-.volume {
-  color: #89b4fa;
-}
+@use "./widget/bar/bar";
+@use "./widget/bar/workspaces/workspaces";
+@use "./widget/bar/power-button/power-button";
+@use "./widget/bar/battery/battery";
+@use "./widget/bar/volume/volume";

@@ -1,12 +1,12 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
-import Workspaces from "./Workspaces"
-import Clock from "./Clock"
-import PowerButton from "./powermenu/PowerButton"
-import BatteryWidget from "./Battery"
-import Volume from "./Volume"
-import Wifi from "./Wifi"
-import Tray from "./Tray"
+import Workspaces from "./workspaces/Workspaces"
+import Clock from "./clock/Clock"
+import PowerButton from "./power-button/PowerButton"
+import BatteryWidget from "./battery/Battery"
+import Volume from "./volume/Volume"
+import Wifi from "./wifi/Wifi"
+import Tray from "./tray/Tray"
 
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
