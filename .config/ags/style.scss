@@ -19,3 +19,22 @@
     color: #1a1a2e;
   }
 }
+
+.power-button {
+  background: transparent;
+  border: none;
+  color: #f38ba8;
+  padding: 0 4px;
+
+  label {
+    font-size: 18px;
+  }
+}
+
+.battery {
+  color: #a6e3a1;
+}
+
+.volume {
+  color: #89b4fa;
+}
