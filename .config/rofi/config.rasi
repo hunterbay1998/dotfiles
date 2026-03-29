@@ -83,8 +83,18 @@ configuration {
      */
     scroll-method: 0;
 
+    /* ── Vim-style navigation ───────────────────────────────
+     * j/k to move up and down the list.
+     */
+    kb-remove-to-eol: "";
+    kb-accept-entry:  "Control+m,Return,KP_Enter";
+    kb-row-up:        "Up,Control+k";
+    kb-row-down:      "Down,Control+j";
+
     /* ── Point the config at your theme ────────────────────
      * Uncomment this once you have a theme.rasi ready.
      * theme: "~/.config/rofi/theme.rasi";
      */
 }
+
+@theme "~/.config/rofi/theme.rasi"

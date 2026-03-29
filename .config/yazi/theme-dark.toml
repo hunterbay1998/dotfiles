@@ -7,13 +7,13 @@
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
-# : Flavor {{{
+#: Flavor {{{
 
 [flavor]
-dark  = ""
+dark  = "catppuccin-mocha"
 light = ""
 
-# : }}}
+#: }}}
 
 
 # : App {{{

@@ -1,0 +1,53 @@
+JS / Programming Terms
+======================
+
+variable
+  A named box that holds a value.
+  const name = "bailey"
+
+const
+  A variable that cannot be reassigned.
+  const name = "bailey"
+
+let
+  A variable that CAN be reassigned.
+  let name = "bailey"
+  name = "bubba"  // fine
+
+function
+  A reusable block of code. Run it by calling it with ().
+  function greet() { print("hey") }
+  greet()
+
+method
+  A function that belongs to an object. Called with a dot.
+  now.getDay()   // getDay is a method on the Date object
+
+property
+  A value that belongs to an object. No () needed.
+  array.length
+
+class
+  A blueprint for creating objects.
+  Date is a class — new Date() creates one from that blueprint.
+
+argument
+  The value you pass into a function when calling it.
+  createPoll("", 1000, fn)  // "", 1000, fn are arguments
+
+parameter
+  The name for an argument inside the function definition.
+  function greet(name) {}   // name is the parameter
+
+return
+  What a function gives back as its result.
+  function double(n) { return n * 2 }
+  double(4)  // gives back 8
+
+export default
+  Exports the main thing from a file. Imported without {}.
+  import Clock from "./Clock"
+
+named export
+  Exports multiple things from a file. Imported with {}.
+  import { Clock, Something } from "./Clock"

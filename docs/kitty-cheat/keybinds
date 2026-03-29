@@ -1,0 +1,28 @@
+## SPLITS
+
+  `Ctrl+Shift+Enter`      New split
+  `Ctrl+Shift+W`          Close split
+  `Ctrl+Shift+]`          Focus next split
+  `Ctrl+Shift+[`          Focus previous split
+  `Ctrl+Shift+R`          Resize mode
+  `Ctrl+Shift+F7`         Visually move split
+  `Ctrl+Shift+Alt+T`      Set split title
+
+## TABS
+
+  `Ctrl+Shift+T`          New tab
+  `Ctrl+Shift+Q`          Close tab
+  `Ctrl+Shift+Right`      Next tab
+  `Ctrl+Shift+Left`       Previous tab
+  `Ctrl+Shift+Alt+T`      Rename tab
+  `Ctrl+Shift+1-9`        Jump to tab by number
+
+## MISC
+
+  `Ctrl+Shift+C`          Copy
+  `Ctrl+Shift+V`          Paste
+  `Ctrl+Shift+=`          Increase font size
+  `Ctrl+Shift+-`          Decrease font size
+  `Ctrl+Shift+Backspace`  Reset font size
+  `Ctrl+Shift+F11`        Toggle fullscreen
+  `Ctrl+Shift+U`          Unicode input

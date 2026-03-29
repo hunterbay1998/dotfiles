@@ -96,7 +96,7 @@ listview {
     padding:      4px 0;
     border:       0;
     scrollbar:    false;      /* hide scrollbar       */
-    fixed-height: false;      /* shrink if few results */
+    fixed-height: true;       /* fixed height, no shrinking */
     lines:        8;          /* max visible items    */
 }
 
