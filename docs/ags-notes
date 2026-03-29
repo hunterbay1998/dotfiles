@@ -1,0 +1,122 @@
+AGS / Astal v2 Notes
+====================
+
+Wiki Links
+----------
+First Widgets:  https://aylur.github.io/ags/guide/first-widgets.html
+Intrinsics:     https://aylur.github.io/ags/guide/intrinsics.html
+FAQ:            https://aylur.github.io/ags/guide/faq.html
+Utilities:      https://aylur.github.io/ags/guide/utilities.html
+Resources:      https://aylur.github.io/ags/guide/resources.html
+Gnim JSX:       https://aylur.github.io/gnim/jsx.html
+Astal Window:   https://aylur.github.io/libastal/astal4/class.Window.html
+GTK4 Docs:      https://docs.gtk.org/gtk4/
+
+
+Imports
+-------
+import { createState, createBinding, createComputed, For, With } from "ags"
+import { createPoll } from "ags/time"
+import { Gtk, Gdk, Astal } from "ags/gtk4"
+import app from "ags/gtk4/app"
+import Hyprland from "gi://AstalHyprland"
+import Battery from "gi://AstalBattery"
+import AstalWp from "gi://AstalWp?version=0.1"
+import AstalNetwork from "gi://AstalNetwork?version=0.1"
+import AstalTray from "gi://AstalTray?version=0.1"
+
+
+State
+-----
+const [value, setValue] = createState(0)
+// read: value()   write: setValue(newVal) or setValue(v => v + 1)
+
+const binding = createBinding(gobject, "propertyName")
+
+const derived = createComputed(() => value().toString())
+const derived = value((v) => v.toString())  // shorthand
+
+
+Setup prop ($=)
+---------------
+<box $={(self) => { /* runs once after widget created */ }} />
+
+
+CSS Classes
+-----------
+<label cssClasses={["my-class"]} />   // use for styling
+<label cssName="my-name" />           // changes GTK node name (not a CSS class)
+
+
+Key Events (GTK4)
+-----------------
+<window keymode={Astal.Keymode.ON_DEMAND}>
+  <Gtk.EventControllerKey
+    onKeyPressed={({ widget }, keyval) => {
+      if (keyval === Gdk.KEY_Escape) widget.hide()
+    }}
+  />
+</window>
+
+
+Scroll Events
+-------------
+<Gtk.EventControllerScroll
+  flags={Gtk.EventControllerScrollFlags.VERTICAL}
+  onScroll={(_, _dx, dy) => { /* dy negative = up, positive = down */ }}
+/>
+
+
+Revealer
+--------
+<revealer
+  transitionType={Gtk.RevealerTransitionType.SLIDE_RIGHT}
+  transitionDuration={300}
+  revealChild={revealed()}
+  onNotifyChildRevealed={(self) => {
+    if (!self.childRevealed) win.hide()
+  }}
+/>
+
+
+Window
+------
+<window
+  visible                               // invisible by default in GTK4!
+  namespace="bar"
+  gdkmonitor={monitor}                  // prefer over monitor={0}
+  exclusivity={Astal.Exclusivity.EXCLUSIVE}
+  keymode={Astal.Keymode.ON_DEMAND}
+  anchor={Astal.WindowAnchor.TOP | Astal.WindowAnchor.LEFT | Astal.WindowAnchor.RIGHT}
+/>
+
+
+Centerbox slots
+---------------
+<centerbox>
+  <Child $type="start" />
+  <Child $type="center" />
+  <Child $type="end" />
+</centerbox>
+
+
+Dynamic Rendering
+-----------------
+<With value={accessor}>
+  {(value) => value && <label label={value.member} />}
+</With>
+
+<For each={listAccessor}>
+  {(item) => <label label={item} />}
+</For>
+// always wrap With/For in a container — they append on change
+
+
+Misc / Gotchas
+--------------
+- windows invisible by default — always pass visible prop
+- cssClasses not cssName for CSS styling
+- use gdkmonitor not monitor for multi-monitor
+- env vars: GLib.getenv("HOME") not exec("echo $HOME")
+- logging: print() → stdout, printerr() → stderr
+- GObject list props: use getter method eg. notifd.get_notifications()
