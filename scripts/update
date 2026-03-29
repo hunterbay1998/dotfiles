@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 
+# Pick AUR helper: prefer paru, fallback to yay, skip if neither
+if command -v paru &>/dev/null; then
+  aur=paru
+elif command -v yay &>/dev/null; then
+  aur=yay
+else
+  aur=""
+fi
+
 choice=$(printf "%s\n" \
   "Pacman (system)" \
-  "AUR (yay)" \
+  "AUR" \
   "Flatpak" \
   "Everything" \
   "Check updates only" \
@@ -13,15 +22,15 @@ case "$choice" in
   "Pacman (system)")
     sudo pacman -Syu
     ;;
-  "AUR (yay)")
-    yay -Syu
+  "AUR")
+    [ -n "$aur" ] && $aur -Syu || echo "No AUR helper installed"
     ;;
   "Flatpak")
     flatpak update
     ;;
   "Everything")
     sudo pacman -Syu
-    yay -Syu
+    [ -n "$aur" ] && $aur -Syu
     flatpak update
     ;;
   "Check updates only")
@@ -30,7 +39,7 @@ case "$choice" in
     checkupdates || echo "No pacman updates"
     echo
     echo "AUR:"
-    yay -Qua || echo "No AUR updates"
+    [ -n "$aur" ] && $aur -Qua || echo "No AUR helper installed"
     echo
     echo "Flatpak:"
     flatpak remote-ls --updates
