@@ -1,17 +1,11 @@
 import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import Workspaces from "./workspaces/Workspaces"
-import Clock from "./clock/Clock"
-import PowerButton from "./power-button/PowerButton"
-import BatteryWidget from "./battery/Battery"
-import Volume from "./volume/Volume"
-import Wifi from "./wifi/Wifi"
-import Tray from "./tray/Tray"
-
+import { Astal, Gdk } from "ags/gtk4"
+import Left from "./left/Left"
+import Center from "./center/Center"
+import Right from "./right/Right"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
-  
-  const { TOP, LEFT, RIGHT} = Astal.WindowAnchor
+  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
   return (
     <window
@@ -25,23 +19,10 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <centerbox cssName="centerbox">
-        <box $type="start" halign={Gtk.Align.START} spacing={8}>
-          <PowerButton />
-          <Clock />
-          <Tray />
-        </box>
-
-        <box $type="center" halign={Gtk.Align.CENTER}>
-          <Workspaces />
-        </box>
-
-        <box $type="end" halign={Gtk.Align.END} spacing={8}>
-          <Volume />
-          <Wifi />
-          <BatteryWidget />
-       </box>
+        <Left />
+        <Center />
+        <Right />
       </centerbox>
-    </window>  
-
+    </window>
   )
-}  
+}

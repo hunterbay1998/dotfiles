@@ -56,10 +56,10 @@ alias find='fd'
 # =============================
 alias mount-server='sshfs bailey@192.168.1.176:/srv ~/server/'
 alias umount-server='fusermount -u ~/server'
-
 # =============================
 # Aliases - general
 # =============================
+alias ags-css='GTK_DEBUG=interactive ags run ~/dotfiles/.config/ags'   
 alias ff='fastfetch'
 alias suyazi='sudo -E yazi'
 alias reloadsh='source ~/.zshrc'
