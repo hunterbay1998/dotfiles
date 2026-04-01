@@ -1,0 +1,824 @@
+// ============================================================
+// BAR
+// The main bar window that sits at the top of the screen
+// ============================================================
+
+$bar-background: rgba(29, 31, 41, 0.85);
+$menu-border: #383a4e;
+
+.bar {
+  background: transparent;
+
+  centerbox {
+    background: $bar-background;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+}
+
+
+// ============================================================
+// WORKSPACES
+// Circles that show which workspace you're on
+// Active workspace has a filled dot inside the circle
+// ============================================================
+
+$accent-blue: #89b4fa;       // active workspace dot and border
+$accent-blue-dark: #4a7fd4;  // inactive workspace border
+$pill-background-hover: #3a3a5e;
+
+.workspace {
+  min-width: 13px;
+  min-height: 13px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid $accent-blue-dark;
+  background: none;
+  box-shadow: none;
+  margin: 3px 2px;
+
+  // Active workspace — fill with blue, then punch a gap with inset shadow
+  // This creates a ring effect with a dot in the center
+  &.active {
+    border-color: $accent-blue;
+    background: $accent-blue;
+    box-shadow: inset 0 0 0 3px $bar-background;
+  }
+
+  &:hover:not(.active) {
+    border-color: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// POWER BUTTON
+// The button on the left side of the bar
+// ============================================================
+
+$accent-pink: #f38ba8;
+$accent-pink-bright: #ff79c6;
+$pill-background: #2a2a3e;
+
+.power-button {
+  background: $pill-background;
+  border-radius: 12px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $accent-pink;
+
+  label {
+    font-size: 15px;
+  }
+
+  &:hover {
+    background: $pill-background-hover;
+    color: $accent-pink-bright;
+    border-radius: 8px;
+  }
+}
+
+
+// ============================================================
+// BATTERY
+// Shows battery percentage with color based on level
+// ============================================================
+
+$battery-full:     #00ff00;
+$battery-good:     #a6e22e;
+$battery-mid:      #f1fa8c;
+$battery-low:      #ffb86c;
+$battery-critical: #ff5555;
+
+.battery {
+  background: $pill-background;
+  border-radius: 4px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  border: 1px;
+  font-size: 15px;
+
+  // Color changes depending on how charged the battery is
+  &.battery-full     { color: $battery-full; }
+  &.battery-good     { color: $battery-good; }
+  &.battery-mid      { color: $battery-mid; }
+  &.battery-low      { color: $battery-low; }
+  &.battery-critical { color: $battery-critical; }
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// VOLUME
+// Shows current volume level
+// ============================================================
+
+.volume {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $accent-blue;
+  font-size: 15px;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// WIFI
+// Shows current wifi connection
+// ============================================================
+
+$accent-cyan: #89dceb;
+
+.wifi {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $accent-cyan;
+  font-size: 11px;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// CLOCK
+// Shows the current time in the center of the bar
+// ============================================================
+
+$text-primary: #cdd6f4;
+
+.clock {
+  color: $text-primary;
+  padding: 1px 6px;
+  font-size: 15px;
+  min-height: 0;
+  margin: 3px 0;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// TRAY
+// System tray icons (discord, spotify, etc)
+// ============================================================
+
+.tray {
+  padding: 1px 6px;
+
+  button {
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 2px;
+
+    &:hover {
+      background: $pill-background-hover;
+    }
+  }
+}
+
+
+// ============================================================
+// DROP MENU BUTTON
+// The MENU button on the right side of the bar
+// ============================================================
+
+.Drop-Menu {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $text-primary;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// DROP MENU WINDOW
+// The popup box that appears when you click the MENU button
+// ============================================================
+
+$menu-background: #1D1F29;
+
+.menu-overlay {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+window#drop-menu {
+  background: transparent;
+}
+
+.drop-menu-box {
+  background: $menu-background;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid $menu-border;
+}
+
+
+// ============================================================
+// TRAY POPOVER MENU
+// The context menu that appears when you right click a tray icon
+// ============================================================
+
+$popover-background: #1D1F29;      // background color of the popover
+$popover-text: #cdd6f4;            // text color of menu items
+$popover-hover: #3a3a5e;           // background when hovering a menu item
+
+popover {
+  background: $popover-background !important;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+
+  &.background {
+    background: $popover-background !important;
+    box-shadow: none;
+    border: none;
+  }
+
+  contents {
+    padding: 4px;
+    background: transparent;
+  }
+
+  modelbutton {
+    color: $popover-text;
+    border-radius: 6px;
+    padding: 4px 8px;
+    background: transparent;
+
+    &:hover {
+      background: $popover-hover;
+    }
+  }
+}
+
+
+// ============================================================
+// TRAY CONTEXT MENU WINDOW
+// Custom AGS window that replaces the native GTK popover
+// ============================================================
+
+$tray-menu-background: #1D1F29;
+$tray-menu-text: #cdd6f4;
+$tray-menu-hover: #3a3a5e;
+
+window#tray-context-menu {
+  background: transparent;
+}
+
+.tray-context-menu {
+  background: $tray-menu-background;
+  border-radius: 6px;
+  padding: 2px;
+  min-width: 0;
+  border: 1px solid $menu-border;
+}
+
+.tray-menu-item {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: $tray-menu-text;
+  font-size: 11px;
+  min-height: 0;
+  min-width: 0;
+
+  &:hover {
+    background: $tray-menu-hover;
+  }
+}
+
+
+// ============================================================
+// STATS BUTTON
+// The STATS button on the far left of the bar
+// ============================================================
+
+.stats-button {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $text-primary;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+
+// ============================================================
+// STATS MENU WINDOW
+// The popup that appears when you click the STATS button
+// ============================================================
+
+$stats-background: #1D1F29;
+$stats-text-dim: #565f89;
+$stats-cpu: #f38ba8;
+$stats-ram: #89b4fa;
+$stats-gpu: #a6e3a1;
+
+window#stats-menu {
+  background: transparent;
+}
+
+.stats-menu-box {
+  background: $stats-background;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid $menu-border;
+}
+
+.stat-pill {
+  padding: 12px;
+}
+
+.bar-label {
+  color: $stats-text-dim;
+  font-size: 10px;
+}
+
+.bar-pct {
+  font-size: 10px;
+}
+
+.cpu-pct { color: $stats-cpu; }
+.ram-pct { color: $stats-ram; }
+.gpu-pct { color: $stats-gpu; }
+
+
+// ============================================================
+// QUICK SETTINGS
+// Combined volume + wifi popup
+// ============================================================
+
+window#quick-settings {
+  background: transparent;
+}
+
+.qs-box {
+  background: $menu-background;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 220px;
+  border: 1px solid $menu-border;
+}
+
+.qs-button {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $accent-blue;
+  font-size: 15px;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.qs-label {
+  color: $text-primary;
+  font-size: 13px;
+}
+
+.qs-sublabel {
+  color: $accent-cyan;
+  font-size: 11px;
+}
+
+.qs-icon-btn {
+  background: $pill-background;
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: $accent-blue;
+  min-height: 0;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.qs-toggle-btn {
+  background: $pill-background;
+  border-radius: 8px;
+  padding: 4px 8px;
+  color: $accent-cyan;
+  min-height: 0;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.qs-separator {
+  background: $pill-background;
+  min-height: 1px;
+}
+
+.volume-slider {
+  trough {
+    background: $pill-background;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  highlight {
+    background: $accent-blue;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  slider {
+    background: $accent-blue;
+    border-radius: 50%;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -4px 0;
+  }
+}
+
+
+.mic-slider {
+  trough {
+    background: $pill-background;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  highlight {
+    background: $accent-pink;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  slider {
+    background: $accent-pink;
+    border-radius: 50%;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -4px 0;
+  }
+}
+
+
+// ============================================================
+// NOTIFICATIONS
+// Notification dropdown menu
+// ============================================================
+
+$notif-accent: #cba6f7;
+
+window#notification-menu {
+  background: transparent;
+}
+
+.notif-button {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $notif-accent;
+  font-size: 15px;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.notif-box {
+  background: $menu-background;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 280px;
+  border: 1px solid $menu-border;
+}
+
+.notif-title {
+  color: $text-primary;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.notif-clear-btn {
+  background: $pill-background;
+  border-radius: 8px;
+  padding: 2px 8px;
+  color: $notif-accent;
+  font-size: 11px;
+  min-height: 0;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.notif-item {
+  background: $pill-background;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.notif-app {
+  color: $notif-accent;
+  font-size: 11px;
+}
+
+.notif-time {
+  color: $accent-blue-dark;
+  font-size: 10px;
+}
+
+.notif-dismiss {
+  background: transparent;
+  border: none;
+  color: $accent-blue-dark;
+  padding: 0 4px;
+  min-height: 0;
+  font-size: 12px;
+
+  &:hover {
+    color: $accent-pink;
+  }
+}
+
+.notif-summary {
+  color: $text-primary;
+  font-size: 12px;
+}
+
+.notif-body {
+  color: $accent-blue-dark;
+  font-size: 11px;
+}
+
+
+// ============================================================
+// NOTIFICATION POPUP
+// Toast notifications that appear briefly top-right
+// ============================================================
+
+window#notification-popup {
+  background: transparent;
+}
+
+.notif-popup-box {
+  min-width: 1px;
+}
+
+.notif-popup-item {
+  background: $menu-background;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid $menu-border;
+  min-width: 280px;
+}
+
+
+// ============================================================
+// APP LAUNCHER
+// Start menu style app launcher
+// ============================================================
+
+window#app-launcher {
+  background: transparent;
+}
+
+.launcher-button {
+  background: $pill-background;
+  border-radius: 5px;
+  padding: 1px 6px;
+  min-height: 0;
+  margin: 3px 0;
+  color: $accent-blue;
+  font-size: 17px;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.launcher-box {
+  background: $menu-background;
+  border-radius: 12px;
+  padding: 12px;
+  min-width: 300px;
+  border: 1px solid $menu-border;
+}
+
+.launcher-search {
+  background: $pill-background;
+  color: $text-primary;
+  border: 1px solid $menu-border;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.launcher-scroll {
+  border-radius: 8px;
+}
+
+.launcher-item {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  min-height: 0;
+
+  &:hover {
+    background: $pill-background-hover;
+  }
+}
+
+.launcher-app-name {
+  color: $text-primary;
+  font-size: 13px;
+}
+
+.launcher-app-desc {
+  color: $accent-blue-dark;
+  font-size: 10px;
+}
+
+.launcher-weather {
+  color: $text-primary;
+  font-size: 13px;
+  padding: 4px 0;
+  text-align: center;
+}
+
+.launcher-media {
+  padding: 4px 0;
+}
+
+.launcher-power {
+  padding: 4px 0;
+}
+
+.launcher-power-btn {
+  background: $pill-background;
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: $accent-pink;
+  font-size: 16px;
+  min-height: 0;
+
+  &:hover {
+    background: $pill-background-hover;
+    color: $accent-pink-bright;
+  }
+}
+
+
+// ============================================================
+// MEDIA CONTROLS
+// Now playing artist/track with play/pause/skip
+// ============================================================
+
+.media {
+  padding: 1px 4px;
+  margin: 3px 0;
+}
+
+.media-btn {
+  background: transparent;
+  border: none;
+  color: $accent-blue;
+  padding: 0 2px;
+  min-height: 0;
+  font-size: 14px;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+.media-label {
+  color: $text-primary;
+  font-size: 12px;
+}
+
+
+// ============================================================
+// SYSINFO
+// CPU/RAM mini readout on the bar
+// ============================================================
+
+.sysinfo {
+  color: $text-primary;
+  font-size: 12px;
+  padding: 1px 6px;
+  margin: 3px 0;
+}
+
+
+// ============================================================
+// ACTIVE WINDOW
+// Focused window title in center
+// ============================================================
+
+.active-window {
+  color: $accent-blue-dark;
+  font-size: 12px;
+  padding: 1px 4px;
+}
+
+
+// ============================================================
+// WEATHER
+// Temperature and icon in center bar
+// ============================================================
+
+.weather {
+  color: $text-primary;
+  font-size: 13px;
+  padding: 1px 6px;
+}
+
+
+// ============================================================
+// CALENDAR
+// Calendar popup under clock
+// ============================================================
+
+window#calendar {
+  background: transparent;
+}
+
+.calendar-box {
+  background: $menu-background;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid $menu-border;
+}
+
+.calendar {
+  background: transparent;
+  color: $text-primary;
+  font-size: 12px;
+}
+
+
+// ============================================================
+// BRIGHTNESS SLIDER (in quick settings)
+// ============================================================
+
+$accent-yellow: #f9e2af;
+
+.qs-icon-label {
+  color: $accent-yellow;
+  font-size: 16px;
+}
+
+.brightness-slider {
+  trough {
+    background: $pill-background;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  highlight {
+    background: $accent-yellow;
+    border-radius: 4px;
+    min-height: 6px;
+  }
+
+  slider {
+    background: $accent-yellow;
+    border-radius: 50%;
+    min-width: 14px;
+    min-height: 14px;
+    margin: -4px 0;
+  }
+}
