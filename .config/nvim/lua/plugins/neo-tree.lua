@@ -58,9 +58,46 @@ return {
         position = "left",
         width = 32,
         mappings = {
+          -- vim-style in/out navigation
           ["l"] = "open",
-          ["h"] = "close_node",
-          ["<space>"] = "toggle_node",
+          ["h"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" and node:is_expanded() then
+              require("neo-tree.sources.filesystem.commands").close_node(state, node)
+            elseif (node.level or 1) > 1 then
+              require("neo-tree.sources.filesystem.commands").close_node(state, node)
+            else
+              require("neo-tree.sources.filesystem.commands").navigate_up(state)
+            end
+          end,
+          ["H"] = "close_all_nodes",
+          ["L"] = "expand_all_nodes",
+          ["<Tab>"] = "toggle_node",
+          ["<CR>"] = "open",
+          ["o"] = "open",
+
+          -- open in splits
+          ["<C-v>"] = "open_vsplit",
+          ["<C-x>"] = "open_split",
+          ["<C-t>"] = "open_tabnew",
+
+          -- file operations
+          ["a"] = { "add", config = { show_path = "relative" } },
+          ["A"] = "add_directory",
+          ["d"] = "delete",
+          ["r"] = "rename",
+          ["y"] = "copy_to_clipboard",
+          ["x"] = "cut_to_clipboard",
+          ["p"] = "paste_from_clipboard",
+          ["c"] = "copy",
+          ["m"] = "move",
+
+          -- misc
+          ["R"] = "refresh",
+          ["q"] = "close_window",
+          ["?"] = "show_help",
+          ["<"] = "prev_source",
+          [">"] = "next_source",
         },
       },
 

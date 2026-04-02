@@ -1,30 +1,29 @@
 ---------------------------------------------------------------------
--- Theme: Tokyo Night (polished)
+-- Theme: Catppuccin
 ---------------------------------------------------------------------
 
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
   lazy = false,
   opts = {
-    style = "night",
-    transparent = false, -- set true if you want transparent background
-    terminal_colors = true,
-    dim_inactive = true,
+    flavour = "frappe",
+    transparent_background = false,
+    term_colors = true,
+    dim_inactive = {
+      enabled = false,
+    },
     styles = {
-      comments = { italic = true },
-      keywords = { italic = false },
+      comments = { "italic" },
+      keywords = {},
       functions = {},
       variables = {},
-      sidebars = "dark",
-      floats = "dark",
     },
   },
   config = function(_, opts)
     vim.opt.termguicolors = true
-    require("tokyonight").setup(opts)
-    vim.cmd.colorscheme("tokyonight")
+    require("catppuccin").setup(opts)
+    vim.cmd.colorscheme("catppuccin")
   end,
 }
-
-

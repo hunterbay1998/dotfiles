@@ -36,6 +36,8 @@ require("lazy").setup({
   require("plugins.ccc"),
   require("plugins.colorizer"),
   require("plugins.mason"),
+  require("plugins.claude-code"),
+
 
 
 
