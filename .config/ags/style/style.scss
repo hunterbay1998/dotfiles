@@ -1,5 +1,7 @@
-$fg-color: #585e63;
 $bg-color: #262b3b;
+$fg-color: #585e63;
+$green: #1cfc03;
+$white: #ffffff;
 
 window.Bar {
   background: transparent;
@@ -18,12 +20,11 @@ window.Bar {
   }
 }
 
-
 .battery {
-  .battery-icon {
-    color: ##1cfc03;
-  }
-  .battery-percent {
-    color: #ffffff;
-  }
-}
+  &.full     { color: #1cfc03; }
+  &.high     { color: #a6e22e; }
+  &.medium   { color: #f4bf75; }
+  &.low      { color: #fd971f; }
+  &.critical { color: #f92672; }
+}            
+ 

@@ -18,10 +18,11 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     >
       <centerbox cssName="centerbox">
         <box $type="start" />
+        
         <box $type="center">
           <Clock />
-
         </box>  
+        
         <box $type="end">
           <Battery />
         </box>  
