@@ -18,6 +18,12 @@ window.Bar {
   }
 }
 
-window.Battery {
-  color: #51de49;
+
+.battery {
+  .battery-icon {
+    color: ##1cfc03;
+  }
+  .battery-percent {
+    color: #ffffff;
+  }
 }
