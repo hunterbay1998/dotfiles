@@ -1,34 +1,39 @@
+//ags team made this for me to import
 import AstalBattery from "gi://AstalBattery"
-import { createBinding, createComputed } from "ags"
+//will watch and update the label everytime the % changes 
+import { createBinding } from "ags"
+// means the variable wont change 
+const batteryIcon: Record<number, string> = {
+  100: '󰁹',
+  90:  '󰂂',
+  80:  '󰂁',
+  70:  '󰂀',
+  60:  '󰁿',
+  50:  '󰁾',
+  40:  '󰁽',
+  30:  '󰁼',
+  20:  '󰁻',
+  10:  '󰁺',
+  0:   '󰂎',
+}
 
-  export default function Battery() {
-    const battery = AstalBattery.get_default()
-    const percent = createBinding(battery, "percentage")
-    const charging = createBinding(battery, "charging")
 
-    const label = createComputed(() => {
-    const p = Math.round(percent() * 100)
-    const icon = charging() ? "󰂄" :
-                 p >= 90 ? "󰁹" :
-                 p >= 70 ? "󰂀" :
-                 p >= 50 ? "󰁿" :
-                 p >= 30 ? "󰁾" :
-                 p >= 10 ? "󰁺" :
-                 "󰂃"
 
-    return `${icon}`
-  })
+function getBatteryIcon(p: number) {
+  const percent = Math.round(p * 100)
+  const level = [100,90,80,70,60,50,40,30,20,10,0].find(t => percent >= t) ?? 0
+  return batteryIcon[level]
+}
 
-  const cssClass = createComputed(() => {
-    const p = Math.round(percent() * 100)
-    if (p <= 20) return ["battery", "battery-critical"]
-    if (p <= 40) return ["battery", "battery-low"]
-    if (p <= 60) return ["battery", "battery-mid"]
-    if (p <= 80) return ["battery", "battery-good"]
-    return ["battery", "battery-full"]
-  })
 
-    return (
-      <label label={createBinding(battery, "percentage").as((p) => `${Math.round(p * 100)}%`)} />
-    )
-  }
+export default function Battery() {
+  const battery = AstalBattery.get_default()
+  const binding = createBinding(battery, "percentage")
+  const formatPercent = (p: number) => `${Math.round(p * 100)}%`
+  return (
+    <box cssName="battery">
+      <label cssName="nerd-Font" label={binding.as(getBatteryIcon)} />
+      <label label={binding.as(formatPercent)} />
+    </box>
+  )
+}

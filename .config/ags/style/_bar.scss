@@ -1,3 +1,6 @@
+$fg-color: #585e63;
+$bg-color: #262b3b;
+
 window.Bar {
   background: transparent;
   color: $fg-color;
@@ -13,4 +16,8 @@ window.Bar {
     border-radius: 8px;
     margin: 2px;
   }
+}
+
+window.Battery {
+  color: #51de49;
 }
