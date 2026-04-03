@@ -1,0 +1,19 @@
+window#power-menu {
+  background: $bg-color;
+  border-radius: 10px;
+
+  box {
+    padding: 8px;
+  }
+
+  button {
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px 16px;
+    color: $white;
+
+    &.power-button-reboot   { color: $green; }
+    &.power-button-shutdown { color: #f92672; }
+    &.power-button-suspend  { color: #f4bf75; }
+  }
+}

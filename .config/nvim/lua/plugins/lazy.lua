@@ -37,6 +37,7 @@ require("lazy").setup({
   require("plugins.colorizer"),
   require("plugins.mason"),
   require("plugins.claude-code"),
+  require("plugins.autotag"),
 
 
 
