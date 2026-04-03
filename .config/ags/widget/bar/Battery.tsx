@@ -1,7 +1,9 @@
 //ags team made this for me to import
 import AstalBattery from "gi://AstalBattery"
+
 //will watch and update the label everytime the % changes 
 import { createBinding, createState } from "ags"
+
 // means the variable wont change 
 import { Gtk } from "ags/gtk4"
 
