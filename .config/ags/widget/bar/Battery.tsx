@@ -3,6 +3,8 @@ import AstalBattery from "gi://AstalBattery"
 //will watch and update the label everytime the % changes 
 import { createBinding } from "ags"
 // means the variable wont change 
+import App from "ags/gtk4/app"
+
 const batteryIcon: Record<number, string> = {
   100: '󰁹',
   90:  '󰂂',
@@ -40,8 +42,10 @@ export default function Battery() {
   const binding = createBinding(battery, "percentage")
   const formatPercent = (p: number) => `${Math.round(p * 100)}%`
   return (
-    <box cssClasses={binding.as(getBatteryClass)}>
-      <label cssClasses={["batteryIcon"]} label={binding.as(getBatteryIcon)} />
-    </box>
+    <button onClicked={() => App.toggle_window("battery-menu")}>
+      <box cssClasses={binding.as(getBatteryClass)}> 
+        <label cssClasses={["batteryIcon"]} label={binding.as(getBatteryIcon)} />
+      </box>
+    </button>
   )
 }
