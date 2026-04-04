@@ -2,22 +2,23 @@ window.Bar {
   background: transparent;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-
   > centerbox {
     background: #1D1F29;
     border-radius: 10px;
     margin: 8px;
   }
-
   button {
     background-color: #2a2d3d;
-    border-radius: 8px;
+    border-radius: 10px;
     margin: 2px;
-    padding: 3px;
-    min-width: 9px;
+    padding: 10px 10px;
+    min-width: 20px;
     min-height: 11px;
     transition: all 200ms ease;
-
+    label {
+      margin: 0;
+      padding: 0;
+    }
     &:hover {
       color: #7aa2f7;
       background-color: #24283b;

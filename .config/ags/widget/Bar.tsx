@@ -18,15 +18,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       application={app}
     >
       <centerbox cssName="centerbox">
-        <box $type="start">
+        <box $type="start" halign={Gtk.Align.START} hexpand={false}>
           <PowerButton />
         </box>
 
-        <box $type="center">
+        <box $type="center" halign={Gtk.Align.CENTER} hexpand={false}>
           <Clock />
         </box>  
         
-        <box $type="end">
+        <box $type="end" halign={Gtk.Align.END} hexpand={false}>
           <Battery />
         </box>  
       </centerbox>
