@@ -1,5 +1,6 @@
 window.Bar {
   background: transparent;
+  font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
 
   > centerbox {
@@ -9,7 +10,17 @@ window.Bar {
   }
 
   button {
+    background-color: #2a2d3d;
     border-radius: 8px;
     margin: 2px;
+    padding: 3px;
+    min-width: 9px;
+    min-height: 11px;
+    transition: all 200ms ease;
+
+    &:hover {
+      color: #7aa2f7;
+      background-color: #24283b;
+    }
   }
 }

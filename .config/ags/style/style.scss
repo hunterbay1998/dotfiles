@@ -1,7 +1,7 @@
 // Widgets
-@import "Bar";
-@import "Battery";
-@import "Clock";
-@import "PowerButton";
-@import "PowerMenu";
-@import "BatteryMenu";
+@use "Bar";
+@use "BatteryButton";
+@use "Clock";
+@use "PowerButton";
+@use "PowerMenu";
+@use "BatteryMenu";

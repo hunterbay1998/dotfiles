@@ -1,19 +1,5 @@
-.clock {                                    
-    font-family: "JetBrainsMono Nerd Font";   
-    font-size: 14px;                          
-    font-weight: bold;
-    color: #c0caf5;                           
-    background-color: #2a2d3d;                
-    padding: 2px 14px;
-    margin: 2px 4px;                          
-    border-radius: 6px;                      
-// border: 1px solid #292e42;
-                                              
-    &:hover {     
-      color: #7aa2f7;
-      background-color: #24283b;
-      border-color: #7aa2f7;                  
-    }
-                                              
-    transition: all 200ms ease;
-  }
+.clock {
+  font-size: 14px;
+  color: #c0caf5;
+  padding: 2px 14px;
+}
