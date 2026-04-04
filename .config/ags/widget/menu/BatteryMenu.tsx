@@ -5,20 +5,22 @@ import AstalBattery from "gi://AstalBattery"
 
 const battery = AstalBattery.get_default()
 const binding = createBinding(battery, "percentage")
-const formantPercent = (p: number) => `${Math.round(p * 100)}`
+const formatPercent = (p: number) => `${Math.round(p * 100)}%`
 
 export default function BatteryMenu(_gdkmonitor: Gdk.Monitor) {
   const { TOP, RIGHT } = Astal.WindowAnchor
 
   return (
     <window
-      name="battery-menu"
       anchor={TOP | RIGHT}
+      name="battery-menu"
+      marginTop={5}
+      marginRight={8}
       application={app}
       visible={false}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
-        <label label={binding.as(formantPercent)} />
+        <label label={binding.as(formatPercent)} />
       </box>
 
     </window>
