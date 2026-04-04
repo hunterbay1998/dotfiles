@@ -1,3 +1,18 @@
-.power-button {
-  color: #d90707;
-}
+.power-button {                                    font-family: "JetBrainsMono Nerd Font";   
+    font-size: 14px;                          
+    font-weight: bold;
+    color: #911125;                           
+    background-color: #2a2d3d;                
+    padding: 2px 4px;
+    margin: 2px 4px;                          
+    border-radius: 3px;                      
+// border: 1px solid #292e42;
+                                              
+    &:hover {     
+      color: #7aa2f7;
+      background-color: #24283b;
+      border-color: #7aa2f7;                  
+    }
+                                              
+    transition: all 200ms ease;
+  }
