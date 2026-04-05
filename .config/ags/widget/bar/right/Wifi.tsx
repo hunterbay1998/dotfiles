@@ -59,6 +59,32 @@ export function WifiMenu(_gdkmonitor: Gdk.Monitor) {
   )
 }
 
+export function WifiToggle() {
+  const ssid = createBinding(wifi, "ssid")
+  const strength = createBinding(wifi, "strength")
+  const enabled = createBinding(wifi, "enabled")
+
+  return (
+    <button
+      cssClasses={enabled.as(e => e ? ["qs-toggle", "active"] : ["qs-toggle"])}
+      onClicked={() => { wifi.enabled = !wifi.enabled }}
+    >
+      <box orientation={Gtk.Orientation.VERTICAL}>
+        <box>
+          <label cssClasses={["qs-toggle-icon"]} label={strength.as(getWifiIcon)} />
+          <label cssClasses={["qs-toggle-name"]} label="Wifi" hexpand xalign={0} />
+        </box>
+        <label
+          cssClasses={["qs-toggle-status"]}
+          label={ssid.as(s => s ?? "Disabled")}
+          xalign={0}
+          ellipsize={3}
+        />
+      </box>
+    </button>
+  )
+}
+
 export default function WifiButton() {
   const strength = createBinding(wifi, "strength")
 

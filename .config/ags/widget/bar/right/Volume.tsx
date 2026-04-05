@@ -63,6 +63,42 @@ export function VolumeMenu(_gdkmonitor: Gdk.Monitor) {
   )
 }
 
+export function VolumeSection() {
+  const volume = createBinding(speaker, "volume")
+  const mute = createBinding(speaker, "mute")
+
+  return (
+    <box cssClasses={["qs-volume"]} orientation={Gtk.Orientation.VERTICAL}>
+      <box cssClasses={["qs-volume-header"]}>
+        <button cssClasses={["qs-volume-icon"]} onClicked={() => { speaker.mute = !speaker.mute }}>
+          <label label={mute.as(m => getVolumeIcon(m, speaker.volume))} />
+        </button>
+        <label hexpand cssClasses={["qs-volume-label"]} label="Volume" xalign={0} />
+        <label cssClasses={["qs-volume-percent"]} label={volume.as(v => `${Math.round(v * 100)}%`)} />
+      </box>
+      <slider
+        cssClasses={["qs-volume-slider"]}
+        hexpand
+        drawValue={false}
+        $={(self) => {
+          self.set_range(0, 1)
+          self.set_increments(0.05, 0.1)
+          self.set_value(speaker.volume)
+          let updating = false
+          self.connect("value-changed", () => {
+            if (!updating) speaker.volume = self.get_value()
+          })
+          speaker.connect("notify::volume", () => {
+            updating = true
+            self.set_value(speaker.volume)
+            updating = false
+          })
+        }}
+      />
+    </box>
+  )
+}
+
 export default function VolumeButton() {
   const mute = createBinding(speaker, "mute")
 

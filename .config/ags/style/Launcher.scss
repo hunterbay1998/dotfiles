@@ -6,17 +6,66 @@ window#launcher {
   background: transparent;
 
   .launcher {
-    background: #262b3b;
-    border-radius: 10px;
-    padding: 10px;
+    background: #1D1F29;
+    border-radius: 12px;
+    border: 2px solid #2e3150;
+    padding: 12px;
   }
 
+  // Tabs
+  .launcher-tabs {
+    margin-bottom: 10px;
+
+    .launcher-tab {
+      background: transparent;
+      color: #565f89;
+      font-size: 13px;
+      padding: 6px 0;
+      border-radius: 0;
+      transition: all 150ms ease;
+
+      label {
+        color: inherit;
+      }
+
+      &:hover label {
+        color: #c0caf5;
+      }
+
+      &.active {
+        color: #7aa2f7;
+        border-bottom: 2px solid #7aa2f7;
+
+        label {
+          color: #7aa2f7;
+        }
+      }
+    }
+  }
+
+  // Search entry
   .launcher-entry {
-    background: #1D1F29;
-    color: #ffffff;
+    background: #2a2d3d;
+    color: #c0caf5;
     border-radius: 8px;
-    padding: 8px 12px;
-    margin-bottom: 8px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  // Results
+  .launcher-scroll {
+    border-radius: 8px;
+
+    scrollbar {
+      background: transparent;
+
+      slider {
+        background: #2e3150;
+        border-radius: 4px;
+        min-width: 4px;
+      }
+    }
   }
 
   .launcher-results {
@@ -25,16 +74,44 @@ window#launcher {
 
   .launcher-item {
     background: transparent;
-    border-radius: 6px;
-    padding: 8px;
-    margin: 2px 0;
+    border-radius: 8px;
+    padding: 9px 10px;
+    margin: 1px 0;
+    transition: all 150ms ease;
 
     &:hover {
       background: #2a2d3d;
     }
 
-    label {
-      color: #ffffff;
+    &.selected {
+      background: #2e3a5e;
+      border-left: 3px solid #7aa2f7;
+
+      label {
+        color: #ffffff;
+      }
     }
+
+    label {
+      color: #c0caf5;
+      font-size: 13px;
+    }
+
+    image {
+      margin-right: 4px;
+    }
+  }
+
+  // Kill page
+  .launcher-kill-icon {
+    font-size: 18px;
+    color: #f7768e;
+    min-width: 28px;
+  }
+
+  .launcher-kill-class {
+    color: #565f89;
+    font-size: 11px;
+    margin-top: 1px;
   }
 }

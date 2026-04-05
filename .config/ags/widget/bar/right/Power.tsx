@@ -7,16 +7,27 @@ import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
 
-
 export function PowerMenu(_gdkmonitor: Gdk.Monitor) {
-  const { TOP, LEFT } = Astal.WindowAnchor
+  const { NONE } = Astal.WindowAnchor
 
   return (
     <window
       name="power-menu"
-      anchor={TOP | LEFT}
+      anchor={NONE}
       application={app}
       visible={false}
+      $={(self) => {
+        const motion = new Gtk.EventControllerMotion()
+        let timeout: ReturnType<typeof setTimeout> | null = null
+
+        motion.connect("leave", () => {
+          timeout = setTimeout(() => self.set_visible(false), 1000)
+        })
+        motion.connect("enter", () => {
+          if (timeout !== null) { clearTimeout(timeout); timeout = null }
+        })
+        self.add_controller(motion)
+      }}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
         <button cssClasses={["power-button-reboot"]} onClicked={() => execAsync("systemctl reboot")}>
@@ -33,10 +44,27 @@ export function PowerMenu(_gdkmonitor: Gdk.Monitor) {
   )
 }
 
+export function PowerToggle() {
+  return (
+    <button
+      cssClasses={["qs-toggle", "qs-power"]}
+      onClicked={() => app.toggle_window("power-menu")}
+    >
+      <box orientation={Gtk.Orientation.VERTICAL}>
+        <box>
+          <label cssClasses={["qs-toggle-icon"]} label="⏻" />
+          <label cssClasses={["qs-toggle-name"]} label="Power" hexpand xalign={0} />
+        </box>
+        <label cssClasses={["qs-toggle-status"]} label="Shutdown / Reboot" xalign={0} />
+      </box>
+    </button>
+  )
+}
+
 export default function PowerButton() {
   return (
     <button
-      css_classes={["power-button"]}
+      cssClasses={["power-button"]}
       onClicked={() => app.toggle_window("power-menu")}
     >
       <label label="⏻" />

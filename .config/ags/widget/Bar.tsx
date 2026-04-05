@@ -1,43 +1,40 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
-import Clock from "./bar/Clock"
-import Battery from "./bar/Battery"
-import PowerButton from "./bar/Power"
-import Workspaces from "./bar/Workspaces"
-import WifiButton from "./bar/Wifi"
-import VolumeButton from "./bar/Volume"
-import TrayButton from "./bar/Tray"
+import Clock from "./bar/center/Clock"
+import Workspaces from "./bar/center/Workspaces"
+import Battery from "./bar/right/Battery"
+import SideMenuButton from "./bar/right/SideMenu"
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export function LeftBar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
   return (
     <window
       visible
-      name="bar"
+      name="left-bar"
       class="Bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | RIGHT}
       application={app}
     >
-      <centerbox cssName="centerbox">
-        <box $type="start" halign={Gtk.Align.START} hexpand={false}>
-          <PowerButton />
+      <centerbox>
+        <box $type="start" halign={Gtk.Align.START} hexpand={false} />
+
+        <box $type="center" halign={Gtk.Align.CENTER} hexpand={false} cssClasses={["bar-pill"]}>
+          <Clock />
           <Workspaces />
         </box>
 
-        <box $type="center" halign={Gtk.Align.CENTER} hexpand={false}>
-          <Clock />
-        </box>  
-        
-        <box $type="end" halign={Gtk.Align.END} hexpand={false}>
-          <TrayButton />
-          <WifiButton />
-          <VolumeButton />
+        <box $type="end" halign={Gtk.Align.END} hexpand={false} cssClasses={["bar-pill"]} marginEnd={8}>
+          <SideMenuButton />
           <Battery />
-        </box>  
+        </box>
       </centerbox>
     </window>
   )
+}
+
+export function RightBar(_gdkmonitor: Gdk.Monitor) {
+  return <box />
 }

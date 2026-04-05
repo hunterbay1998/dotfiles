@@ -2,11 +2,17 @@ window.Bar {
   background: transparent;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
+
   > centerbox {
+    background: transparent;
+  }
+
+  .bar-pill {
     background: #1D1F29;
     border-radius: 10px;
-    margin: 8px;
+    margin: 8px 0;
   }
+
   button {
     background-color: #2a2d3d;
     border-radius: 10px;

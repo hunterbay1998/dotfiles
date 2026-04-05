@@ -51,11 +51,43 @@ export function BatteryMenu(_gdkmonitor: Gdk.Monitor) {
       marginRight={8}
       application={app}
       visible={false}
+      $={(self) => {
+        const motion = new Gtk.EventControllerMotion()
+        let timeout: ReturnType<typeof setTimeout> | null = null
+
+        motion.connect("leave", () => {
+          timeout = setTimeout(() => self.set_visible(false), 1000)
+        })
+        motion.connect("enter", () => {
+          if (timeout !== null) { clearTimeout(timeout); timeout = null }
+        })
+        self.add_controller(motion)
+      }}
     >
       <box orientation={Gtk.Orientation.VERTICAL}>
         <label label={binding.as(formatPercent)} />
       </box>
     </window>
+  )
+}
+
+export function BatteryInfo() {
+  const battery = AstalBattery.get_default()
+  const binding = createBinding(battery, "percentage")
+  const charging = createBinding(battery, "charging")
+
+  return (
+    <box cssClasses={["qs-battery-info"]}>
+      <label cssClasses={["qs-battery-icon"]} label={binding.as(getBatteryIcon)} />
+      <label
+        cssClasses={["qs-battery-percent"]}
+        label={binding.as(p => `${Math.round(p * 100)}%`)}
+      />
+      <label
+        cssClasses={["qs-battery-status"]}
+        label={charging.as(c => c ? "Charging" : "")}
+      />
+    </box>
   )
 }
 
