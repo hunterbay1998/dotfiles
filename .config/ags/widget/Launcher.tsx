@@ -20,9 +20,7 @@ export default function Launcher(_gdkmonitor: Gdk.Monitor) {
   let entryWidget: Gtk.Entry
 
   function getAppResults(q: string) {
-    return q.length > 0
-      ? appsService.fuzzy_query(q).slice(0, 20)
-      : appsService.fuzzy_query("").slice(0, 20)
+    return appsService.fuzzy_query(q).slice(0, 20)
   }
 
   function getClientResults(q: string) {

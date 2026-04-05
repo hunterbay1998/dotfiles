@@ -5,6 +5,7 @@
 
 import { Gtk } from "ags/gtk4"
 import { createState } from "ags"
+import { execAsync } from "ags/process"
 
 export function BrightnessSection() {
   const [percent, setPercent] = createState(100)
@@ -23,9 +24,22 @@ export function BrightnessSection() {
         $={(self) => {
           self.set_range(0, 100)
           self.set_increments(5, 10)
-          self.set_value(100)
+
+          // Read current brightness on startup
+          execAsync(["bash", "-c", "brightnessctl -m | cut -d, -f4 | tr -d %"])
+            .then(out => {
+              const current = parseInt(out.trim(), 10)
+              if (!isNaN(current)) {
+                self.set_value(current)
+                setPercent(current)
+              }
+            })
+            .catch(() => {})
+
           self.connect("value-changed", () => {
-            setPercent(Math.round(self.get_value()))
+            const v = Math.round(self.get_value())
+            setPercent(v)
+            execAsync(["brightnessctl", "-q", "set", `${v}%`]).catch(() => {})
           })
         }}
       />

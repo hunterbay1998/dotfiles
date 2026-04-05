@@ -6,6 +6,7 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
+import { autoHideOnLeave } from "../../util"
 import { BatteryInfo } from "./Battery"
 import { VolumeSection } from "./Volume"
 import { WifiToggle } from "./Wifi"
@@ -21,18 +22,7 @@ export function SideMenu(_gdkmonitor: Gdk.Monitor) {
       anchor={TOP | RIGHT}
       application={app}
       visible={false}
-      $={(self) => {
-        const motion = new Gtk.EventControllerMotion()
-        let timeout: ReturnType<typeof setTimeout> | null = null
-
-        motion.connect("leave", () => {
-          timeout = setTimeout(() => self.set_visible(false), 1000)
-        })
-        motion.connect("enter", () => {
-          if (timeout !== null) { clearTimeout(timeout); timeout = null }
-        })
-        self.add_controller(motion)
-      }}
+      $={(self) => autoHideOnLeave(self, 1000)}
     >
       <box orientation={Gtk.Orientation.VERTICAL} cssClasses={["side-menu"]} widthRequest={280}>
 

@@ -35,6 +35,7 @@ export function LeftBar(gdkmonitor: Gdk.Monitor) {
   )
 }
 
+// TODO: implement RightBar (second bar window per monitor). Currently a stub.
 export function RightBar(_gdkmonitor: Gdk.Monitor) {
   return <box />
 }

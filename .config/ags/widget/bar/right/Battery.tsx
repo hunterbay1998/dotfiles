@@ -1,11 +1,10 @@
 /* ==========================================
    BATTERY WIDGETS
-   Includes: Battery, BatteryMenu
+   Includes: Battery (bar pill), BatteryInfo (side menu)
    ========================================== */
 
-import app from "ags/gtk4/app"
-import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { createBinding } from "ags"
+import { Gtk } from "ags/gtk4"
+import { createBinding, createComputed } from "ags"
 import AstalBattery from "gi://AstalBattery"
 
 const batteryIcon: Record<number, string> = {
@@ -22,9 +21,11 @@ const batteryIcon: Record<number, string> = {
   0:   '󰂎',
 }
 
+const BATTERY_LEVELS = [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
+
 function getBatteryIcon(p: number) {
   const percent = Math.round(p * 100)
-  const level = [100,90,80,70,60,50,40,30,20,10,0].find(t => percent >= t) ?? 0
+  const level = BATTERY_LEVELS.find(t => percent >= t) ?? 0
   return batteryIcon[level]
 }
 
@@ -35,40 +36,6 @@ function getBatteryClass(p: number) {
   if (percent >= 40) return ["battery", "medium"]
   if (percent >= 20) return ["battery", "low"]
   return ["battery", "critical"]
-}
-
-export function BatteryMenu(_gdkmonitor: Gdk.Monitor) {
-  const { TOP, RIGHT } = Astal.WindowAnchor
-  const battery = AstalBattery.get_default()
-  const binding = createBinding(battery, "percentage")
-  const formatPercent = (p: number) => `${Math.round(p * 100)}%`
-
-  return (
-    <window
-      anchor={TOP | RIGHT}
-      name="battery-menu"
-      marginTop={5}
-      marginRight={8}
-      application={app}
-      visible={false}
-      $={(self) => {
-        const motion = new Gtk.EventControllerMotion()
-        let timeout: ReturnType<typeof setTimeout> | null = null
-
-        motion.connect("leave", () => {
-          timeout = setTimeout(() => self.set_visible(false), 1000)
-        })
-        motion.connect("enter", () => {
-          if (timeout !== null) { clearTimeout(timeout); timeout = null }
-        })
-        self.add_controller(motion)
-      }}
-    >
-      <box orientation={Gtk.Orientation.VERTICAL}>
-        <label label={binding.as(formatPercent)} />
-      </box>
-    </window>
-  )
 }
 
 export function BatteryInfo() {
@@ -93,11 +60,38 @@ export function BatteryInfo() {
 
 export default function Battery() {
   const battery = AstalBattery.get_default()
-  const binding = createBinding(battery, "percentage")
+  const percent = createBinding(battery, "percentage")
+  const charging = createBinding(battery, "charging")
+  const cssClasses = createComputed([percent, charging], (p, c) =>
+    c ? ["battery", "charging"] : getBatteryClass(p)
+  )
 
   return (
-    <button cssClasses={binding.as(getBatteryClass)} onClicked={() => app.toggle_window("battery-menu")}>
-      <label label={binding.as(getBatteryIcon)} />
-    </button>
+    <box cssClasses={cssClasses} valign={Gtk.Align.CENTER}>
+      <box valign={Gtk.Align.CENTER} marginStart={6} marginEnd={6}>
+
+        {/* Charging state — lightning bolt */}
+        <label
+          cssClasses={["battery-charging-icon"]}
+          label="󱐋"
+          visible={charging}
+        />
+
+        {/* Normal state — level bar + percent */}
+        <box spacing={6} visible={charging.as(c => !c)}>
+          <levelbar
+            cssClasses={["battery-level"]}
+            widthRequest={40}
+            heightRequest={10}
+            valign={Gtk.Align.CENTER}
+            value={percent}
+            minValue={0}
+            maxValue={1}
+          />
+          <label label={percent.as(p => `${Math.round(p * 100)}%`)} />
+        </box>
+
+      </box>
+    </box>
   )
 }

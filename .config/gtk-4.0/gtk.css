@@ -1,0 +1,4 @@
+/* Foliate sidebar - slightly darker than main bg (#1a1b26) */
+overlaysplitview .sidebar toolbarview {
+    background-color: #13141f;
+}

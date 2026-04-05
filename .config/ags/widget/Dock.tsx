@@ -4,7 +4,6 @@
 
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { execAsync } from "ags/process"
 import { createState } from "ags"
 import Apps from "gi://AstalApps"
 
@@ -66,7 +65,7 @@ export default function Dock(gdkmonitor: Gdk.Monitor) {
             <button
               cssClasses={["dock-item"]}
               tooltipText={entry.name}
-              onClicked={() => execAsync(entry.executable).catch(() => entry.launch())}
+              onClicked={() => entry.launch()}
             >
               <image iconName={entry.iconName} pixelSize={36} />
             </button>
