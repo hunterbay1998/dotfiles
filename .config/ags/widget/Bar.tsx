@@ -2,7 +2,7 @@ import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import Clock from "./bar/Clock"
 import Battery from "./bar/Battery"
-import PowerButton from "./bar/PowerButton"
+import PowerButton from "./bar/PowerMenu"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor

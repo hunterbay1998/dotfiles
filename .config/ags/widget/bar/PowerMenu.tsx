@@ -1,9 +1,14 @@
+/* ==========================================
+   POWER MENU WIDGETS
+   Includes: PowerButton, PowerMenu
+   ========================================== */
+
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process"
 
 
-export default function PowerMenu(_gdkmonitor: Gdk.Monitor) {
+export function PowerMenu(_gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT } = Astal.WindowAnchor
 
   return (
@@ -27,3 +32,15 @@ export default function PowerMenu(_gdkmonitor: Gdk.Monitor) {
     </window>
   )
 }
+
+export default function PowerButton() {
+  return (
+    <button
+      css_classes={["power-button"]}
+      onClicked={() => app.toggle_window("power-menu")}
+    >
+      <label label="⏻" />
+    </button>
+  )
+}
+

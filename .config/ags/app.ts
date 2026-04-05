@@ -3,8 +3,8 @@ import { monitorFile } from "ags/file"
 import { exec } from "ags/process"
 import style from "./style/style.scss"
 import Bar from "./widget/Bar"
-import PowerMenu from "./widget/menu/PowerMenu"
-import BatteryMenu from "./widget/menu/BatteryMenu"
+import { PowerMenu } from "./widget/bar/PowerMenu"
+import BatteryMenu from "./widget/bar/BatteryMenu"
 
 const stylePath = `${SRC}/style`
 const scss = `${stylePath}/style.scss`
