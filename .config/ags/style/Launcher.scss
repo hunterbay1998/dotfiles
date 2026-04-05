@@ -1,0 +1,40 @@
+// ==========================================
+// LAUNCHER STYLES
+// ==========================================
+
+window#launcher {
+  background: transparent;
+
+  .launcher {
+    background: #262b3b;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .launcher-entry {
+    background: #1D1F29;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+  }
+
+  .launcher-results {
+    padding: 0;
+  }
+
+  .launcher-item {
+    background: transparent;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 2px 0;
+
+    &:hover {
+      background: #2a2d3d;
+    }
+
+    label {
+      color: #ffffff;
+    }
+  }
+}

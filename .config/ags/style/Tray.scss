@@ -1,0 +1,18 @@
+// ==========================================
+// TRAY STYLES
+// Includes: TrayButton, TrayMenu
+// ==========================================
+
+window#tray-menu {
+  background: #262b3b;
+  border-radius: 10px;
+
+  box {
+    padding: 10px;
+
+    .tray-item {
+      background: transparent;
+      padding: 6px;
+    }
+  }
+}

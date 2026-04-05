@@ -1,3 +1,16 @@
+// ==========================================
+// POWER STYLES
+// Includes: PowerButton, PowerMenu
+// ==========================================
+
+.power-button {
+  color: #911125;
+
+  label {
+    margin-top: -2px;
+  }
+}
+
 window#power-menu {
   background: #262b3b;
   border-radius: 10px;

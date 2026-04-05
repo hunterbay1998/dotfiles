@@ -1,0 +1,17 @@
+// ==========================================
+// VOLUME STYLES
+// Includes: VolumeButton, VolumeMenu
+// ==========================================
+
+window#volume-menu {
+  background: #262b3b;
+  border-radius: 10px;
+
+  box {
+    padding: 10px;
+
+    label {
+      color: #ffffff;
+    }
+  }
+}
