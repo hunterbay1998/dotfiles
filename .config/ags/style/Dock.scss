@@ -2,13 +2,15 @@
 // DOCK STYLES
 // ==========================================
 
+@use "vars" as *;
+
 window#dock {
   background: transparent;
 
   .dock {
-    background: #1D1F29;
+    background: $surface;
     border-radius: 12px;
-    border: 2px solid #2e3150;
+    border: 2px solid $surface-border;
     padding: 8px 6px;
     margin: 8px 0 8px 8px;
     transition: all 200ms ease;
@@ -30,11 +32,11 @@ window#dock {
       transition: all 150ms ease;
 
       &:hover {
-        background: #2a2d3d;
+        background: $surface-raised;
       }
 
       &:active {
-        background: #3d59a1;
+        background: $surface-selected;
       }
     }
   }

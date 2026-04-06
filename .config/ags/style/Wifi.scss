@@ -3,8 +3,10 @@
 // Includes: WifiButton, WifiMenu
 // ==========================================
 
+@use "vars" as *;
+
 window#wifi-menu {
-  background: #262b3b;
+  background: $surface-popup;
   border-radius: 10px;
 
   box {

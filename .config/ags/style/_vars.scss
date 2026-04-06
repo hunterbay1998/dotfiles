@@ -1,0 +1,31 @@
+// ==========================================
+// VARIABLES
+// ==========================================
+
+// Surfaces
+$surface:          #1D1F29; // main panel background — bar, dock, launcher, side menu
+$surface-raised:   #2a2d3d; // buttons, input fields, slider troughs
+$surface-hover:    #414868; // hovered buttons and items
+$surface-border:   #2e3150; // panel borders
+$surface-popup:    #262b3b; // floating menus — volume, wifi, tray, power
+$surface-selected: #2e3a5e; // selected item background
+
+// Text
+$text-primary: #c0caf5; // main readable text
+$text-muted:   #565f89; // secondary, dimmed, labels
+
+// Accents
+$accent:            #7aa2f7; // active states, highlights, selected borders
+$workspace-focused: #cba6f7; // focused workspace indicator
+
+// Status
+$status-ok:      #1cfc03; // battery full / charging / reboot
+$status-good:    #a6e22e; // battery high
+$status-warn:    #f4bf75; // battery medium / suspend
+$status-low:     #fd971f; // battery low
+$status-critical: #f92672; // battery critical / shutdown
+
+// Danger
+$danger-icon:    #f7768e; // kill process, destructive icons
+$danger-surface: #3d1a1a; // hover background for destructive actions
+$power-icon:     #911125; // power button in bar

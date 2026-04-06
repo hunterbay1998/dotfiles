@@ -3,8 +3,10 @@
 // Includes: VolumeButton, VolumeMenu
 // ==========================================
 
+@use "vars" as *;
+
 window#volume-menu {
-  background: #262b3b;
+  background: $surface-popup;
   border-radius: 10px;
 
   box {

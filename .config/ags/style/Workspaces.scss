@@ -1,8 +1,10 @@
+@use "vars" as *;
+
 .workspaces .workspace {
   min-width: 30px;
 }
 
 .workspaces .focused {
-  background-color: #cba6f7;
+  background-color: $workspace-focused;
   color: #1e1e2e;
 }

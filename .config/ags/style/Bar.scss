@@ -1,3 +1,9 @@
+@use "vars" as *;
+
+window#bar-spacer {
+  background: transparent;
+}
+
 window.Bar {
   background: transparent;
   font-family: "JetBrainsMono Nerd Font";
@@ -8,13 +14,13 @@ window.Bar {
   }
 
   .bar-pill {
-    background: #1D1F29;
+    background: $surface;
     border-radius: 10px;
     margin: 8px 0;
   }
 
   button {
-    background-color: #2a2d3d;
+    background-color: $surface-raised;
     border-radius: 10px;
     margin: 2px;
     padding: 1px 6px;
@@ -26,8 +32,8 @@ window.Bar {
       padding: 0;
     }
     &:hover {
-      color: #7aa2f7;
-      background-color: #24283b;
+      color: $accent;
+      background-color: $surface-raised;
     }
   }
 }

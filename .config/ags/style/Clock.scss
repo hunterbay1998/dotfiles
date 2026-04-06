@@ -1,5 +1,7 @@
+@use "vars" as *;
+
 .clock {
   font-size: 14px;
-  color: #c0caf5;
+  color: $text-primary;
   padding: 2px 14px;
 }

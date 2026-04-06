@@ -22,7 +22,7 @@ export function SideMenu(_gdkmonitor: Gdk.Monitor) {
       anchor={TOP | RIGHT}
       application={app}
       visible={false}
-      $={(self) => autoHideOnLeave(self, 1000)}
+      $={(self) => autoHideOnLeave(self, 2000)}
     >
       <box orientation={Gtk.Orientation.VERTICAL} cssClasses={["side-menu"]} widthRequest={280}>
 

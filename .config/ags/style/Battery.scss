@@ -3,17 +3,19 @@
 // Includes: Battery button, BatteryMenu
 // ==========================================
 
+@use "vars" as *;
+
 .battery {
-  &.full     { color: #1cfc03; }
-  &.high     { color: #a6e22e; }
-  &.medium   { color: #f4bf75; }
-  &.low      { color: #fd971f; }
-  &.critical { color: #f92672; }
-  &.charging { color: #1cfc03; }
+  &.full     { color: $status-ok; }
+  &.high     { color: $status-good; }
+  &.medium   { color: $status-warn; }
+  &.low      { color: $status-low; }
+  &.critical { color: $status-critical; }
+  &.charging { color: $status-ok; }
 
   .battery-charging-icon {
     font-size: 16px;
-    color: #1cfc03;
+    color: $status-ok;
   }
 
   levelbar.battery-level {
@@ -39,10 +41,10 @@
     }
   }
 
-  &.full     levelbar.battery-level block.filled { background: #1cfc03; }
-  &.high     levelbar.battery-level block.filled { background: #a6e22e; }
-  &.medium   levelbar.battery-level block.filled { background: #f4bf75; }
-  &.low      levelbar.battery-level block.filled { background: #fd971f; }
-  &.critical levelbar.battery-level block.filled { background: #f92672; }
+  &.full     levelbar.battery-level block.filled { background: $status-ok; }
+  &.high     levelbar.battery-level block.filled { background: $status-good; }
+  &.medium   levelbar.battery-level block.filled { background: $status-warn; }
+  &.low      levelbar.battery-level block.filled { background: $status-low; }
+  &.critical levelbar.battery-level block.filled { background: $status-critical; }
 }
 

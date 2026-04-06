@@ -2,41 +2,43 @@
 // SIDE MENU STYLES
 // ==========================================
 
+@use "vars" as *;
+
 window#side-menu {
   background: transparent;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
 
   > box.side-menu {
-    background: #1D1F29;
+    background: $surface;
     border-radius: 10px;
-    border: 2px solid #2e3150;
+    border: 2px solid $surface-border;
     margin: 8px 8px 8px 0;
     padding: 12px;
 
     // Top row
     .qs-top-row {
       margin-bottom: 12px;
-      border-bottom: 1px solid #2a2d3d;
+      border-bottom: 1px solid $surface-raised;
       padding-bottom: 12px;
 
       .qs-actions {
         .qs-action-btn {
-          background: #2a2d3d;
+          background: $surface-raised;
           border-radius: 8px;
           padding: 6px 8px;
           margin-left: 4px;
-          color: #c0caf5;
+          color: $text-primary;
           font-size: 15px;
           transition: all 200ms ease;
 
           &:hover {
-            background: #414868;
+            background: $surface-hover;
           }
 
           &.shutdown {
-            color: #f7768e;
-            &:hover { background: #3d1a1a; }
+            color: $danger-icon;
+            &:hover { background: $danger-surface; }
           }
         }
       }
@@ -49,18 +51,18 @@ window#side-menu {
       .qs-battery-icon {
         font-size: 28px;
         margin-right: 12px;
-        color: #7aa2f7;
+        color: $accent;
       }
 
       .qs-battery-percent {
         font-size: 18px;
-        color: #c0caf5;
+        color: $text-primary;
         font-weight: bold;
       }
 
       .qs-battery-status {
         font-size: 11px;
-        color: #565f89;
+        color: $text-muted;
       }
     }
 
@@ -74,29 +76,29 @@ window#side-menu {
         .qs-volume-icon {
           background: transparent;
           padding: 0 6px 0 0;
-          color: #c0caf5;
+          color: $text-primary;
           font-size: 16px;
         }
 
         .qs-volume-label {
-          color: #565f89;
+          color: $text-muted;
           font-size: 12px;
         }
 
         .qs-volume-percent {
-          color: #c0caf5;
+          color: $text-primary;
           font-size: 12px;
         }
       }
 
       scale.qs-volume-slider {
         trough {
-          background: #2a2d3d;
+          background: $surface-raised;
           border-radius: 4px;
           min-height: 4px;
         }
         highlight {
-          background: #7aa2f7;
+          background: $accent;
           border-radius: 4px;
         }
         slider {
@@ -122,19 +124,19 @@ window#side-menu {
         }
 
         .qs-brightness-label {
-          color: #565f89;
+          color: $text-muted;
           font-size: 12px;
         }
 
         .qs-brightness-percent {
-          color: #c0caf5;
+          color: $text-primary;
           font-size: 12px;
         }
       }
 
       scale.qs-brightness-slider {
         trough {
-          background: #2a2d3d;
+          background: $surface-raised;
           border-radius: 4px;
           min-height: 4px;
         }
@@ -156,7 +158,7 @@ window#side-menu {
       margin-bottom: 8px;
 
       button.qs-toggle {
-        background: #2a2d3d;
+        background: $surface-raised;
         border-radius: 10px;
         padding: 10px;
         margin: 4px;
@@ -164,48 +166,48 @@ window#side-menu {
 
         .qs-toggle-icon {
           font-size: 16px;
-          color: #565f89;
+          color: $text-muted;
           margin-right: 6px;
         }
 
         .qs-toggle-name {
-          color: #c0caf5;
+          color: $text-primary;
           font-size: 13px;
         }
 
         .qs-toggle-status {
-          color: #565f89;
+          color: $text-muted;
           font-size: 11px;
           margin-top: 2px;
         }
 
         &:hover {
-          background: #414868;
+          background: $surface-hover;
         }
 
         &.active {
-          background: #3d59a1;
+          background: $surface-selected;
 
           .qs-toggle-icon {
-            color: #7aa2f7;
+            color: $accent;
           }
 
           .qs-toggle-status {
-            color: #89b4fa;
+            color: $accent;
           }
         }
 
         &.qs-power {
           &.qs-toggle {
-            background: #2a2d3d;
+            background: $surface-raised;
           }
 
           .qs-toggle-icon {
-            color: #f7768e;
+            color: $danger-icon;
           }
 
           &:hover {
-            background: #3d1a1a;
+            background: $danger-surface;
           }
         }
       }
@@ -213,6 +215,6 @@ window#side-menu {
   }
 
   button.side-menu-button {
-    color: #7aa2f7;
+    color: $accent;
   }
 }
