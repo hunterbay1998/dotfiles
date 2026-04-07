@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8e60ed84bd456a02",
+        "id": "68a16d49a78d36d5",
         "type": "tabs",
         "children": [
           {
-            "id": "b2ef1d3f09b0842e",
+            "id": "34df2703903a6cb8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 220.5
   },
   "right": {
     "id": "3dc7789db011d6d4",
@@ -94,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "AGS/tier-1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for tier-1"
             }
           },
           {
@@ -163,8 +164,7 @@
               "title": "Outline"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -182,44 +182,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "b2ef1d3f09b0842e",
+  "active": "34df2703903a6cb8",
   "lastOpenFiles": [
-    "AGS/tier-2.md.tmp.32335.1775592458471",
-    "AGS/tier-1.md.tmp.32335.1775592449597",
-    "AGS/AGS.md.tmp.32335.1775592442464",
-    "AGS/AGS.md.tmp.32335.1775592396104",
+    "AGS/terminology.md",
+    "AGS/AGS.md",
+    "AGS/widgets/workspaces.md",
+    "AGS/widgets/wifi.md",
+    "AGS/widgets/volume.md",
+    "AGS/widgets/widgets.md",
+    "AGS/widgets/clock.md",
+    "AGS/widgets/notifications.md",
+    "AGS/widgets/bar.md",
     "AGS/tier-3.md",
     "AGS/tier-2.md",
     "AGS/tier-1.md",
-    "AGS/widgets/notifications.md",
-    "AGS/widgets/widgets.md.tmp.32335.1775591922709",
-    "AGS/widgets/notifications.md.tmp.32335.1775591919130",
-    "AGS/AGS.md",
-    "AGS/AGS.md.tmp.32335.1775591548640",
-    "AGS/widgets/widgets.md",
-    "AGS/widgets/widgets.md.tmp.32335.1775591545673",
-    "AGS/widgets/volume.md",
-    "AGS/widgets/power.md",
-    "AGS/widgets/power.md.tmp.32335.1775591467792",
-    "AGS/widgets/tray.md",
-    "AGS/widgets/tray.md.tmp.32335.1775591462342",
-    "AGS/widgets/brightness.md",
-    "AGS/widgets/brightness.md.tmp.32335.1775591421253",
-    "AGS/widgets/bluetooth.md",
-    "AGS/widgets/wifi.md",
-    "AGS/widgets/bar.md",
-    "AGS/widgets/workspaces.md",
-    "AGS/widgets/battery.md",
-    "AGS/widgets/clock.md",
-    "AGS/bar.md",
-    "Untitled.canvas",
-    "AGS/terminology.md",
-    "Arch/paru.md",
+    "Arch/wifi.md",
+    "Arch/Arch.md.tmp.32335.1775597636977",
+    "Arch/kernel.md",
+    "Arch/kernel.md.tmp.32335.1775597620226",
+    "Arch/plymouth.md",
+    "Arch/plymouth.md.tmp.32335.1775597613409",
+    "Arch/pacman.md",
+    "Arch/sed.md",
+    "Arch/sed.md.tmp.32335.1775597605121",
+    "Arch/commands.md",
+    "Arch/commands.md.tmp.32335.1775597598751",
+    "Arch/dd.md",
+    "Arch/dd.md.tmp.32335.1775597590805",
+    "Arch/partitioning.md",
+    "Arch/partitioning.md.tmp.32335.1775597584920",
+    "Arch/bluetooth.md",
+    "Arch/bluetooth.md.tmp.32335.1775597579515",
+    "Arch/wifi.md.tmp.32335.1775597574487",
+    "Arch/sshfs.md",
+    "Arch/sshfs.md.tmp.32335.1775597569485",
     "Arch/permissions.md",
+    "Arch/paru.md",
+    "Arch/packages.md",
     "Arch/fstab.md",
-    "Arch/Arch.md",
-    "Bash/loops.md",
-    "Bash/functions.md",
-    "Bash/conditionals.md"
+    "Untitled 1.canvas",
+    "Untitled.canvas"
   ]
 }
