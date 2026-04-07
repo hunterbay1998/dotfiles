@@ -5,6 +5,7 @@
 
 import { createBinding } from "ags"
 import AstalBluetooth from "gi://AstalBluetooth"
+import Gtk from "gi://Gtk"
 
 const bluetooth = AstalBluetooth.get_default()
 
@@ -17,7 +18,7 @@ export function BluetoothToggle() {
       cssClasses={powered.as(p => p ? ["qs-toggle", "active"] : ["qs-toggle"])}
       onClicked={() => { bluetooth.adapter.powered = !bluetooth.adapter.powered }}
     >
-      <box orientation="vertical">
+      <box orientation={Gtk.Orientation.VERTICAL}>
         <box>
           <label cssClasses={["qs-toggle-icon"]} label="󰂯" />
           <label cssClasses={["qs-toggle-name"]} label="Bluetooth" hexpand xalign={0} />

@@ -4,10 +4,11 @@
 
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
-import { createState } from "ags"
 import Apps from "gi://AstalApps"
+import AstalHyprland from "gi://AstalHyprland"
 
 const appsService = new Apps.Apps()
+const hyprland = AstalHyprland.get_default()!
 
 // Edit this list to change your pinned apps
 const PINNED = [
@@ -24,39 +25,61 @@ function findApp(name: string) {
   return appsService.fuzzy_query(name)[0] ?? null
 }
 
+const HIDE_DELAY = 500
+const TRIGGER_ZONE = 5 // px from bottom edge to trigger show
+
 export default function Dock(gdkmonitor: Gdk.Monitor) {
-  const { LEFT, TOP, BOTTOM } = Astal.WindowAnchor
-  const [visible, setVisible] = createState(false)
-  let timeout: ReturnType<typeof setTimeout> | null = null
+  const { LEFT, RIGHT, BOTTOM } = Astal.WindowAnchor
+  let hideTimeout: ReturnType<typeof setTimeout> | null = null
+  let dockWindow: Astal.Window
 
-  function show() {
-    if (timeout !== null) { clearTimeout(timeout); timeout = null }
-    setVisible(true)
+  const geo = gdkmonitor.get_geometry()
+  const monitorBottom = geo.y + geo.height
+  const monitorLeft = geo.x
+  const monitorRight = geo.x + geo.width
+
+  function clearTimer() {
+    if (hideTimeout !== null) { clearTimeout(hideTimeout); hideTimeout = null }
   }
 
-  function hide() {
-    timeout = setTimeout(() => setVisible(false), 500)
+  function showDock() {
+    clearTimer()
+    dockWindow?.set_visible(true)
   }
+
+  function hideDock() {
+    hideTimeout = setTimeout(() => dockWindow?.set_visible(false), HIDE_DELAY)
+  }
+
+  // Show dock when cursor reaches the bottom edge of this monitor
+  hyprland.connect("notify::cursor-position", () => {
+    const { x, y } = hyprland.cursor_position
+    if (x >= monitorLeft && x < monitorRight && y >= monitorBottom - TRIGGER_ZONE) {
+      showDock()
+    }
+  })
 
   return (
     <window
       name="dock"
       gdkmonitor={gdkmonitor}
-      anchor={LEFT | TOP | BOTTOM}
-      exclusivity={Astal.Exclusivity.EXCLUSIVE}
+      anchor={LEFT | RIGHT | BOTTOM}
+      exclusivity={Astal.Exclusivity.NORMAL}
+      layer={Astal.Layer.OVERLAY}
       application={app}
-      visible
+      visible={false}
+      $={(self) => {
+        dockWindow = self
+        const motion = new Gtk.EventControllerMotion()
+        motion.connect("enter", clearTimer)
+        motion.connect("leave", hideDock)
+        self.add_controller(motion)
+      }}
     >
       <box
-        cssClasses={visible.as(v => v ? ["dock"] : ["dock", "dock-hidden"])}
-        orientation={Gtk.Orientation.VERTICAL}
-        valign={Gtk.Align.CENTER}
-        $={(self) => {
-          const motion = new Gtk.EventControllerMotion()
-          motion.connect("enter", show)
-          motion.connect("leave", hide)
-          self.add_controller(motion)
-        }}
+        cssClasses={["dock"]}
+        orientation={Gtk.Orientation.HORIZONTAL}
+        halign={Gtk.Align.CENTER}
       >
         {PINNED.map(name => {
           const entry = findApp(name)
