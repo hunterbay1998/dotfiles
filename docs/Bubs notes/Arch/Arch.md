@@ -6,3 +6,4 @@
 - [[fstab]]
 - [[ssh]]
 - [[systemd]]
+- [[permissions]]

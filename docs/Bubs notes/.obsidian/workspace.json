@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "57a03adb5b927b56",
+            "id": "b2ef1d3f09b0842e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bash/variables.md",
+                "file": "AGS/tier-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "variables"
+              "title": "tier-1"
             }
           }
         ]
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bash/variables.md",
+                "file": "AGS/tier-1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from variables"
+              "title": "Outgoing links from tier-1"
             }
           },
           {
@@ -182,38 +182,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "57a03adb5b927b56",
+  "active": "b2ef1d3f09b0842e",
   "lastOpenFiles": [
+    "AGS/tier-2.md.tmp.32335.1775592458471",
+    "AGS/tier-1.md.tmp.32335.1775592449597",
+    "AGS/AGS.md.tmp.32335.1775592442464",
+    "AGS/AGS.md.tmp.32335.1775592396104",
+    "AGS/tier-3.md",
+    "AGS/tier-2.md",
+    "AGS/tier-1.md",
+    "AGS/widgets/notifications.md",
+    "AGS/widgets/widgets.md.tmp.32335.1775591922709",
+    "AGS/widgets/notifications.md.tmp.32335.1775591919130",
+    "AGS/AGS.md",
+    "AGS/AGS.md.tmp.32335.1775591548640",
+    "AGS/widgets/widgets.md",
+    "AGS/widgets/widgets.md.tmp.32335.1775591545673",
+    "AGS/widgets/volume.md",
+    "AGS/widgets/power.md",
+    "AGS/widgets/power.md.tmp.32335.1775591467792",
+    "AGS/widgets/tray.md",
+    "AGS/widgets/tray.md.tmp.32335.1775591462342",
+    "AGS/widgets/brightness.md",
+    "AGS/widgets/brightness.md.tmp.32335.1775591421253",
+    "AGS/widgets/bluetooth.md",
+    "AGS/widgets/wifi.md",
+    "AGS/widgets/bar.md",
+    "AGS/widgets/workspaces.md",
+    "AGS/widgets/battery.md",
+    "AGS/widgets/clock.md",
+    "AGS/bar.md",
+    "Untitled.canvas",
+    "AGS/terminology.md",
+    "Arch/paru.md",
+    "Arch/permissions.md",
+    "Arch/fstab.md",
+    "Arch/Arch.md",
     "Bash/loops.md",
     "Bash/functions.md",
-    "Bash/conditionals.md",
-    "Bash/Bash.md",
-    "Bash/variables.md",
-    "Bash/Bash.md.tmp.32335.1775589676130",
-    "Bash/functions.md.tmp.32335.1775589671963",
-    "Bash/loops.md.tmp.32335.1775589667348",
-    "Bash/conditionals.md.tmp.32335.1775589661089",
-    "Bash/variables.md.tmp.32335.1775589655890",
-    "Bash/Bash.md.tmp.32335.1775589602740",
-    "Bash",
-    "Arch/ssh.md.tmp.32335.1775589504518",
-    "Arch/samba.md.tmp.32335.1775589501465",
-    "Arch/samba.md",
-    "Arch/samba.md.tmp.32335.1775589477684",
-    "Arch/yay.md",
-    "Arch/Arch.md",
-    "Arch/fstab.md",
-    "Arch/systemd.md",
-    "Arch/mounting.md",
-    "Arch/ssh.md",
-    "Arch/pacman.md",
-    "Arch/paru.md",
-    "Arch/yeeted.md",
-    "mounting.md",
-    "AGS/Untitled.md",
-    "Untitled.canvas",
-    "arch.md",
-    "arch.md",
-    "Welcome.md"
+    "Bash/conditionals.md"
   ]
 }

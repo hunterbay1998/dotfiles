@@ -15,17 +15,17 @@
       }
     },
     {
-      "query": "path:AGS  ",
-      "color": {
-        "a": 1,
-        "rgb": 1966335
-      }
-    },
-    {
       "query": "path:Bash  ",
       "color": {
         "a": 1,
         "rgb": 5111552
+      }
+    },
+    {
+      "query": "path:AGS  ",
+      "color": {
+        "a": 1,
+        "rgb": 11141879
       }
     }
   ],
@@ -35,10 +35,10 @@
   "nodeSizeMultiplier": 1.79666529605263,
   "lineSizeMultiplier": 1.51801809210526,
   "collapse-forces": false,
-  "centerStrength": 0.518713248970312,
-  "repelStrength": 20,
-  "linkStrength": 1,
-  "linkDistance": 119,
-  "scale": 0.39657942085498876,
+  "centerStrength": 0.42639802631579,
+  "repelStrength": 9.38075657894737,
+  "linkStrength": 0.452672697368421,
+  "linkDistance": 357,
+  "scale": 0.8786997128177776,
   "close": true
 }
