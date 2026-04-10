@@ -1,0 +1,45 @@
+$main: #1a1b26;
+$bg-dark: #16161e;
+$fg: #c0caf5;
+$blue: #7aa2f7;
+$purple: #bb9af7;
+$cyan: #7dcfff;
+$green: #9ece6a;
+$red: #f7768e;
+$orange: #ff9e64;
+$yellow: #e0af68;
+
+.Bar {
+  background: transparent;
+  color: $main;
+  font-size: 13px;
+  font-weight: bold;
+
+  box {
+    background: $main;
+    border-radius: 10px;
+    margin: 8px;
+    padding: 0 8px;
+    min-height: 36px;
+  }
+
+  button {
+    border-radius: 8px;
+    margin: 2px;
+    padding: 2px 8px;
+    color: $fg;
+    background: transparent;
+
+    &:hover {
+      background: $bg-dark;
+    }
+  }
+
+  label {
+    color: $fg;
+  }
+}
+
+.clock {
+  color: #ffffff;
+}

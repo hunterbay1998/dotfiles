@@ -18,3 +18,4 @@
 - [[sed]]
 - [[plymouth]]
 - [[kernel]]
+- [[rsync]]

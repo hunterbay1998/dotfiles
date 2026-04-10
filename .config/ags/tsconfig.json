@@ -9,9 +9,6 @@
     // "checkJs": true,
     // "allowJs": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "ags/gtk4",
-    "paths": {
-      "ags/gtk4/jsx-runtime": ["./node_modules/ags/lib/gtk4/jsx-runtime.ts"]
-    }
+    "jsxImportSource": "ags/gtk4"
   }
 }

@@ -7,8 +7,8 @@ export default function Battery() {
   const battery = AstalBattery.get_default()
   const percent = createBinding(battery, "percentage")
   const charging = createBinding(battery, "charging")
-  const cssClasses = createComputed([percent, charging], (p, c) =>
-    c ? ["battery", "charging"] : getBatteryClass(p)
+  const cssClasses = createComputed(() =>
+    charging() ? ["battery", "charging"] : getBatteryClass(percent())
   )
 
   return (
@@ -28,6 +28,6 @@ export default function Battery() {
 
 ## How it works
 - `createBinding(battery, "percentage")` — watches battery level (0 to 1)
-- `createComputed([percent, charging], ...)` — combines two bindings to pick the right CSS class
+- `createComputed(() => ...)` — reads both bindings inside to pick the right CSS class
 - `getBatteryClass` — returns a class like `low`, `medium`, `full` based on percentage
 - `levelbar` — a GTK progress bar styled to look like a battery

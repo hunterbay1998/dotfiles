@@ -130,7 +130,7 @@ const items = ["one", "two", "three"]
 
 | Widget        | What it does             | Key props                         |
 |---------------|--------------------------|-----------------------------------|
-| `<window>`    | Root of everything       | `visible`, `monitor`, `anchor`    |
+| `<window>`    | Root of everything       | `visible`, `gdkmonitor`, `anchor` |
 | `<box>`       | Container (row/column)   | `orientation`, children           |
 | `<centerbox>` | Start/center/end layout  | children use `$type="start"` etc  |
 | `<label>`     | Text                     | `label`, `useMarkup`, `wrap`      |
@@ -151,7 +151,7 @@ import app from "ags/gtk4/app"
 app.start({
   css: "/path/to/style.css",
   main() {
-    Bar(0) // 0 = first monitor
+    app.get_monitors().map(Bar)
   },
 })
 ```
@@ -189,7 +189,7 @@ Type this out — don't copy-paste. It uses everything from Tier 1.
 
 ```typescript
 import app from "ags/gtk4/app"
-import { Astal } from "ags/gtk4"
+import { Astal, Gdk } from "ags/gtk4"
 import { createState, createComputed } from "ags"
 import { createPoll } from "ags/time"
 
@@ -215,11 +215,11 @@ function Counter() {
   )
 }
 
-function Bar(monitor = 0) {
+function Bar(gdkmonitor: Gdk.Monitor) {
   // anchor pins the bar to the top edge, stretching left to right
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
   return (
-    <window visible monitor={monitor} anchor={TOP | LEFT | RIGHT} class="bar">
+    <window visible gdkmonitor={gdkmonitor} anchor={TOP | LEFT | RIGHT} class="bar">
       {/* centerbox splits children into start / center / end */}
       <centerbox>
         <box $type="start">
@@ -238,7 +238,7 @@ function Bar(monitor = 0) {
 
 app.start({
   main() {
-    Bar(0)
+    app.get_monitors().map(Bar)
   },
 })
 ```
