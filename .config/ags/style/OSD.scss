@@ -1,0 +1,50 @@
+// ==========================================
+// OSD STYLES
+// ==========================================
+
+@use "vars" as *;
+
+window#osd {
+  background: transparent;
+
+  .osd {
+    background: $glass;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 10px 18px;
+
+    .osd-icon {
+      font-size: 18px;
+      color: $vivid-cyan;
+      min-width: 22px;
+    }
+
+    &.brightness .osd-icon { color: $vivid-orange; }
+
+    levelbar.osd-bar {
+      trough {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
+        min-width: 6px;
+        padding: 0;
+        border: none;
+      }
+      block {
+        min-width: 6px;
+        border-radius: 3px;
+        border: none;
+      }
+      block.filled { background: $vivid-cyan; }
+      block.empty  { background: transparent; }
+    }
+
+    &.brightness levelbar.osd-bar block.filled { background: $vivid-orange; }
+
+    .osd-percent {
+      font-size: 11px;
+      font-family: "JetBrainsMono Nerd Font";
+      font-weight: bold;
+      color: $text-primary;
+    }
+  }
+}

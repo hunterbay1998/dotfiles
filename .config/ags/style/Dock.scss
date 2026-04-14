@@ -1,0 +1,28 @@
+// ==========================================
+// DOCK STYLES
+// ==========================================
+
+@use "vars" as *;
+
+window#dock {
+  background: transparent;
+
+  .dock {
+    background: $glass;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 10px;
+    margin: 0 0 6px 0;
+
+    .dock-item {
+      background: transparent;
+      border-radius: 12px;
+      padding: 6px;
+      margin: 0 3px;
+      transition: all 150ms ease;
+
+      &:hover { background: rgba(255, 255, 255, 0.1); }
+      &:active { background: rgba(122, 162, 247, 0.2); }
+    }
+  }
+}

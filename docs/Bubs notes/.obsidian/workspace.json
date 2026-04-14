@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arch/rsync.md",
+                "file": "Bash/patterns.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "rsync"
+              "title": "patterns"
             }
           }
         ]
@@ -184,9 +184,15 @@
   },
   "active": "34df2703903a6cb8",
   "lastOpenFiles": [
+    "Bash/conditionals.md",
+    "Bash/Bash.md",
+    "Bash/variables.md",
+    "Bash/patterns.md",
+    "Bash/loops.md",
+    "Bash/functions.md",
+    "Arch/rsync.md",
     "Arch/permissions.md",
     "Arch/permissions.md.tmp.8004.1775766530176",
-    "Arch/rsync.md",
     "Arch/rsync.md.tmp.8004.1775765922503",
     "Arch/systemd.md",
     "Arch/sed.md",
@@ -214,12 +220,6 @@
     "AGS/widgets/notifications.md",
     "AGS/widgets/brightness.md",
     "AGS/widgets/battery.md",
-    "AGS/widgets/wifi.md",
-    "AGS/widgets/volume.md",
-    "AGS/widgets/widgets.md",
-    "Arch/wifi.md",
-    "Arch/kernel.md",
-    "Arch/plymouth.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

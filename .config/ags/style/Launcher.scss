@@ -1,0 +1,84 @@
+// ==========================================
+// LAUNCHER STYLES
+// ==========================================
+
+@use "vars" as *;
+
+.launcher-toggle {
+  label { font-size: 16px; color: $text-muted; transition: all 200ms ease; }
+  &:hover label { color: $vivid-purple; }
+}
+
+window#launcher {
+  background: transparent;
+
+  .launcher {
+    background: $glass;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px;
+  }
+
+  .launcher-header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .launcher-title { font-size: 12px; font-weight: bold; color: $text-primary; letter-spacing: 0.5px; }
+  .launcher-hint { font-size: 10px; color: $text-muted; font-weight: normal; }
+
+  .launcher-entry-wrap {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2px 10px;
+    margin-bottom: 10px;
+  }
+
+  .launcher-search-icon { font-size: 15px; color: $text-muted; min-width: 18px; }
+
+  .launcher-entry {
+    background: transparent;
+    color: $text-primary;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: normal;
+    &:focus { outline: none; box-shadow: none; }
+  }
+
+  .launcher-scroll {
+    border-radius: 8px;
+    scrollbar { background: transparent; slider { background: rgba(255, 255, 255, 0.2); border-radius: 4px; min-width: 4px; } }
+  }
+
+  .launcher-results { padding: 0; }
+
+  .launcher-icon-wrap {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 5px;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .launcher-item {
+    background: transparent;
+    border-radius: 10px;
+    padding: 6px 8px;
+    margin: 1px 0;
+    transition: background 100ms ease;
+
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+    &.selected { background: rgba(187, 154, 247, 0.15); border-left: 2px solid $vivid-purple; }
+  }
+
+  .launcher-item-name { color: $text-primary; font-size: 13px; font-weight: bold; }
+  .launcher-item-desc { color: $text-muted; font-size: 11px; font-weight: normal; margin-top: 1px; }
+
+  .launcher-footer { margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+  .launcher-footer-label { font-size: 10px; color: $text-muted; font-weight: normal; }
+}

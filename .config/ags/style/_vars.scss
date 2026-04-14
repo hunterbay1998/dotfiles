@@ -1,0 +1,46 @@
+// ==========================================
+// VARIABLES — Tokyo Night (OLED-lifted)
+// ==========================================
+
+// Glass surfaces (semi-transparent for blur/frosted glass)
+$glass:            rgba(65, 70, 104, 0.72);
+$glass-deep:       rgba(26, 27, 38, 0.78);
+$glass-popup:      rgba(59, 66, 104, 0.72);
+
+// Surfaces — Tokyo Night full palette
+$surface:          #414868; // main panel/menu background
+$surface-raised:   #4f5880; // buttons, inputs, slider troughs
+$surface-hover:    #565f89; // hovered items
+$surface-border:   #565f89; // borders
+$surface-popup:    #3b4268; // slightly darker floating surfaces
+$surface-selected: #4a5899; // selected item background
+
+// Text
+$text-primary: #c0caf5; // main readable text
+$text-muted:   #9aa5ce; // secondary, dimmed
+
+// Accents
+$accent:            #7aa2f7; // blue — active states, highlights
+$workspace-focused: #bb9af7; // purple — secondary accent (brighter)
+
+// Vivid palette
+$vivid-cyan:    #7dcfff;
+$vivid-teal:    #73daca;
+$vivid-mint:    #b4f9f8;
+$vivid-green:   #9ece6a;
+$vivid-orange:  #ff9e64;
+$vivid-yellow:  #e0af68;
+$vivid-red:     #f7768e;
+$vivid-purple:  #bb9af7;
+
+// Status
+$status-ok:       #1cfc03;
+$status-good:     #a6e22e;
+$status-warn:     #f4bf75;
+$status-low:      #fd971f;
+$status-critical: #f92672;
+
+// Danger
+$danger-icon:    #f7768e;
+$danger-surface: #3d1a1a;
+$power-icon:     #911125;

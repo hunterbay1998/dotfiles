@@ -1,0 +1,642 @@
+// ==========================================
+// SETTINGS PANEL — macOS Sonoma dark style
+// ==========================================
+
+@use "vars" as *;
+
+window#settings {
+  background: transparent;
+  font-family: "JetBrainsMono Nerd Font";
+
+  .settings-window {
+    background: #414868;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  // ── Sidebar ──────────────────────────────
+
+  .settings-sidebar {
+    background: #1a1b26;
+
+    border-radius: 16px 0 0 16px;
+    padding: 14px 8px;
+    min-width: 130px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .settings-sidebar-title {
+    font-size: 10px;
+    color: $text-muted;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+
+  .settings-tab-btn {
+    background: transparent;
+    border-radius: 8px;
+    padding: 9px 10px;
+    transition: background 100ms ease;
+
+    .settings-tab-icon {
+      font-size: 17px;
+      color: $text-muted;
+      min-width: 22px;
+    }
+
+    .settings-tab-label {
+      font-size: 13px;
+      color: $text-muted;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+      .settings-tab-icon,
+      .settings-tab-label { color: $text-primary; }
+    }
+
+    &.active {
+      background: $accent;
+      .settings-tab-icon,
+      .settings-tab-label { color: #ffffff; }
+    }
+  }
+
+  // ── Main content ─────────────────────────
+
+  .settings-main {
+    padding: 14px 12px;
+  }
+
+  .settings-content {
+    // filled by each tab
+  }
+
+  // macOS-style section title: small, uppercase, muted
+  .settings-section-title {
+    font-size: 10px;
+    color: $text-muted;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+
+  .settings-subsection-title {
+    font-size: 10px;
+    color: $text-muted;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    padding: 0 4px;
+  }
+
+  // ── Grouped card (rows inside share one card) ──
+
+  .settings-group {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid #414868;
+
+    margin-bottom: 2px;
+  }
+
+  // Row inside a group — macOS table row style
+  .settings-row {
+    padding: 11px 14px;
+    border-bottom: 1px solid #414868;
+    transition: background 80ms ease;
+
+    &:last-child { border-bottom: none; }
+    &:hover { background: rgba(255, 255, 255, 0.06); }
+  }
+
+  // ── Sliders ───────────────────────────────
+
+  .settings-slider-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid #414868;
+    padding: 12px 14px;
+    margin-bottom: 2px;
+  }
+
+  .settings-slider-header {
+    margin-bottom: 10px;
+  }
+
+  .settings-slider-icon {
+    font-size: 16px;
+    color: $vivid-cyan;
+    min-width: 22px;
+    margin-right: 8px;
+  }
+
+  // brightness slider icon is orange
+  .qs-brightness .settings-slider-icon,
+  .settings-brightness .settings-slider-icon { color: $vivid-orange; }
+
+  .settings-slider-label {
+    font-size: 13px;
+    color: $text-primary;
+    font-weight: bold;
+  }
+
+  .settings-slider-value {
+    font-size: 12px;
+    color: $text-muted;
+    font-weight: normal;
+  }
+
+  scale.settings-slider {
+    trough {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      min-height: 5px;
+    }
+    highlight {
+      background: $accent;
+      border-radius: 4px;
+    }
+    slider {
+      background: #ffffff;
+      border-radius: 50%;
+      min-width: 18px;
+      min-height: 18px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  // ── macOS-style toggle pill ───────────────
+
+  .settings-toggle-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    min-width: 48px;
+    min-height: 26px;
+    padding: 2px 10px;
+    transition: background 200ms ease;
+
+    label {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: bold;
+    }
+
+    &:hover { background: rgba(255, 255, 255, 0.18); }
+
+    &.active {
+      background: $accent;
+      label { color: #ffffff; }
+    }
+  }
+
+  // ── Toggle row (wifi/bt header) ───────────
+
+  .settings-toggle-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid #414868;
+    padding: 12px 14px;
+    margin-bottom: 2px;
+  }
+
+  .settings-toggle-icon {
+    font-size: 18px;
+    color: $vivid-teal;
+    min-width: 26px;
+    margin-right: 10px;
+  }
+
+  // Bluetooth toggle icon — mint
+  .settings-bt-toggle .settings-toggle-icon { color: $vivid-mint; }
+
+  .settings-toggle-label {
+    font-size: 13px;
+    color: $text-primary;
+    font-weight: bold;
+  }
+
+  // ── Device rows ──────────────────────────
+
+  .settings-scroll {
+    border-radius: 12px;
+
+    scrollbar slider {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      min-width: 4px;
+    }
+  }
+
+  .settings-device-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    padding: 10px 14px;
+    border-bottom: 1px solid #414868;
+    transition: background 80ms ease;
+
+    &:first-child { border-radius: 12px 12px 0 0; }
+    &:last-child  { border-radius: 0 0 12px 12px; border-bottom: none; }
+    &:only-child  { border-radius: 12px; border-bottom: none; }
+
+    .settings-device-icon {
+      font-size: 15px;
+      color: $text-muted;
+      min-width: 22px;
+    }
+
+    .settings-device-name {
+      font-size: 13px;
+      color: $text-primary;
+      font-weight: normal;
+    }
+
+    .settings-device-check {
+      font-size: 15px;
+      color: $accent;
+    }
+
+    &:hover { background: rgba(255, 255, 255, 0.09); }
+
+    &.active {
+      .settings-device-icon { color: $accent; }
+      .settings-device-name { color: $accent; font-weight: bold; }
+    }
+  }
+
+  // ── Bluetooth devices ─────────────────────
+
+  .settings-bt-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    padding: 11px 14px;
+    border-bottom: 1px solid #414868;
+    transition: background 80ms ease;
+
+    &:first-child { border-radius: 12px 12px 0 0; }
+    &:last-child  { border-radius: 0 0 12px 12px; border-bottom: none; }
+    &:only-child  { border-radius: 12px; border-bottom: none; }
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .settings-bt-icon {
+      font-size: 18px;
+      color: $vivid-mint;
+      min-width: 26px;
+      margin-right: 10px;
+    }
+
+    .settings-bt-name {
+      font-size: 13px;
+      color: $text-primary;
+      font-weight: bold;
+    }
+
+    .settings-bt-status {
+      font-size: 11px;
+      color: $text-muted;
+      font-weight: normal;
+      margin-top: 2px;
+    }
+
+    .settings-bt-battery {
+      font-size: 11px;
+      color: $text-muted;
+      margin-right: 10px;
+    }
+
+    .settings-bt-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 4px 14px;
+      transition: all 120ms ease;
+
+      label { font-size: 11px; color: $text-muted; font-weight: bold; }
+      &:hover { background: rgba(255, 255, 255, 0.14); label { color: $text-primary; } }
+
+      &.disconnect {
+        background: rgba(247, 118, 142, 0.12);
+        label { color: $danger-icon; }
+        &:hover { background: $danger-surface; }
+      }
+    }
+  }
+
+  // ── WiFi ─────────────────────────────────
+
+  .settings-wifi-connected {
+    background: rgba(115, 218, 202, 0.1);
+    border: 1px solid rgba(115, 218, 202, 0.25);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 6px;
+
+    .settings-wifi-connected-icon {
+      font-size: 20px;
+      color: $vivid-teal;
+      min-width: 26px;
+      margin-right: 10px;
+    }
+
+    .settings-wifi-connected-ssid {
+      font-size: 13px;
+      color: $vivid-teal;
+      font-weight: bold;
+    }
+
+    .settings-wifi-connected-status {
+      font-size: 11px;
+      color: rgba(115, 218, 202, 0.7);
+      font-weight: normal;
+    }
+
+    .settings-wifi-strength {
+      font-size: 11px;
+      color: $text-muted;
+    }
+  }
+
+  .settings-wifi-search-row { margin-bottom: 4px; }
+
+  .settings-wifi-search {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 2px 10px;
+    border: 1px solid #414868;
+  }
+
+  .settings-search-icon {
+    font-size: 14px;
+    color: $text-muted;
+    min-width: 18px;
+    margin-right: 6px;
+  }
+
+  .settings-search-entry {
+    background: transparent;
+    color: $text-primary;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 13px;
+    padding: 7px 0;
+    font-weight: normal;
+    &:focus { outline: none; box-shadow: none; }
+  }
+
+  .settings-scan-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 6px 14px;
+    border: 1px solid #414868;
+    transition: background 100ms ease;
+    label { font-size: 12px; color: $text-muted; font-weight: bold; }
+    &:hover { background: rgba(255, 255, 255, 0.12); label { color: $text-primary; } }
+  }
+
+  .settings-ap-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    padding: 10px 14px;
+    border-bottom: 1px solid #414868;
+    transition: background 80ms ease;
+
+    &:first-child { border-radius: 12px 12px 0 0; }
+    &:last-child  { border-radius: 0 0 12px 12px; border-bottom: none; }
+    &:only-child  { border-radius: 12px; border-bottom: none; }
+    &:hover { background: rgba(255, 255, 255, 0.09); }
+
+    .settings-ap-icon { font-size: 15px; color: $text-muted; min-width: 22px; }
+    .settings-ap-ssid { font-size: 13px; color: $text-primary; font-weight: normal; }
+    .settings-ap-strength { font-size: 11px; color: $text-muted; margin-right: 8px; }
+    .settings-ap-check { font-size: 15px; color: $accent; }
+
+    &.connected {
+      .settings-ap-icon { color: $accent; }
+      .settings-ap-ssid { color: $accent; font-weight: bold; }
+    }
+  }
+
+  // ── Slideshow ─────────────────────────────
+
+  .settings-slideshow-bar {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid #414868;
+    padding: 12px 14px;
+  }
+
+  .settings-slideshow-icon { font-size: 17px; color: $accent; min-width: 22px; margin-right: 10px; }
+  .settings-slideshow-label { font-size: 13px; color: $text-primary; font-weight: bold; }
+  .settings-slideshow-hint { font-size: 11px; color: $text-muted; font-weight: normal; padding: 0 2px; }
+
+  .settings-interval-group { margin-right: 8px; }
+
+  .settings-interval-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 3px 9px;
+    transition: all 100ms ease;
+    label { font-size: 11px; color: $text-muted; font-weight: bold; }
+    &:hover { background: rgba(255, 255, 255, 0.14); label { color: $text-primary; } }
+    &.active {
+      background: $accent;
+      label { color: #ffffff; }
+    }
+  }
+
+  .settings-wallpaper-slideshow-badge {
+    font-size: 16px;
+    color: $accent;
+    margin: 6px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  .settings-wallpaper-item.in-rotation {
+    border-color: rgba(122, 162, 247, 0.7);
+  }
+
+  // ── Wallpaper ─────────────────────────────
+
+  .settings-wallpaper-breadcrumb {
+    font-size: 13px;
+    color: $text-primary;
+    font-weight: bold;
+  }
+
+  .settings-folder-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 80ms ease;
+
+    &:first-child { border-radius: 12px 12px 0 0; }
+    &:last-child  { border-radius: 0 0 12px 12px; border-bottom: none; }
+    &:only-child  { border-radius: 12px; border-bottom: none; }
+    &:hover { background: rgba(255, 255, 255, 0.1); }
+  }
+
+  .settings-folder-icon {
+    font-size: 16px;
+    color: $vivid-yellow;
+    min-width: 22px;
+  }
+
+  .settings-folder-name {
+    font-size: 13px;
+    color: $text-primary;
+    font-weight: normal;
+  }
+
+  .settings-folder-chevron {
+    font-size: 16px;
+    color: $text-muted;
+  }
+
+  .settings-wallpaper-header { margin-bottom: 4px; }
+
+  .settings-wallpaper-dir {
+    font-size: 10px;
+    color: $text-muted;
+    font-weight: normal;
+  }
+
+  .settings-wallpaper-grid { padding: 4px; }
+
+  .settings-wallpaper-empty {
+    font-size: 12px;
+    color: $text-muted;
+    font-weight: normal;
+    padding: 40px 0;
+  }
+
+  .settings-wallpaper-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 6px;
+    transition: all 150ms ease;
+    border: 2px solid transparent;
+
+    &:hover { background: rgba(255, 255, 255, 0.09); border-color: rgba(255, 255, 255, 0.12); }
+    &.active { border-color: $accent; }
+  }
+
+  .settings-wallpaper-thumb { border-radius: 8px; min-width: 260px; min-height: 163px; }
+
+  .settings-wallpaper-name {
+    font-size: 11px;
+    color: $text-muted;
+    font-weight: normal;
+  }
+
+  .settings-wallpaper-check {
+    font-size: 20px;
+    color: $accent;
+    margin: 6px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  }
+
+  // ── VPN ───────────────────────────────────
+
+  .settings-vpn-status-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid #414868;
+    padding: 16px;
+  }
+
+  .settings-vpn-icon { font-size: 34px; color: $text-muted; min-width: 40px; }
+  .settings-vpn-status-label { font-size: 15px; color: $text-primary; font-weight: bold; }
+  .settings-vpn-status-sub { font-size: 11px; color: $text-muted; font-weight: normal; margin-top: 3px; }
+
+  .settings-vpn-back-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    padding: 4px 12px;
+    transition: all 120ms ease;
+    label { font-size: 12px; color: $text-muted; font-weight: bold; }
+    &:hover { background: rgba(255, 255, 255, 0.12); label { color: $text-primary; } }
+  }
+
+  .settings-vpn-connect-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 6px 18px;
+    transition: all 120ms ease;
+    label { font-size: 12px; color: $text-muted; font-weight: bold; }
+    &:hover { background: rgba(255, 255, 255, 0.14); label { color: $text-primary; } }
+    &.connected {
+      background: rgba(247, 118, 142, 0.12);
+      label { color: $danger-icon; }
+      &:hover { background: $danger-surface; }
+    }
+  }
+
+  .settings-vpn-icon-connected { color: $vivid-green; }
+
+  .settings-vpn-details {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .settings-vpn-detail-row { margin-top: 4px; }
+  .settings-vpn-detail-key { font-size: 11px; color: $text-muted; min-width: 52px; font-weight: normal; }
+  .settings-vpn-detail-val { font-size: 11px; color: $text-primary; font-weight: normal; }
+
+  .settings-vpn-country-row {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+    padding: 10px 14px;
+    border-bottom: 1px solid #414868;
+    transition: background 80ms ease;
+
+    &:first-child { border-radius: 12px 12px 0 0; }
+    &:last-child  { border-radius: 0 0 12px 12px; border-bottom: none; }
+    &:only-child  { border-radius: 12px; border-bottom: none; }
+    &:hover { background: rgba(255, 255, 255, 0.09); }
+
+    .settings-vpn-country-icon { font-size: 14px; color: $text-muted; min-width: 22px; }
+    .settings-vpn-country-name { font-size: 13px; color: $text-primary; font-weight: normal; }
+    .settings-vpn-country-check { font-size: 14px; color: $accent; }
+
+    &.active {
+      .settings-vpn-country-icon { color: $accent; }
+      .settings-vpn-country-name { color: $accent; font-weight: bold; }
+    }
+  }
+
+  // ── System tab option pills ───────────────
+
+  .settings-option-pill {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 6px 14px;
+    transition: all 150ms ease;
+
+    label { font-size: 12px; color: $text-muted; font-weight: bold; }
+    &:hover { background: rgba(255, 255, 255, 0.14); label { color: $text-primary; } }
+
+    &.active {
+      background: rgba(158, 206, 106, 0.2);
+      border: 1px solid rgba(158, 206, 106, 0.5);
+      label { color: $vivid-green; }
+    }
+  }
+
+  // ── Bar button ────────────────────────────
+
+  .settings-bar-btn {
+    label {
+      font-size: 14px;
+      color: $text-muted;
+      transition: color 80ms ease;
+    }
+    &:hover label { color: $accent; }
+  }
+}

@@ -50,7 +50,7 @@ alias lt='eza -T --icons --level=2'
 alias cat='bat --style=plain'
 alias grep='rg'
 alias find='fd'
-
+alias cd='z'
 # =============================
 # Aliases - server
 # =============================

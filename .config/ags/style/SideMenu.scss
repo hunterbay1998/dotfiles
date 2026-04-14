@@ -1,0 +1,148 @@
+// ==========================================
+// SIDE MENU STYLES
+// ==========================================
+
+@use "vars" as *;
+
+window#side-menu {
+  background: transparent;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+
+  > box.side-menu {
+    background: $glass;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 8px 8px 8px 0;
+    padding: 14px;
+
+    .qs-top-row {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      .qs-actions {
+        .qs-action-btn {
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 10px;
+          padding: 8px 10px;
+          margin-left: 4px;
+          color: $text-muted;
+          font-size: 15px;
+          transition: background 100ms ease, color 100ms ease;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: $text-primary;
+          }
+
+          &.shutdown:hover {
+            background: rgba(247, 118, 142, 0.15);
+            color: $danger-icon;
+          }
+        }
+      }
+    }
+
+    .qs-battery-info {
+      padding: 2px 0;
+
+      .qs-battery-icon { font-size: 32px; margin-right: 12px; color: $vivid-green; }
+      .qs-battery-percent { font-size: 24px; color: $text-primary; font-weight: bold; }
+      .qs-battery-status { font-size: 11px; color: $vivid-purple; margin-top: 2px; }
+    }
+
+    .qs-volume,
+    .qs-brightness {
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 12px;
+    }
+
+    .qs-volume {
+      .qs-volume-header {
+        margin-bottom: 8px;
+
+        .qs-volume-icon { background: transparent; padding: 0; margin-right: 8px; color: $vivid-cyan; font-size: 16px; }
+        .qs-volume-label { color: $text-primary; font-size: 12px; font-weight: bold; }
+        .qs-volume-percent { color: $text-muted; font-size: 11px; font-weight: normal; }
+      }
+
+      scale.qs-volume-slider {
+        trough { background: rgba(0, 0, 0, 0.3); border-radius: 4px; min-height: 5px; }
+        highlight { background: $vivid-cyan; border-radius: 4px; }
+        slider { background: #ffffff; border-radius: 50%; min-width: 16px; min-height: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+      }
+    }
+
+    .qs-brightness {
+      .qs-brightness-header {
+        margin-bottom: 8px;
+
+        .qs-brightness-icon { padding: 0; margin-right: 8px; color: #e0af68; font-size: 16px; }
+        .qs-brightness-label { color: $text-primary; font-size: 12px; font-weight: bold; }
+        .qs-brightness-percent { color: $text-muted; font-size: 11px; font-weight: normal; }
+      }
+
+      scale.qs-brightness-slider {
+        trough { background: rgba(0, 0, 0, 0.3); border-radius: 4px; min-height: 5px; }
+        highlight { background: #e0af68; border-radius: 4px; }
+        slider { background: #ffffff; border-radius: 50%; min-width: 16px; min-height: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+      }
+    }
+
+    .qs-grid {
+      button.qs-toggle {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 12px 10px;
+        margin: 3px;
+        transition: background 100ms ease;
+
+        .qs-toggle-icon { font-size: 17px; color: $text-muted; margin-right: 6px; }
+        .qs-toggle-name { color: $text-primary; font-size: 12px; font-weight: bold; }
+        .qs-toggle-status { color: $text-muted; font-size: 10px; font-weight: normal; margin-top: 2px; }
+
+        &:hover { background: rgba(255, 255, 255, 0.12); }
+
+        &.active {
+          background: rgba(122, 162, 247, 0.2);
+          border-color: $accent;
+
+          .qs-toggle-icon { color: $accent; }
+          .qs-toggle-name { color: $accent; }
+          .qs-toggle-status { color: rgba(122, 162, 247, 0.7); }
+        }
+
+        // WiFi — teal when active
+        &.wifi.active {
+          background: rgba(115, 218, 202, 0.15);
+          border-color: $vivid-teal;
+
+          .qs-toggle-icon { color: $vivid-teal; }
+          .qs-toggle-name { color: $vivid-teal; }
+          .qs-toggle-status { color: rgba(115, 218, 202, 0.7); }
+        }
+
+        // Bluetooth — mint when active
+        &.bluetooth.active {
+          background: rgba(180, 249, 248, 0.12);
+          border-color: $vivid-mint;
+
+          .qs-toggle-icon { color: $vivid-mint; }
+          .qs-toggle-name { color: $vivid-mint; }
+          .qs-toggle-status { color: rgba(180, 249, 248, 0.6); }
+        }
+      }
+    }
+  }
+
+  button.side-menu-button {
+    color: $text-muted;
+    transition: color 80ms ease;
+    &:hover { color: $workspace-focused; }
+  }
+}

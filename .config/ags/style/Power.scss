@@ -1,0 +1,33 @@
+// ==========================================
+// POWER STYLES
+// Includes: PowerButton, PowerMenu
+// ==========================================
+
+@use "vars" as *;
+
+.power-button {
+  color: $power-icon;
+
+  label {
+    margin-top: -2px;
+  }
+}
+
+window#power-menu {
+  background: $surface-popup;
+  border-radius: 10px;
+
+  box {
+    padding: 8px;
+  }
+
+  button {
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px 16px;
+
+    &.power-button-reboot   { color: $status-ok; }
+    &.power-button-shutdown { color: $status-critical; }
+    &.power-button-suspend  { color: $status-warn; }
+  }
+}

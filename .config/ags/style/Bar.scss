@@ -1,0 +1,72 @@
+@use "vars" as *;
+
+window.Bar {
+  background: transparent;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+
+  > centerbox {
+    background: transparent;
+    padding: 0 4px;
+
+    > box {
+      background: transparent;
+    }
+  }
+
+  .bar-pill {
+    background: $glass;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 4px 2px;
+    padding: 0 4px;
+  }
+
+  // ── Quick status group ──────────────────────
+  button.qs-bar-group {
+    background: transparent;
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin: 3px 1px;
+    transition: background 100ms ease;
+
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+
+    .qs-bar-item { }
+
+    .qs-bar-icon {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .qs-bar-label {
+      font-size: 11px;
+      color: $text-muted;
+    }
+
+    .qs-bar-vol    { color: $vivid-cyan; }
+    .qs-bar-bright { color: $vivid-orange; }
+    .qs-bar-wifi   { color: $vivid-teal; }
+    .qs-bar-bt     { color: $vivid-mint; }
+  }
+
+  button {
+    background: transparent;
+    border-radius: 6px;
+    margin: 2px 1px;
+    padding: 1px 6px;
+    min-width: 16px;
+    min-height: 0;
+    transition: background 100ms ease, color 100ms ease;
+
+    label {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $accent;
+    }
+  }
+}

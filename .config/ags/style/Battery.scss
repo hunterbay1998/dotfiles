@@ -1,0 +1,55 @@
+// ==========================================
+// BATTERY STYLES
+// Includes: Battery button, BatteryMenu
+// ==========================================
+
+@use "vars" as *;
+
+.battery {
+  &.full     { color: $status-ok; }
+  &.high     { color: $status-good; }
+  &.medium   { color: $status-warn; }
+  &.low      { color: $status-low; }
+  &.critical { color: $status-critical; }
+  &.charging { color: $status-ok; }
+
+  .battery-percent {
+    font-size: 12px;
+  }
+
+  .battery-charging-icon {
+    font-size: 11px;
+    font-weight: bold;
+    color: #1e1e2e;
+  }
+
+  levelbar.battery-level {
+    min-height: 10px;
+
+    trough {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      min-height: 10px;
+      padding: 0;
+      border: none;
+    }
+
+    block {
+      min-height: 10px;
+      min-width: 2px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    block.empty {
+      background: transparent;
+    }
+  }
+
+  &.full     levelbar.battery-level block.filled { background: $status-ok; }
+  &.high     levelbar.battery-level block.filled { background: $status-good; }
+  &.medium   levelbar.battery-level block.filled { background: $status-warn; }
+  &.low      levelbar.battery-level block.filled { background: $status-low; }
+  &.critical levelbar.battery-level block.filled { background: $status-critical; }
+  &.charging levelbar.battery-level block.filled { background: $status-ok; }
+}

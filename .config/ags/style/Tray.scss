@@ -1,0 +1,20 @@
+// ==========================================
+// TRAY STYLES
+// Includes: TrayButton, TrayMenu
+// ==========================================
+
+@use "vars" as *;
+
+window#tray-menu {
+  background: $surface-popup;
+  border-radius: 10px;
+
+  box {
+    padding: 10px;
+
+    .tray-item {
+      background: transparent;
+      padding: 6px;
+    }
+  }
+}

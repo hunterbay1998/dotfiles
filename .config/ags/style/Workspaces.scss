@@ -1,0 +1,40 @@
+@use "vars" as *;
+
+.workspaces {
+  padding: 0 6px;
+
+  .workspace {
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    min-width: 0;
+    min-height: 0;
+    padding: 3px 10px;
+    margin: 3px 2px;
+    transition: background 150ms ease;
+
+    &:hover { background: rgba(255, 255, 255, 0.08); }
+
+    &.focused {
+      background: rgba(187, 154, 247, 0.3);
+      border-color: rgba(187, 154, 247, 0.6);
+    }
+  }
+
+  .workspace-icons {
+    min-height: 20px;
+  }
+
+  .workspace-dot {
+    font-size: 7px;
+    color: rgba(192, 202, 245, 0.4);
+
+    .focused & { color: rgba(187, 154, 247, 0.9); }
+  }
+
+  .workspace-app-icon {
+    opacity: 0.7;
+
+    .focused & { opacity: 1; }
+  }
+}

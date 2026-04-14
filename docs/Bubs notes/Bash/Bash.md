@@ -5,3 +5,4 @@
 - [[conditionals]]
 - [[loops]]
 - [[functions]]
+- [[patterns]]

@@ -1,0 +1,86 @@
+// ==========================================
+// NOTIFICATION MENU STYLES
+// ==========================================
+
+@use "vars" as *;
+
+.notif-clock-btn {
+  &:hover .notif-clock-time { color: $text-primary; }
+
+  .notif-clock-time { font-size: 14px; color: $text-primary; transition: color 200ms ease; }
+  .notif-clock-dot { font-size: 7px; color: $vivid-purple; margin-bottom: 2px; }
+  .notif-clock-count { font-size: 10px; color: $vivid-purple; font-weight: bold; }
+}
+
+window#notif-menu {
+  background: transparent;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+
+  > box.notif-menu {
+    background: $glass;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 8px 8px 8px 0;
+    padding: 12px;
+
+    .notif-menu-header {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      .notif-menu-title { font-size: 12px; color: $text-primary; font-weight: bold; letter-spacing: 0.5px; }
+
+      .notif-clear-btn {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 3px 10px;
+        transition: all 150ms ease;
+
+        label { font-size: 11px; color: $text-muted; font-weight: normal; }
+        &:hover { background: rgba(255, 255, 255, 0.12); label { color: $text-primary; } }
+      }
+    }
+
+    .notif-scroll {
+      border-radius: 8px;
+      scrollbar slider { background: rgba(255, 255, 255, 0.2); border-radius: 4px; min-width: 4px; }
+    }
+
+    .notif-list { padding: 0; }
+
+    .notif-item {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px;
+      margin-bottom: 5px;
+
+      .notif-header {
+        margin-bottom: 4px;
+
+        .notif-app-icon { margin-right: 6px; }
+        .notif-app-name { font-size: 10px; color: $vivid-purple; font-weight: bold; letter-spacing: 0.3px; }
+
+        .notif-dismiss {
+          background: transparent;
+          padding: 0 2px;
+          border-radius: 4px;
+          transition: all 150ms ease;
+
+          label { font-size: 13px; color: $text-muted; }
+          &:hover label { color: $danger-icon; }
+        }
+      }
+
+      .notif-summary { font-size: 12px; color: $text-primary; font-weight: bold; margin-bottom: 2px; }
+      .notif-body { font-size: 11px; color: $text-muted; font-weight: normal; }
+    }
+
+    .notif-empty {
+      padding: 20px 0;
+      .notif-empty-icon { font-size: 22px; color: $text-muted; }
+      .notif-empty-label { font-size: 11px; color: $text-muted; font-weight: normal; }
+    }
+  }
+}

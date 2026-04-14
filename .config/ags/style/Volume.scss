@@ -1,0 +1,19 @@
+// ==========================================
+// VOLUME STYLES
+// Includes: VolumeButton, VolumeMenu
+// ==========================================
+
+@use "vars" as *;
+
+window#volume-menu {
+  background: $glass-popup;
+  border-radius: 10px;
+
+  box {
+    padding: 10px;
+
+    label {
+      color: #ffffff;
+    }
+  }
+}
