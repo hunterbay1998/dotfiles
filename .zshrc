@@ -18,6 +18,7 @@ export PATH="$HOME/.local/bin:$HOME/.claude/bin:$PATH"
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"   
 export FZF_DEFAULT_OPTS='--bind "alt-j:down,alt-k:up"'
+export SERVER="192.168.1.176"
 # =============================
 # History
 # =============================
@@ -51,6 +52,7 @@ alias cat='bat --style=plain'
 alias grep='rg'
 alias find='fd'
 alias cd='z'
+
 # =============================
 # Aliases - server
 # =============================

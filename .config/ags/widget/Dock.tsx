@@ -97,7 +97,7 @@ export default function Dock(gdkmonitor: Gdk.Monitor) {
               isShown = true
               animateTo(0)
             }
-          })
+          }).catch(() => {})
           return GLib.SOURCE_CONTINUE
         })
       }}
