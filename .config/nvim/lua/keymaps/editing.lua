@@ -1,10 +1,13 @@
--- lua/keymaps/telescope.lua
+-- Editing & LSP keymaps
 
--- We use "<cmd>" commands. This works even if the plugin loads later.
--- No complex "pcall" or checks needed.
+-- LSP
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover (docs / type info)" })
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find References" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename Symbol" })
 
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
-vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>",  { desc = "Live Grep" })
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>",    { desc = "Buffers" })
-vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>",  { desc = "Help Tags" })
-vim.keymap.set("n", "K", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+-- Diagnostics (errors / warnings)
+vim.keymap.set("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostic under cursor" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })

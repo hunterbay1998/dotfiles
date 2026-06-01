@@ -35,14 +35,12 @@ require("lazy").setup({
   require("plugins.bufferline"),
   require("plugins.ccc"),
   require("plugins.colorizer"),
+  require("plugins.treesitter-context"),
   require("plugins.mason"),
   require("plugins.claude-code"),
   require("plugins.autotag"),
 
 
-
-
-
-
-
+}, {
+  rocks = { enabled = false },
 })

@@ -11,8 +11,9 @@ sudo pacman -S --needed \
 
 ## Neovim init.lua
 - Uses lazy.nvim
-- Uses nvim-treesitter
-- Important: module name is `nvim-treesitter.config` (not configs)
+- Uses nvim-treesitter (main branch rewrite)
+- Highlighting enabled via `vim.treesitter.start()` in autocmds + modern install() API
+- See lua/plugins/treesitter.lua and lua/core/autocmds.lua
 
 ## After install (inside nvim)
 :Lazy sync

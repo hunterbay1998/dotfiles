@@ -14,7 +14,10 @@
 })]]--
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = {
+    -- Show inline messages only for actual errors (like you see with TypeScript)
+    severity = { min = vim.diagnostic.severity.ERROR },
+  },
   signs = true,
   underline = true,
   update_in_insert = false,

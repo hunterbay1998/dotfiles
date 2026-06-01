@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arch/ssh.md",
+                "file": "Arch/sddm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ssh"
+              "title": "sddm"
             }
           }
         ]
@@ -184,6 +184,9 @@
   },
   "active": "34df2703903a6cb8",
   "lastOpenFiles": [
+    "Arch/Arch.md",
+    "Arch/sddm.md",
+    "Arch/ssh.md",
     "Arch/sshfs.md",
     "Bash/patterns.md",
     "Bash/conditionals.md",
@@ -217,9 +220,6 @@
     "AGS/colors.md",
     "AGS/AGS.md",
     "AGS/widgets/bluetooth.md",
-    "AGS/widgets/power.md",
-    "AGS/widgets/notifications.md",
-    "AGS/widgets/brightness.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

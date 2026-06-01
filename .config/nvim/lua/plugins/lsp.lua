@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------
--- LSP (Bash, JSON, CSS, TypeScript) - Neovim 0.11+ compatible
+-- LSP (Bash, JSON, CSS, TypeScript, Lua) - Neovim 0.11+ compatible
 ---------------------------------------------------------------------
 
 return {
@@ -28,10 +28,33 @@ return {
       vim.lsp.config("cssls", css_opts)
       vim.lsp.config("ts_ls", opts)
 
+      -- Lua (very important for your Neovim config + AGS work)
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT", -- Neovim uses LuaJIT
+            },
+            diagnostics = {
+              globals = { "vim", "hl" }, -- "vim" for Neovim, "hl" for Hyprland Lua scripts
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false, -- Don't prompt about third-party libraries
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      })
+
       vim.lsp.enable("bashls")
       vim.lsp.enable("jsonls")
       vim.lsp.enable("cssls")
       vim.lsp.enable("ts_ls")
+      vim.lsp.enable("lua_ls")
       return
     end
 
@@ -41,6 +64,20 @@ return {
     lspconfig.jsonls.setup(opts)
     lspconfig.cssls.setup(css_opts)
     lspconfig.ts_ls.setup(opts)
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          runtime = { version = "LuaJIT" },
+          diagnostics = { globals = { "vim", "hl" } }, -- "vim" for Neovim, "hl" for Hyprland Lua scripts
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+          telemetry = { enable = false },
+        },
+      },
+    })
   end,
 }
 

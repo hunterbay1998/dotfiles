@@ -20,3 +20,20 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
+-- Enable Treesitter syntax highlighting (modern nvim-treesitter on 'main' branch)
+-- This replaces the old highlight.enable = true behavior.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "lua", "vim", "bash", "fish", "sh",
+    "json", "jsonc", "yaml", "toml",
+    "nix", "hyprlang",
+    "css", "scss", "html", "htmldjango",
+    "javascript", "typescript", "tsx", "jsx",
+    "markdown", "markdown.mdx",
+    "query", "diff", "gitconfig", "gitrebase",
+  },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+

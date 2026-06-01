@@ -17,5 +17,6 @@
 - [[commands]]
 - [[sed]]
 - [[plymouth]]
+- [[sddm]]
 - [[kernel]]
 - [[rsync]]

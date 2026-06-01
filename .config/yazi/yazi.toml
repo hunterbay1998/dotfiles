@@ -1,5 +1,6 @@
-# yaml-language-server: $schema=https://yazi-rs.github.io/schemas/yazi.json
+# yaml-language-server: $schema=https://yazi-rs.github.io/schemas/keymap.json
 
+# Your keymap configuration starts here...
 # ╔══════════════════════════════════════╗
 # ║              Manager                 ║
 # ╚══════════════════════════════════════╝
@@ -98,10 +99,11 @@ suppress_preload = false
 # ╚══════════════════════════════════════╝
 [plugin]
 fetchers = [
-  { id = "mime", url = "*/",         run = "mime.dir",    prio = "high" },
-  { id = "mime", url = "local://*",  run = "mime.local",  prio = "high" },
-  { id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
+  { id = "mime", url = "*/", run = "mime.dir", prio = "high", group = "mime" },
+  { id = "mime", url = "local://*", run = "mime.local", prio = "high", group = "mime" },
+  { id = "mime", url = "remote://*", run = "mime.remote", prio = "high", group = "mime" },
 ]
+
 spotters = [
   # Folder
   { url = "*/", run = "folder" },
