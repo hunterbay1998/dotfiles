@@ -20,7 +20,7 @@ return {
     })
 
     require("mason-lspconfig").setup({
-      ensure_installed = { "ts_ls", "bashls", "jsonls", "cssls", "lua_ls" },
+      ensure_installed = { "ts_ls", "bashls", "jsonls", "cssls", "lua_ls", "pyright", "ruff" },
       automatic_installation = true,
     })
   end,

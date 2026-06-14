@@ -4,10 +4,7 @@
 
 return {
   "kdheepak/lazygit.nvim",
-  cmd = "LazyGit",
+  cmd = "LazyGit", -- available via :LazyGit, no keybinding
   dependencies = { "nvim-lua/plenary.nvim" },
-  keys = {
-    { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Open LazyGit" },
-  },
 }
 

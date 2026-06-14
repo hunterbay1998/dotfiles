@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     "*/waybar/**/*.css",
   },
   callback = function()
-    vim.diagnostic.disable(0)
+    vim.diagnostic.enable(false, { bufnr = 0 })
   end,
 })
 
@@ -31,9 +31,12 @@ vim.api.nvim_create_autocmd("FileType", {
     "javascript", "typescript", "tsx", "jsx",
     "markdown", "markdown.mdx",
     "query", "diff", "gitconfig", "gitrebase",
+    "python",
   },
   callback = function()
-    vim.treesitter.start()
+    -- pcall prevents errors (e.g. "no parser for 'python'") from showing during
+    -- startup or when a parser is still being installed in the background.
+    pcall(vim.treesitter.start)
   end,
 })
 

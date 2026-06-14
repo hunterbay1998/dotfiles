@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------
--- LSP (Bash, JSON, CSS, TypeScript, Lua) - Neovim 0.11+ compatible
+-- LSP (Bash, JSON, CSS, TypeScript, Lua, Python) - Neovim 0.11+ API
 ---------------------------------------------------------------------
 
 return {
@@ -21,63 +21,58 @@ return {
       },
     }
 
-    -- Neovim 0.11+ API
-    if vim.lsp.config and vim.lsp.enable then
-      vim.lsp.config("bashls", opts)
-      vim.lsp.config("jsonls", opts)
-      vim.lsp.config("cssls", css_opts)
-      vim.lsp.config("ts_ls", opts)
+    vim.lsp.config("bashls", opts)
+    vim.lsp.config("jsonls", opts)
+    vim.lsp.config("cssls", css_opts)
+    vim.lsp.config("ts_ls", opts)
 
-      -- Lua (very important for your Neovim config + AGS work)
-      vim.lsp.config("lua_ls", {
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT", -- Neovim uses LuaJIT
-            },
-            diagnostics = {
-              globals = { "vim", "hl" }, -- "vim" for Neovim, "hl" for Hyprland Lua scripts
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false, -- Don't prompt about third-party libraries
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      })
-
-      vim.lsp.enable("bashls")
-      vim.lsp.enable("jsonls")
-      vim.lsp.enable("cssls")
-      vim.lsp.enable("ts_ls")
-      vim.lsp.enable("lua_ls")
-      return
-    end
-
-    -- Older Neovim fallback
-    local lspconfig = require("lspconfig")
-    lspconfig.bashls.setup(opts)
-    lspconfig.jsonls.setup(opts)
-    lspconfig.cssls.setup(css_opts)
-    lspconfig.ts_ls.setup(opts)
-    lspconfig.lua_ls.setup({
+    -- Lua (very important for your Neovim config + AGS work)
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
         Lua = {
-          runtime = { version = "LuaJIT" },
-          diagnostics = { globals = { "vim", "hl" } }, -- "vim" for Neovim, "hl" for Hyprland Lua scripts
+          runtime = {
+            version = "LuaJIT", -- Neovim uses LuaJIT
+          },
+          diagnostics = {
+            globals = { "vim", "hl" }, -- "vim" for Neovim, "hl" for Hyprland Lua scripts
+          },
           workspace = {
             library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false,
+            checkThirdParty = false, -- Don't prompt about third-party libraries
           },
-          telemetry = { enable = false },
+          telemetry = {
+            enable = false,
+          },
         },
       },
     })
+
+    -- Python: pyright for types + ruff for linting + fast fixes/corrections
+    vim.lsp.config("pyright", {
+      capabilities = capabilities,
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "basic", -- "basic" | "strict" | "off"
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticMode = "openFilesOnly",
+          },
+        },
+      },
+    })
+
+    vim.lsp.config("ruff", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.enable("bashls")
+    vim.lsp.enable("jsonls")
+    vim.lsp.enable("cssls")
+    vim.lsp.enable("ts_ls")
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("pyright")
+    vim.lsp.enable("ruff")
   end,
 }
-

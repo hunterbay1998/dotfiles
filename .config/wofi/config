@@ -4,7 +4,7 @@ show=drun
 prompt=Search…
 
 width=20%
-height=45%
+height=10%
 location=center
 halign=center
 valign=center

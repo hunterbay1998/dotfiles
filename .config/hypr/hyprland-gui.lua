@@ -2,7 +2,52 @@
 
 -- Settings
 hl.config({
-    general = {
-        gaps_in = 6,
+    cursor = {
+        enable_hyprcursor = true,
+        no_warps = false,
     },
+    decoration = {
+        blur = {
+            enabled = true,
+            passes = 3,
+            size = 4,
+            xray = false,
+        },
+        rounding_power = 2.0,
+    },
+    general = {
+        border_size = 2,
+        col = {
+            active_border = {
+                colors = {"rgba(62a0eaff)", "rgba(57e389ff)"},
+                angle = 45,
+            },
+            inactive_border = "0xff000000",
+        },
+        gaps_in = 5,
+        gaps_out = 12,
+        resize_on_border = false,
+    },
+    misc = {
+        vrr = 1,
+    },
+})
+
+-- Animations
+hl.animation({
+    leaf = "fade",
+    enabled = false,
+})
+
+-- Monitors
+hl.monitor({
+    output = "DP-2",
+    mode = "2560x1440@143.97Hz",
+    position = "1536x20",
+    scale = 1.33,
+    cm = "srgb",
+})
+hl.monitor({
+    output = "eDP-1",
+    disabled = true,
 })

@@ -1,7 +1,7 @@
 -- =============================================
 -- Hyprland main config (entry point)
 -- =============================================
-
+--require("hyprland-gui")
 require("lua.variables")
 require("lua.monitors")
 require("lua.binds")
@@ -15,3 +15,6 @@ require("lua.input")
 require("lua.env")
 require("lua.plugins")
 require("lua.events")
+
+-- HyprMod managed settings
+require("hyprland-gui")

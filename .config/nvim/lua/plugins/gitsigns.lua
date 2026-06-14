@@ -19,22 +19,8 @@ return {
       delay = 600,
       ignore_whitespace = true,
     },
-
-    on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
-      local map = function(mode, lhs, rhs)
-        vim.keymap.set(mode, lhs, rhs, { buffer = bufnr })
-      end
-
-      -- Hunk navigation
-      map("n", "]c", gs.next_hunk)
-      map("n", "[c", gs.prev_hunk)
-
-      -- Hunk actions
-      map("n", "<leader>hs", gs.stage_hunk)
-      map("n", "<leader>hr", gs.reset_hunk)
-      map("n", "<leader>hp", gs.preview_hunk)
-    end,
+    -- No keymaps: git is managed outside Neovim.
+    -- Gutter signs + inline blame stay as passive visual indicators.
   },
 }
 

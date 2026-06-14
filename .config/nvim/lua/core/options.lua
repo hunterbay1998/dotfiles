@@ -2,6 +2,15 @@
 -- Core options (editor behaviour)
 ---------------------------------------------------------------------
 
+-- Ensure Mason-installed tools (LSP servers like pyright/ruff, linters, etc.)
+-- are discoverable. Mason installs to stdpath("data")/mason/bin.
+-- We prepend it early so that vim.lsp (and anything else) can find the binaries
+-- without custom cmd paths.
+local mason_bin = vim.fn.stdpath("data") .. "/mason/bin"
+if vim.fn.isdirectory(mason_bin) == 1 then
+  vim.env.PATH = mason_bin .. ":" .. vim.env.PATH
+end
+
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true

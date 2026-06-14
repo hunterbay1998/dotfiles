@@ -24,6 +24,6 @@ env = {
     -- PATH
     PATH = "$PATH:/home/bailey/.local/bin",
 
-    -- AMD Graphics (Laptop)
+    -- Hybrid GPU (AMD iGPU primary, NVIDIA dGPU secondary)
     WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0",
 }

@@ -10,7 +10,7 @@ require("core.diagnostics")
 -- Keymaps
 require("keymaps")
 
--- Plugins
-require("plugins.lazy")
+-- Plugins (bootstrap in core/lazy.lua, specs auto-imported from lua/plugins/)
+require("core.lazy")
 
 

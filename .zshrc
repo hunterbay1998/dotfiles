@@ -1,6 +1,6 @@
-if [ "$(pgrep -c -u $USER kitty)" -le 1 ]; then
-  fastfetch
-fi
+#if [ "$(pgrep -c -u $USER kitty)" -le 1 ]; then
+#  fastfetch
+#fi
 
 # =============================
 # Powerlevel10k instant prompt
@@ -71,6 +71,7 @@ alias ff='fastfetch'
 alias suyazi='sudo -E yazi'
 alias reloadsh='source ~/.zshrc'
 alias zshgo='nvim ~/dotfiles/.zshrc'
+alias nvimkeys='bat --style=plain -l md ~/dotfiles/.config/nvim/KEYBINDINGS.md'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'

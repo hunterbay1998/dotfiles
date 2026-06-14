@@ -23,10 +23,16 @@ return {
       "javascript", "typescript", "tsx",
       "markdown", "markdown_inline",
       "query", "diff", "git_config",
+      "python",
     }
 
     -- Idempotent; will only fetch/build what's missing.
-    -- After first install, run :TSUpdate manually or via the build step.
-    require("nvim-treesitter").install(languages)
+    -- We wait briefly so the parser is ready for FileType autocmds (including
+    -- any buffers that were restored at startup). The pcall in autocmds.lua
+    -- makes this non-fatal even if it races.
+    local ok, installer = pcall(require("nvim-treesitter").install, languages)
+    if ok and installer and installer.wait then
+      pcall(function() installer:wait(15000) end)
+    end
   end,
 }
