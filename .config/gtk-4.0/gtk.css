@@ -3,3 +3,5 @@ overlaysplitview .sidebar toolbarview {
     background-color: #13141f;
 }
 @import 'colors.css';
+
+@import url("noctalia.css");

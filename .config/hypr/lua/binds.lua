@@ -10,7 +10,8 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " /home/.local/bin/power"))
+hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e ranger"))
 
 -- Window control
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -18,11 +19,31 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 --hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 
+-- Scrolling layout: column resize (niri-style)
+hl.bind(mainMod .. " + R", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -0.05"))
+hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +0.05"))
+
+-- Scrolling layout: overview (niri-style) -- fit all columns into view
+hl.bind(mainMod .. " + O", hl.dsp.layout("fit all"))
+
 -- Arrow key focus (pre-translation style)
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+-- vim-style focus
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
+
+-- vim-style window move
+hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" }))
 
 -- Workspaces
 for i = 1, 10 do

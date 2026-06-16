@@ -5,7 +5,7 @@
 require("lua.variables")
 require("lua.monitors")
 require("lua.binds")
---require("lua.windowrules")
+require("lua.windowrules")
 require("lua.layerrules")
 require("lua.autostart")
 require("lua.animations")
@@ -18,3 +18,6 @@ require("lua.events")
 
 -- HyprMod managed settings
 require("hyprland-gui")
+
+-- For Noctalia Color templates
+require("noctalia")

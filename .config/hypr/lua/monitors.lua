@@ -5,7 +5,7 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 hl.monitor({
-    output   = "",
+    output   = "e-DP1",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",

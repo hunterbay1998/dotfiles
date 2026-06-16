@@ -42,7 +42,7 @@ hl.config({
         extend_border_grab_area = 15,
         gaps_in = 3,
         gaps_out = 8,
-        layout = "scrolling",
+        layout = "dwindle",
         resize_on_border = true,
         snap = {
             enabled = true,
@@ -106,5 +106,5 @@ hl.animation({
     enabled = true,
     speed = 30.0,
     bezier = "ease",
-    style = "slidevert",
+    style = "slide",
 })

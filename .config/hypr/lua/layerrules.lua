@@ -10,3 +10,9 @@ hl.layer_rule({
     blur = true,
     ignore_alpha = 0.2,
 })
+
+hl.layer_rule({
+    match = { namespace = "rofi" },
+    blur = true,
+    ignore_alpha = 0.2,
+})

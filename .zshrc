@@ -34,7 +34,7 @@ setopt APPEND_HISTORY
 # =============================
 # Aliases - pacman
 # =============================
-alias get='sudo pacman -S'
+alias install='sudo pacman -S'
 #alias update='sudo pacman -Syu'
 alias remove='sudo pacman -Rns'
 alias search='pacman -Ss'
@@ -90,7 +90,6 @@ alias gpl='git pull'
 alias stowdots='cd ~/dotfiles && stow --ignore="packages" --ignore="README.md" --ignore="books" .'
 
 #bubbas man packages
-alias vimium-c='bat ~/Documents/vimium-C_keybinding.md'
 alias kitty-key='bat ~/dotfiles/docs/kitty-cheat/keybinds'
 # =============================
 # Plugins

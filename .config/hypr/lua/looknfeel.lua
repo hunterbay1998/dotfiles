@@ -15,12 +15,12 @@ hl.config({
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+        resize_on_border = true,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        layout = "scrolling",
     },
 
     decoration = {
@@ -69,6 +69,8 @@ hl.config({
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
+        focus_fit_method = 1, -- 0 = center focused column, 1 = fit to edge (default)
+        follow_focus = true,  -- scroll the tape to bring a focused window into view
     },
 })
 
@@ -78,6 +80,15 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,
         disable_hyprland_logo   = false,
+    },
+})
+
+-- XWayland: render apps at native resolution instead of letting the
+-- compositor upscale them (which causes blur on scaled monitors).
+-- Toolkit env vars (GDK_SCALE etc.) then size them correctly.
+hl.config({
+    xwayland = {
+        force_zero_scaling = true,
     },
 })
 

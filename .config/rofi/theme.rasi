@@ -1,139 +1,93 @@
-/**
- * Rofi Theme File
- * Location: ~/.config/rofi/theme.rasi
- *
- * This file controls HOW Rofi looks.
- * For behaviour settings, see config.rasi
- *
- * Test this theme without a keybind:
- *   rofi -show drun -theme ~/.config/rofi/theme.rasi
- */
-
-
-/* ── Global Variables ───────────────────────────────────────
- * Define your colour palette here once, then reference
- * them anywhere below using var(name).
- *
- * rgba(red, green, blue, opacity%)
- * opacity: 100% = fully opaque, 0% = fully transparent
- */
 * {
-    /* Core colours — change these to match your setup */
-    bg:         rgba(20,  20,  30,  95%);   /* main background      */
-    bg-alt:     rgba(30,  30,  45,  100%);  /* alternate row colour  */
-    fg:         rgba(220, 220, 240, 100%);  /* main text colour      */
-    fg-dim:     rgba(120, 120, 150, 100%);  /* dimmed/hint text      */
-    accent:     rgba(137, 180, 250, 100%);  /* highlight/selected    */
-    urgent:     rgba(243, 139, 168, 100%);  /* urgent/error items    */
-    border-col: rgba(137, 180, 250, 60%);   /* window border colour  */
-    selected-bg: rgba(137, 180, 250, 20%);  /* selected item bg      */
+    bg:          rgba(20,  22,  32,  55%);
+    bg-input:    rgba(30,  33,  48,  60%);
+    bg-selected: rgba(90, 130, 220,  18%);
+    fg:          rgba(225, 228, 240, 100%);
+    fg-dim:      rgba(90,  95,  130, 100%);
+    accent:      rgba(100, 145, 235, 100%);
+    border-col:  rgba(255, 255, 255,  8%);
 
-    /* Rofi needs these internal variables set — map them
-     * to your palette above */
-    background-color:            transparent;
-    text-color:                  var(fg);
-}
-
-
-/* ── Window ─────────────────────────────────────────────────
- * The outermost container — the whole Rofi popup.
- */
-window {
-    width:            500px;          /* popup width              */
-    padding:          16px;           /* inner spacing            */
-    border:           2px;            /* border thickness         */
-    border-color:     var(border-col);
-    border-radius:    12px;           /* rounded corners          */
-    background-color: var(bg);
-    transparency:     "real";         /* needs compositor (hyprland has one) */
-}
-
-
-/* ── Main box ───────────────────────────────────────────────
- * Contains everything inside the window.
- */
-mainbox {
-    padding:    0;
-    spacing:    8px;
-    border:     0;
-    children:   [ "inputbar", "listview" ];
-}
-
-
-/* ── Search bar ─────────────────────────────────────────────
- * The input area at the top where you type.
- */
-inputbar {
-    padding:          8px 12px;
-    border-radius:    8px;
-    background-color: var(bg-alt);
+    background-color: transparent;
     text-color:       var(fg);
-    spacing:          8px;
+}
+
+window {
+    width:            300px;
+    padding:          0;
+    border:           1px;
+    border-color:     var(border-col);
+    border-radius:    18px;
+    background-color: var(bg);
+    transparency:     "real";
+}
+
+mainbox {
+    spacing:  0;
+    padding:  0;
+    border:   0;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    padding:          18px 22px;
+    border-radius:    18px 18px 0 0;
+    background-color: var(bg-input);
+    border:           0 0 1px 0;
+    border-color:     var(border-col);
+    spacing:          14px;
     children:         [ "prompt", "entry" ];
 }
 
 prompt {
-    /* The mode label e.g. "  Apps" */
-    text-color: var(accent);
-    spacing:    0;
+    text-color:     var(accent);
+    spacing:        0;
+    vertical-align: 0.5;
 }
 
 entry {
-    /* The actual text input field */
     text-color:        var(fg);
     cursor:            text;
     spacing:           0;
     placeholder:       "Search...";
     placeholder-color: var(fg-dim);
+    vertical-align:    0.5;
 }
 
-
-/* ── Results list ───────────────────────────────────────────
- * The scrollable list of results below the search bar.
- */
 listview {
-    spacing:      4px;        /* gap between items    */
-    padding:      4px 0;
+    spacing:      2px;
+    padding:      10px;
     border:       0;
-    scrollbar:    false;      /* hide scrollbar       */
-    fixed-height: true;       /* fixed height, no shrinking */
-    lines:        8;          /* max visible items    */
+    scrollbar:    false;
+    fixed-height: true;
+    lines:        5;
 }
 
-
-/* ── Individual result items ────────────────────────────────
- * Each row in the results list.
- */
 element {
-    padding:      8px 12px;
-    border-radius: 6px;
-    spacing:      8px;
-    cursor:       pointer;
-    border:       0;
+    padding:       11px 14px;
+    border-radius: 12px;
+    spacing:       12px;
+    cursor:        pointer;
+    border:        0;
 }
 
-/* Unselected normal item */
 element normal.normal {
     background-color: transparent;
     text-color:       var(fg);
 }
 
-/* Selected item (highlighted) */
 element selected.normal {
-    background-color: var(selected-bg);
+    background-color: var(bg-selected);
     text-color:       var(accent);
 }
 
-/* Alternate row (every other item) — subtle contrast */
 element alternate.normal {
     background-color: transparent;
     text-color:       var(fg);
 }
 
-/* Urgent items (less common) */
 element normal.urgent,
 element selected.urgent {
-    text-color: var(urgent);
+    text-color: var(fg-dim);
 }
 
 element-text {
@@ -141,22 +95,19 @@ element-text {
     text-color:       inherit;
     highlight:        inherit;
     cursor:           inherit;
+    vertical-align:   0.5;
 }
 
 element-icon {
     background-color: transparent;
-    size:             1.2em;
+    size:             1.4em;
     cursor:           inherit;
 }
 
-
-/* ── Message box ────────────────────────────────────────────
- * Shown when Rofi displays an info/error message.
- */
 message {
-    padding:      8px 12px;
-    border-radius: 6px;
-    background-color: var(bg-alt);
+    padding:          10px 22px;
+    border-radius:    0 0 18px 18px;
+    background-color: var(bg-input);
 }
 
 textbox {
