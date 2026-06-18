@@ -5,17 +5,11 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 hl.monitor({
-    output   = "e-DP1",
+    output   = "eDP-1",
     mode     = "preferred",
     position = "auto",
-    scale    = "auto",
-})
-
-hl.monitor({
-    output   = "DP-2",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "1.6",
+    scale    = 2,
+    disabled = false,
 })
 
 

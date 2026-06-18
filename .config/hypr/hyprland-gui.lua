@@ -15,7 +15,7 @@ hl.config({
         blur = {
             passes = 4,
             popups = true,
-            size = 6,
+            size = 5,
             special = true,
             xray = true,
         },
@@ -34,14 +34,11 @@ hl.config({
     general = {
         border_size = 1,
         col = {
-            active_border = {
-                colors = {"rgba(c01c28ff)", "rgba(ed333bff)"},
-                angle = 5,
-            },
+            active_border = "0xffb4befe",
         },
         extend_border_grab_area = 15,
-        gaps_in = 3,
-        gaps_out = 8,
+        gaps_in = 5,
+        gaps_out = 9,
         layout = "scrolling",
         resize_on_border = true,
         snap = {
@@ -107,4 +104,13 @@ hl.animation({
     speed = 30.0,
     bezier = "ease",
     style = "slidevert",
+})
+
+-- Monitors
+hl.monitor({
+    output = "eDP-1",
+    mode = "2560x1600@165.00Hz",
+    position = "-50x-1130",
+    scale = 2,
+    cm = "srgb",
 })

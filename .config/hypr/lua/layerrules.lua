@@ -2,9 +2,6 @@
 ---- LAYER RULES ----
 ----------------------
 
--- Frosted glass for the AGS launcher: blur whatever is behind its layer
--- surface. Pairs with the translucent background in the AGS stylesheet —
--- the blur only shows through because the window bg has alpha.
 hl.layer_rule({
     match = { namespace = "launcher" },
     blur = true,
@@ -13,6 +10,29 @@ hl.layer_rule({
 
 hl.layer_rule({
     match = { namespace = "rofi" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+
+-- Noctalia shell
+-- Bars (noctalia-bar-default, noctalia-bar-bar2). Blur only shows once the
+-- bar's background opacity is < 1 in Noctalia Settings.
+hl.layer_rule({
+    match = { namespace = "noctalia-bar-.*" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+
+-- Popups: launcher, control-center, etc. (already ~0.88 opaque, blur visible).
+hl.layer_rule({
+    match = { namespace = "noctalia-.*panel" },
+    blur = true,
+    ignore_alpha = 0.2,
+})
+
+-- Volume / brightness OSDs
+hl.layer_rule({
+    match = { namespace = "noctalia-osd" },
     blur = true,
     ignore_alpha = 0.2,
 })

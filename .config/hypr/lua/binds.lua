@@ -13,6 +13,9 @@ hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e ranger"))
 
+-- Toggle the laptop screen on/off (also the panic button if auto-toggle misfires)
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("/home/bailey/.local/bin/laptop-toggle"))
+
 -- Window control
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
