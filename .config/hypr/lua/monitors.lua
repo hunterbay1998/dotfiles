@@ -11,5 +11,3 @@ hl.monitor({
     scale    = 2,
     disabled = false,
 })
-
-

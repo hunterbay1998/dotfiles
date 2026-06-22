@@ -19,6 +19,7 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("/home/bailey/.local/bin/lapt
 -- Window control
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + ctrl + M", hl.dsp.window.fullscreen({ mode = "maximize" })) -- maximize (keeps bar + gaps)
 --hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 
