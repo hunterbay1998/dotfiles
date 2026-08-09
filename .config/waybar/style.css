@@ -1,227 +1,263 @@
 /* =============================
-   COLOUR PALETTE (Tokyo Night)
-   =============================
-   Change these to retheme the entire bar.
+   Catppuccin Mocha
+   https://github.com/catppuccin/catppuccin
 */
-@define-color base    #1a1b26;  /* bar background */
-@define-color surface #24283b;  /* module/pill background */
-@define-color text    #c0caf5;  /* default text */
-@define-color muted   #c0caf5;  /* inactive/dimmed text */
+@define-color base      #1e1e2e;
+@define-color mantle    #181825;
+@define-color crust     #11111b;
+@define-color surface0  #313244;
+@define-color surface1  #45475a;
+@define-color surface2  #585b70;
+@define-color overlay0  #6c7086;
+@define-color text      #cdd6f4;
+@define-color subtext0  #a6adc8;
+@define-color muted     #6c7086;
 
-@define-color primary   #7aa2f7;  /* blue - pulseaudio, accents */
-@define-color secondary #bb9af7;  /* purple - clock */
-
-@define-color green  #9ece6a;  /* battery */
-@define-color yellow #e0af68;  /* memory */
-@define-color red    #f7768e;  /* cpu, battery critical */
-@define-color cyan   #7dcfff;  /* network */
-
-/* transparency values */
-@define-color surface-alpha rgba(36, 40, 59, 1);   /* pill backgrounds */
-@define-color border-alpha  rgba(122, 162, 247, 0.35); /* pill borders */
-@define-color hover-alpha   rgba(122, 162, 247, 0.15); /* hover highlight */
+@define-color blue      #89b4fa;
+@define-color mauve     #cba6f7;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color red       #f38ba8;
+@define-color peach     #fab387;
+@define-color sky       #89dceb;
+@define-color teal      #94e2d5;
+@define-color pink      #f5c2e7;
+@define-color lavender  #b4befe;
 
 /* ========================= */
-/* GLOBAL SIZE CONTROL       */
+/* GLOBAL                    */
 /* ========================= */
 
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
-
-  font-size: 15px; /* 👈 MAIN CONTROL: lower = smaller whole bar */
-
+  font-size: 14px;
   border: none;
+  min-height: 0;
 }
 
 /* ========================= */
-/* BAR CONTAINER             */
+/* BAR — full edge-to-edge   */
 /* ========================= */
 
 window#waybar {
-  background: transparent;
-  color: @text;
-
-  border-radius: 0px; /* slightly tighter */
-  margin: 4px; /* 👈 reduces space around entire bar */
-
-  min-height: 28px; /* 👈 helps force slimmer bar */
-}
-
-/* ========================= */
-/* WORKSPACES (pill group)   */
-/* ========================= */
-
-#workspaces {
   background: @base;
-  border: 1px solid @border-alpha;
-
-  border-radius: 8px;
-
-  padding: 0px; /* 👈 smaller = less chunky */
-  margin: 4px 3px; /* 👈 tighter spacing */
+  color: @text;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  border-radius: 0;
 }
 
-#workspaces button {
-  padding: 2px 6px; /* 👈 reduced from 6px 10px */
-  margin: 1px;
+/* ========================= */
+/* WORKSPACES — center 1–5   */
+/* (custom modules: click → Lua focus) */
+/* ========================= */
 
-  border-radius: 6px;
-
+#custom-ws1,
+#custom-ws2,
+#custom-ws3,
+#custom-ws4,
+#custom-ws5 {
   background: transparent;
   color: @muted;
-
-  transition: all 0.2s ease;
+  border: none;
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 4px 2px;
+  min-width: 28px;
+  box-shadow: none;
+  text-shadow: none;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-#workspaces button.active {
-  background: @primary;
+#custom-ws1:hover,
+#custom-ws2:hover,
+#custom-ws3:hover,
+#custom-ws4:hover,
+#custom-ws5:hover {
+  background: @surface0;
+  color: @text;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+#custom-ws1.active,
+#custom-ws2.active,
+#custom-ws3.active,
+#custom-ws4.active,
+#custom-ws5.active {
+  background: @blue;
   color: @base;
+  font-weight: bold;
 }
 
-#workspaces button:hover {
-  background: @hover-alpha;
+#custom-ws1.occupied,
+#custom-ws2.occupied,
+#custom-ws3.occupied,
+#custom-ws4.occupied,
+#custom-ws5.occupied {
   color: @text;
 }
 
-/* ========================= */
-/* SOFT PILLS (modules)      */
-/* ========================= */
-
-#clock,
-#cpu,
-#memory,
-#tray {
-  background: @base;
-  border: 1px solid @border-alpha;
-
-  padding: 3px 8px;
-  margin: 4px 3px;
-
-  border-radius: 8px;
-
-  color: @text;
-
-  transition: all 0.2s ease;
-}
-
-/* battery, network, pulseaudio grouped into one pill */
-#battery,
-#network,
-#pulseaudio {
-  background: @base;
-  border: 1px solid @border-alpha;
-
-  padding: 3px 8px;
-  margin: 4px 0px;
-
-  border-radius: 0px;
-
-  color: @text;
-
-  transition: all 0.2s ease;
-}
-
-#battery {
-  border-radius: 8px 0px 0px 8px;
-  margin-left: 3px;
-  border-right: none;
-}
-
-#pulseaudio {
-  border-radius: 0px 8px 8px 0px;
-  margin-right: 3px;
-  border-left: none;
-}
-
-#network {
-  border-left: none;
-  border-right: none;
+#custom-ws1.empty,
+#custom-ws2.empty,
+#custom-ws3.empty,
+#custom-ws4.empty,
+#custom-ws5.empty {
+  color: @muted;
+  opacity: 0.7;
 }
 
 /* ========================= */
-/* HOVER (kept subtle)       */
-/* ========================= */
-
-#clock:hover,
-#cpu:hover,
-#memory:hover,
-#network:hover,
-#battery:hover,
-#pulseaudio:hover {
-  background: @hover-alpha;
-}
-
-/* ========================= */
-/* INDIVIDUAL MODULE COLORS  */
+/* CLOCK — left              */
 /* ========================= */
 
 #clock {
-  color: @secondary;
+  background: transparent;
+  color: @lavender;
+  padding: 0 14px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
 }
 
-#cpu {
-  color: @red;
+/* ========================= */
+/* BATTERY — right           */
+/* ========================= */
+
+#battery {
+  background: transparent;
+  color: @green;
+  padding: 0 14px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
 }
 
-#memory {
+#battery.charging,
+#battery.plugged {
+  color: @teal;
+}
+
+#battery.warning:not(.charging) {
   color: @yellow;
 }
 
-#network {
-  color: @cyan;
-}
-
-#battery {
-  color: @green;
-}
-
-#battery.critical {
+#battery.critical:not(.charging) {
   color: @red;
 }
 
-#pulseaudio {
-  color: @primary;
+/* ========================= */
+/* NETWORK / WIFI — right    */
+/* ========================= */
+
+#network {
+  background: transparent;
+  color: @sky;
+  padding: 0 12px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
 }
 
-/* Tray stays neutral */
-#tray {
+#network.disconnected {
+  color: @overlay0;
+}
+
+#network.ethernet {
+  color: @teal;
+}
+
+/* ========================= */
+/* TRAY DRAWER — right       */
+/* Click icon to expand      */
+/* ========================= */
+
+#tray-drawer {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+#custom-tray-icon {
+  background: transparent;
+  color: @subtext0;
+  padding: 0 12px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
+}
+
+#custom-tray-icon:hover {
   color: @text;
 }
 
-/* Notifications */
-#custom-notifications {
-  background: @base;
-  border: 1px solid @border-alpha;
+#tray {
+  background: transparent;
+  padding: 0 4px 0 0;
+  margin: 0;
+}
 
-  padding: 3px 8px;
-  margin: 4px 3px;
-
+#tray menu {
+  background: @surface0;
+  color: @text;
+  border: 1px solid @surface1;
   border-radius: 8px;
+  padding: 4px;
+}
 
-  color: @primary;
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
 
-  transition: all 0.2s ease;
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ========================= */
+/* NOTIFICATIONS (mako)      */
+/* ========================= */
+
+#custom-notifications {
+  background: transparent;
+  color: @subtext0;
+  padding: 0 12px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
+}
+
+#custom-notifications.notification {
+  color: @peach;
+}
+
+#custom-notifications.dnd {
+  color: @overlay0;
+}
+
+#custom-notifications.none {
+  color: @subtext0;
 }
 
 #custom-notifications:hover {
-  background: @hover-alpha;
+  color: @text;
 }
 
-/* Power button */
+/* ========================= */
+/* POWER — right             */
+/* ========================= */
+
 #custom-power {
-  background: @base;
-  border: 1px solid @border-alpha;
-
-  padding: 3px 8px;
-  margin: 4px 3px;
-
-  border-radius: 8px;
-
+  background: transparent;
   color: @red;
-
-  transition: all 0.2s ease;
+  padding: 0 14px 0 10px;
+  margin: 0;
+  border: none;
+  font-weight: 500;
 }
 
 #custom-power:hover {
-  background: @hover-alpha;
+  color: @peach;
 }

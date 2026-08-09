@@ -21,7 +21,7 @@ fusermount -u ~/local/folder
 ## Create a mount point first
 ```bash
 mkdir ~/server
-sshfs bailey@192.168.1.176:/srv ~/server
+sshfs user@serveraddress:/srv ~/server
 ```
 
 ## Mount automatically on boot (fstab)

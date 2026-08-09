@@ -18,7 +18,6 @@ export PATH="$HOME/.local/bin:$HOME/.claude/bin:$PATH"
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"   
 export FZF_DEFAULT_OPTS='--bind "alt-j:down,alt-k:up"'
-export SERVER="192.168.1.176"
 # =============================
 # History
 # =============================
@@ -53,11 +52,6 @@ alias grep='rg'
 alias find='fd'
 alias cd='z'
 
-# =============================
-# Aliases - server
-# =============================
-alias mount-server='sshfs bailey@192.168.1.176:/srv ~/server/'
-alias umount-server='fusermount -u ~/server'
 # =============================
 # Aliases - rsync
 # =============================
@@ -111,6 +105,11 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# =============================
+# Host-specific config (not committed)
+# =============================
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"

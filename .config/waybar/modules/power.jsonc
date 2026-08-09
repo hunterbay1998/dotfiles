@@ -2,7 +2,6 @@
   "custom/power": {
     "format": "",
     "tooltip": "Power menu",
-    "on-click": "wlogout"
+    "on-click": "kitty --class power-menu -e /home/bailey/.local/bin/power"
   }
 }
-

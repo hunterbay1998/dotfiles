@@ -1,27 +1,14 @@
-/*
-  network module
-  --------------
-*/
-
 {
   "network": {
+    "interval": 3,
     "format-wifi": "{icon} {essid}",
     "format-ethernet": "󰈀 Wired",
-    "format-disconnected": "󰖪",
-   
-"on-click": "kitty --class wifi-menu /home/bailey/.local/bin/wifi",
-
-    "format-icons": {
-      "wifi": [
-        "󰤟",  // 0–20%
-        "󰤢",  // 20–40%
-        "󰤥",  // 40–60%
-        "󰤨",  // 60–80%
-        "󰤨"   // 80–100%
-      ]
-    },
-
-    "tooltip": false
+    "format-linked": "󰈀 Linked",
+    "format-disconnected": "󰖪 Offline",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": "{essid}\n{signalStrength}% · {bandwidthUpBytes}↑ {bandwidthDownBytes}↓",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "No connection",
+    "on-click": "kitty --class wifi-menu -e /home/bailey/.local/bin/wifi"
   }
 }
-

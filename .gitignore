@@ -1,2 +1,6 @@
 .config/hypr/config/02-monitors.conf
 .config/hypr/host.conf
+
+# Host-specific (machine paths / server bookmarks)
+.config/gtk-3.0/bookmarks
+.zshrc.local

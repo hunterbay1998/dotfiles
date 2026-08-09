@@ -8,8 +8,9 @@ local mainMod = mainMod
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
+-- Launcher
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+--hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))   -- old hyprlauncher
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e ranger"))
 
@@ -19,7 +20,7 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("/home/bailey/.local/bin/lapt
 -- Window control
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + ctrl + M", hl.dsp.window.fullscreen({ mode = "maximize" })) -- maximize (keeps bar + gaps)
+--hl.bind(mainMod .. " + ctrl + M", hl.dsp.window.fullscreen({ mode = "maximize" })) -- maximize (keeps bar + gaps)
 --hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 

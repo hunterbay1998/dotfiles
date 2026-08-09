@@ -1,26 +1,44 @@
-/*  
-   waybar main config 
-   ------------------
-   this files only defines:
-   - bar position
-   - size
-   - margins
-   - which layout files to include
+/*
+  waybar main config
+  ------------------
+  Full edge-to-edge Catppuccin bar (not floating).
 */
 {
   "include": [
-    "~/.config/waybar/modules/-left.jsonc",
-    "~/.config/waybar/modules/-center.jsonc",
-    "~/.config/waybar/modules/-right.jsonc"
+    "~/.config/waybar/modules/workspaces.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/tray.jsonc",
+    "~/.config/waybar/modules/notifications.jsonc",
+    "~/.config/waybar/modules/power.jsonc"
   ],
 
-   "layer": "top",
-   "position": "top",
-   "spacing": 0,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 35,
 
-   "margin-top": 6,
-   "margin-bottom": 0,
-   "margin-left": 10,
-   "margin-right": 10
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+
+  "modules-left": [
+    "clock"
+  ],
+  "modules-center": [
+    "custom/ws1",
+    "custom/ws2",
+    "custom/ws3",
+    "custom/ws4",
+    "custom/ws5"
+  ],
+  "modules-right": [
+    "group/tray-drawer",
+    "network",
+    "battery",
+    "custom/notifications",
+    "custom/power"
+  ]
 }
-

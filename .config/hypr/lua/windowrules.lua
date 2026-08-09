@@ -6,7 +6,14 @@ hl.window_rule({
     match = { class = "power-menu" },
     float = true,
     center = true,
-    size = { 300, 250 },
+    size = { 400, 350 },
+})
+
+hl.window_rule({
+    match = { class = "wifi-menu" },
+    float = true,
+    center = true,
+    size = { 400, 350 },
 })
 
 hl.window_rule({

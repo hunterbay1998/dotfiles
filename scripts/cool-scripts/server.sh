@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh server  
+ssh server
