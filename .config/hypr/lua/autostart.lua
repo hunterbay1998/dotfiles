@@ -8,14 +8,17 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("/usr/lib/xdg-desktop-portal-hyprland")
     hl.exec_cmd("/usr/lib/xdg-desktop-portal")
 
-    -- Core desktop pieces
-    hl.exec_cmd("waybar")
+    -- Noctalia: bar, wallpaper, notifications, OSDs, lockscreen, idle
+    hl.exec_cmd("noctalia -d")
+
+    -- Old core desktop pieces (disabled -- configs kept, uncomment to restore)
+    --hl.exec_cmd("waybar")
     -- Instant workspace highlight updates for custom waybar modules
-    hl.exec_cmd("/home/bailey/.config/waybar/scripts/ws-events.sh")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("mako")
-    hl.exec_cmd("nm-applet")
-    hl.exec_cmd("hypridle")
+    --hl.exec_cmd("/home/bailey/.config/waybar/scripts/ws-events.sh")
+    --hl.exec_cmd("hyprpaper")
+    --hl.exec_cmd("mako")
+    --hl.exec_cmd("nm-applet")
+    --hl.exec_cmd("hypridle")
 
     -- Old shells (kept for easy switch-back)
     --hl.exec_cmd("ags run /home/bailey/.config/ags")

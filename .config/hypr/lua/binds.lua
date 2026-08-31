@@ -7,11 +7,15 @@ local mainMod = mainMod
 -- Basic apps
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+-- hyprshutdown was never installed, so this always fell through to the raw
+-- exit. Noctalia's logout action does the same thing with a confirm prompt.
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("noctalia msg session logout"))
 -- Launcher
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
+--hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))  -- pre-Noctalia
 --hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))   -- old hyprlauncher
-hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
+hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
+--hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e ranger"))
 
 -- Toggle the laptop screen on/off (also the panic button if auto-toggle misfires)
@@ -20,6 +24,17 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("/home/bailey/.local/bin/lapt
 -- Window control
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
+-- Windowed / fake fullscreen: app gets real fullscreen (hides chrome), Hyprland maximizes
+-- so geometry matches (internal=0 crops browsers; internal=1 fills usable area).
+hl.bind(
+    mainMod .. " + O",
+    hl.dsp.window.fullscreen_state({
+        internal = 1, -- Hyprland: maximize (avoids crop/chopped top)
+        client   = 2, -- client: report true fullscreen (hide tabs/UI)
+        action   = "toggle",
+    }),
+    { description = "Toggle windowed fullscreen (client FS + maximize)" }
+)
 --hl.bind(mainMod .. " + ctrl + M", hl.dsp.window.fullscreen({ mode = "maximize" })) -- maximize (keeps bar + gaps)
 --hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
@@ -28,9 +43,6 @@ hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))
 hl.bind(mainMod .. " + R", hl.dsp.layout("colresize +conf"))
 hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -0.05"))
 hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +0.05"))
-
--- Scrolling layout: overview (niri-style) -- fit all columns into view
-hl.bind(mainMod .. " + O", hl.dsp.layout("fit all"))
 
 -- Arrow key focus (pre-translation style)
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -66,17 +78,56 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Screenshot
-hl.bind("Print", hl.dsp.exec_cmd("sh -c 'file=\"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png\"; grim -g \"$(slurp)\" \"$file\" && notify-send -a Screenshot -i camera-photo \"Screenshot saved\" \"$file\"'"))
+hl.bind("Print", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen"))
+-- Old grim/slurp version. Still works; it saved straight to
+-- ~/Pictures/Screenshots. Check where Noctalia puts them before deleting this.
+--hl.bind("Print", hl.dsp.exec_cmd("sh -c 'file=\"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png\"; grim -g \"$(slurp)\" \"$file\" && notify-send -a Screenshot -i camera-photo \"Screenshot saved\" \"$file\"'"))
+
+-----------------------
+---- NOCTALIA SHELL ----
+-----------------------
+
+-- Panels
+hl.bind(mainMod .. " + N",         hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+hl.bind(mainMod .. " + C",         hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+hl.bind(mainMod .. " + W",         hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
+hl.bind(mainMod .. " + TAB",       hl.dsp.exec_cmd("noctalia msg window-switcher"))
+
+-- Bar
+hl.bind(mainMod .. " + B",         hl.dsp.exec_cmd("noctalia msg bar-toggle"))
+
+-- Notifications
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("noctalia msg notification-dnd-toggle"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("noctalia msg notification-clear-active"))
+
+-- Wallpaper
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("noctalia msg wallpaper-random"))
+
+-- Session / idle
+-- CTRL+L because plain SUPER+L is vim-style focus-right
+hl.bind(mainMod .. " + CTRL + L",  hl.dsp.exec_cmd("noctalia msg session lock"))
+hl.bind(mainMod .. " + I",         hl.dsp.exec_cmd("noctalia msg caffeine-toggle"))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("noctalia msg nightlight-force-toggle"))
 
 -- Multimedia keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),     { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),    { locked = true, repeating = true })
+-- Routed through Noctalia so they draw an OSD. The raw wpctl/brightnessctl
+-- calls still work, they just changed the value with no on-screen feedback
+-- once Waybar went away -- old versions kept commented under each.
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up 5"),   { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("noctalia msg volume-mute"),   { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("noctalia msg mic-mute"),      { locked = true })
+--hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+--hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
+--hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true, repeating = true })
 
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("noctalia msg brightness-up 5"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("noctalia msg brightness-down 5"), { locked = true, repeating = true })
+--hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+--hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("noctalia msg media next"),   { locked = true })
+hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("noctalia msg media previous"), { locked = true })
+hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("noctalia msg media toggle"), { locked = true })

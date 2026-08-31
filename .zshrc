@@ -69,7 +69,7 @@ alias nvimkeys='bat --style=plain -l md ~/dotfiles/.config/nvim/KEYBINDINGS.md'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
-
+alias py='python'
 # =============================
 # Aliases - git
 # =============================

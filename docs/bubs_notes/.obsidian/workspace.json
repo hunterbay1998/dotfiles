@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arch/ssh.md",
+                "file": "python/subprocess.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ssh"
+              "title": "subprocess"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -184,13 +186,22 @@
   },
   "active": "fc11f60b5d727523",
   "lastOpenFiles": [
+    "python/Untitled.md",
+    "python/subprocess.md",
+    "Untitled.md",
+    "python",
+    "~/Documents/python_scripts.md",
+    "~/Documents",
+    "~",
+    "Untitled 1.base",
+    "python",
+    "Untitled.base",
+    "Arch/ssh.md",
     "Arch/sshfs.md.tmp.6369.f6b6c01ca7bd",
     "Python/Functions.md",
     "Arch/bluetooth.md",
     "Arch/Arch.md",
     "Python/Lists.md",
-    "Untitled 1.base",
-    "Untitled.base",
     "Python/Lists.md.tmp.22687.8c1854fd36e6",
     "Python/Lists.md.tmp.22687.a2f92f006c74",
     "Bash/variables.md",
@@ -198,28 +209,19 @@
     "Bash/conditionals.md",
     "Bash/loops.md",
     "Arch/sddm.md",
-    "Arch/ssh.md",
     "Arch/sshfs.md",
     "Bash/patterns.md",
     "Bash/Bash.md",
     "Bash/functions.md",
     "Arch/rsync.md",
     "Arch/permissions.md",
-    "Arch/permissions.md.tmp.8004.1775766530176",
-    "Arch/rsync.md.tmp.8004.1775765922503",
     "Arch/systemd.md",
     "Arch/sed.md",
     "Arch/partitioning.md",
     "Arch/fstab.md",
-    "Arch/Arch.md.tmp.8004.1775765613497",
-    "Arch/rsync.md.tmp.8004.1775765600268",
     "AGS/widgets/workspaces.md",
-    "AGS/tier-1.md.tmp.14157.1775686200388",
     "AGS/tier-2.md",
     "AGS/tier-3.md",
-    "AGS/tier-1.md",
-    "AGS/widgets/bar.md",
-    "AGS/widgets/clock.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]

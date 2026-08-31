@@ -5,6 +5,6 @@
 -- Set programs that you use
 mainMod = "SUPER"
 terminal = "kitty"
-fileManager = "dolphin"
+fileManager = "ranger"   -- was "dolphin", which isn't installed
 menu = "hyprlauncher"
 

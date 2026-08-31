@@ -1,6 +1,7 @@
 # Neovim Keybindings
 
 > Leader key is `,` (comma)
+> View this any time with `nvimkeys`
 
 ## LSP
 K — Hover docs / type info
@@ -44,3 +45,40 @@ Alt+Right — Make split wider
 ,t — Toggle bottom terminal
 ,a — Toggle AI terminal (Claude)
 ,cp — Colour picker (ccc)
+
+## Inside Neo-tree
+l — Open file / expand folder
+h — Collapse folder / go up a level
+L — Expand all folders
+H — Collapse all folders
+Tab — Toggle folder open/closed
+Enter or o — Open
+Ctrl+v — Open in vertical split
+Ctrl+x — Open in horizontal split
+Ctrl+t — Open in new tab
+a — New file
+A — New folder
+d — Delete
+r — Rename
+y — Copy to clipboard
+x — Cut to clipboard
+p — Paste from clipboard
+c — Copy (to a chosen path)
+m — Move (to a chosen path)
+R — Refresh tree
+q — Close tree
+? — Show help
+< / > — Previous / next source
+
+## Completion menu (insert mode)
+Ctrl+Space — Force the menu open
+Enter — Accept selected item
+Tab — Next item (or jump forward in a snippet)
+Shift+Tab — Previous item (or jump back in a snippet)
+Alt+j — Next item
+Alt+k — Previous item
+
+## Commands (no keybind)
+:LazyGit — Full git UI inside Neovim
+:Lazy — Plugin manager
+:Mason — Install/manage LSP servers & tools

@@ -37,3 +37,12 @@ hl.window_rule({
     scrolling_width = 1.0,
     workspace = "3 silent",
 })
+
+-- Borderless while in windowed / fake fullscreen
+hl.window_rule({
+    match = {
+        fullscreen_state_internal = 1, -- maximized by Hyprland
+        fullscreen_state_client   = 2, -- client thinks it is fullscreen
+    },
+    border_size = 0,
+})

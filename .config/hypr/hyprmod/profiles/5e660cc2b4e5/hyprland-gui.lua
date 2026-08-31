@@ -19,13 +19,14 @@ hl.config({
         blur = {
             brightness = 1.02,
             contrast = 0.91,
+            ignore_opacity = false,
             noise = 0.01,
             passes = 5,
             popups = true,
-            size = 7,
+            size = 3,
             special = true,
             vibrancy = 0.11,
-            xray = true,
+            xray = false,
         },
         dim_inactive = false,
         dim_strength = 0.2,
@@ -43,7 +44,7 @@ hl.config({
     general = {
         border_size = 1,
         col = {
-            active_border = "0xffb5835a",
+            active_border = "0xffb4befe",
         },
         extend_border_grab_area = 15,
         gaps_in = 5,
