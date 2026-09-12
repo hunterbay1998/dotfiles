@@ -1,0 +1,25 @@
+// ───────────────────────────────────────────────────────────────
+//  WINDOW RULES
+// ───────────────────────────────────────────────────────────────
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// kitty
+window-rule {
+    match app-id="kitty"
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+//chromium
+window-rule {
+    match app-id="chromium"
+    match app-id="steam"
+    match app-id="discord"
+    match app-id="zed"
+    open-maximized true
+}

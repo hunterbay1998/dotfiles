@@ -1,16 +1,19 @@
 // ╔═══════════════════════════════════════════════════════════════╗
 // ║                         NIRI CONFIG                           ║
-// ║        https://niri-wm.github.io/niri/Configuration            ║
+// ║        https://niri-wm.github.io/niri/Configuration           ║
 // ╚═══════════════════════════════════════════════════════════════╝
 
 
 // ───────────────────────────────────────────────────────────────
 //  INPUT
 // ───────────────────────────────────────────────────────────────
+
+include "rules.kdl"
+
 input {
-    keyboard {
-        numlock
-    }
+    //keyboard {
+    //    numlock
+    //}
 
     touchpad {
         tap
@@ -78,11 +81,6 @@ layout {
 //  MISC
 // ───────────────────────────────────────────────────────────────
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// Ask clients to skip drawing their own client-side title bar/decorations
-// (that's the banner kitty draws at the top of floating windows). Niri's
-// own border/focus-ring takes over instead. Apps need restarting to pick
-// this up.
 prefer-no-csd
 
 
@@ -98,29 +96,7 @@ blur {
 }
 
 
-// ───────────────────────────────────────────────────────────────
-//  WINDOW RULES
-// ───────────────────────────────────────────────────────────────
-// Rounded corners on every window. clip-to-geometry trims the
-// window's own content to the radius, so square-cornered apps
-// don't poke out past it.
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
 
-// Blur behind kitty. Transparency comes from kitty's own
-// background_opacity (0.80) in ~/.config/kitty/kitty.conf.
-window-rule {
-    match app-id="kitty"
-    // Focus ring/border draw as a solid rect BEHIND the window by
-    // default, which shows through the transparent background and
-    // hides the blur while focused. Draw them around it instead.
-    draw-border-with-background false
-    background-effect {
-        blur true
-    }
-}
 
 // The kitty window running update.sh: untile it and float it
 // above the tiled layout. Floating windows with no remembered
