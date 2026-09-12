@@ -1,6 +1,15 @@
-.config/hypr/config/02-monitors.conf
-.config/hypr/host.conf
+# Editor / manual backups
+*.bak
+*.bak[0-9]
+*.save
+*.swp
+*~
+*.before-*
+*.pre-*
 
-# Host-specific (machine paths / server bookmarks)
-.config/gtk-3.0/bookmarks
+# Local-only overrides (not tracked, sourced if present)
 .zshrc.local
+.config/gtk-3.0/bookmarks
+
+# Obsidian workspace state
+docs/bubs_notes/.obsidian/workspace.json

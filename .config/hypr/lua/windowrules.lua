@@ -3,30 +3,35 @@
 -----------------------
 
 hl.window_rule({
-    match = { class = "power-menu" },
-    float = true,
-    center = true,
-    size = { 400, 350 },
-})
-
-hl.window_rule({
-    match = { class = "wifi-menu" },
-    float = true,
-    center = true,
-    size = { 400, 350 },
-})
-
-hl.window_rule({
-    match = { class = "rofi" },
-    float = true,
-    center = true,
-})
-
-hl.window_rule({
     match = { class = "org.gnome.Loupe" },
     float = true,
     center = true,
     size = { 1000, 700 },
+})
+
+-- Float instead of tiling
+hl.window_rule({
+    match = { class = "discord" },
+    float = true,
+    center = true,
+    size = { 1200, 700 },
+})
+
+hl.window_rule({
+    match = { class = "steam" },
+    float = true,
+    center = true,
+    size = { 1200, 700 },
+})
+
+-- More specific than the rule above, so it wins for this one dialog
+-- (both share class "steam" -- only the title tells them apart).
+hl.window_rule({
+    match = { class = "steam", title = "Steam Settings" },
+    float = true,
+    center = true,
+    size = { 700, 500 },
+    border_color = { colors = { "rgba(00000000)" } },
 })
 
 -- Scrolling layout: per-app starting column width.

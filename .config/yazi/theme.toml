@@ -1,3 +1,4 @@
+# Flavor selection — the actual colors live in flavors/tokyo-night.yazi/flavor.toml
+# Installed with: ya pkg add BennyOe/tokyo-night
 [flavor]
-dark  = "noctalia"
-light = "noctalia"
+dark = "tokyo-night"

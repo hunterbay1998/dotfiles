@@ -8,6 +8,9 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("/usr/lib/xdg-desktop-portal-hyprland")
     hl.exec_cmd("/usr/lib/xdg-desktop-portal")
 
+    -- Autologin skips PAM's keyring unlock, so start the daemon explicitly
+    hl.exec_cmd("/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh")
+
     -- Noctalia: bar, wallpaper, notifications, OSDs, lockscreen, idle
     hl.exec_cmd("noctalia -d")
 

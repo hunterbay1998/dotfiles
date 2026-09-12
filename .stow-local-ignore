@@ -1,4 +1,7 @@
 README.md
-.git
+\.git
+\.gitignore
+\.stow-local-ignore
 scripts
 docs
+packages

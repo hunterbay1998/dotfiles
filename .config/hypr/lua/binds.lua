@@ -14,9 +14,11 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("noctalia msg session logout"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 --hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))  -- pre-Noctalia
 --hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))   -- old hyprlauncher
+-- Omarchy-style nested menu, driven by ~/.config/noctalia-menu/menu.jsonc
+--hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("/home/bailey/.local/bin/noctalia-menu"))
 hl.bind(mainMod .. " + p", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
 --hl.bind(mainMod .. " + p", hl.dsp.exec_cmd(terminal .. " --class power-menu /home/bailey/.local/bin/power"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e ranger"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(terminal .. " -e " .. fileManager))
 
 -- Toggle the laptop screen on/off (also the panic button if auto-toggle misfires)
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("/home/bailey/.local/bin/laptop-toggle"))

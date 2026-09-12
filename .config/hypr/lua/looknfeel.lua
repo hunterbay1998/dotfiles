@@ -86,6 +86,11 @@ hl.config({
 -- XWayland: render apps at native resolution instead of letting the
 -- compositor upscale them (which causes blur on scaled monitors).
 -- Toolkit env vars (GDK_SCALE etc.) then size them correctly.
+--
+-- Steam is the only XWayland client here (Discord, Chromium, Claude are all
+-- native Wayland). Compositor-side upscaling (force_zero_scaling = false)
+-- sized it correctly but blurry. Back to true (crisp, native pixels) and
+-- letting GDK_DPI_SCALE in env.lua handle sizing at the toolkit level instead.
 hl.config({
     xwayland = {
         force_zero_scaling = true,

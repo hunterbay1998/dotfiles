@@ -1,9 +1,9 @@
 -- =============================================
 -- Hyprland main config (entry point)
 -- =============================================
---require("hyprland-gui")
 require("lua.variables")
 require("lua.monitors")
+require("lua.workspaces")
 require("lua.binds")
 require("lua.windowrules")
 require("lua.layerrules")
@@ -18,6 +18,3 @@ require("lua.events")
 
 -- HyprMod managed settings
 require("hyprland-gui")
-
--- For Noctalia Color templates
-require("noctalia")

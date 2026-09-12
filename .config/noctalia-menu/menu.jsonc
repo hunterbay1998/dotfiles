@@ -1,0 +1,89 @@
+{
+  // Menu definition for noctalia-menu. Structure borrowed from Omarchy's
+  // omarchy-menu.jsonc: IDs are object keys, dots imply hierarchy, so
+  // "style.wallpaper.random" sits under "style.wallpaper".
+  //
+  // Fields:
+  //   label     row text (required)
+  //   action    shell command run detached when the row is picked
+  //   list      shell command whose stdout lines become a second picker;
+  //             the pick is substituted into `exec` as {selection}
+  //   exec      command run for a `list` pick
+  //   description  static text shown after the label
+  //   describe     shell command whose stdout is shown as the description
+  //   when      shell condition; row is hidden when it fails
+  //   checked   shell condition; appends a checkmark when it succeeds
+  //
+  // A row with no action/list is a submenu (it must have children).
+  // Comments must be on their own line. Add Nerd Font glyphs to labels only
+  // if shell.font_family in settings.toml is a Nerd Font.
+
+  // Root
+  "apps": {"label":"Apps","description":"application launcher","action":"noctalia msg panel-open launcher"},
+  "style": {"label":"Style"},
+  "toggle": {"label":"Toggle"},
+  "capture": {"label":"Capture"},
+  "setup": {"label":"Setup"},
+  "learn": {"label":"Learn"},
+  "system": {"label":"System"},
+
+  // Style
+  "style.mode": {"label":"Theme Mode","describe":"noctalia msg theme-mode-get","action":"noctalia msg theme-mode-toggle"},
+  "style.palette": {"label":"Palette","describe":"noctalia msg color-scheme-get"},
+  "style.palette.builtin": {"label":"Builtin","list":"noctalia-menu --palettes builtin","exec":"noctalia msg color-scheme-set builtin {selection}"},
+  "style.palette.community": {"label":"Community","list":"noctalia-menu --palettes community","exec":"noctalia msg color-scheme-set community {selection}"},
+  "style.palette.wallpaper": {"label":"From Wallpaper","description":"generate from current wallpaper","action":"noctalia msg color-scheme-set wallpaper m3-content"},
+  "style.wallpaper": {"label":"Wallpaper"},
+  "style.wallpaper.picker": {"label":"Picker","description":"browse wallpapers","action":"noctalia msg panel-open wallpaper"},
+  "style.wallpaper.random": {"label":"Random","action":"noctalia msg wallpaper-random"},
+  "style.wallpaper.next": {"label":"Next","action":"noctalia msg wallpaper-next"},
+  "style.wallpaper.previous": {"label":"Previous","action":"noctalia msg wallpaper-previous"},
+  "style.templates": {"label":"Apply Templates","description":"re-theme gtk, kitty, etc","action":"noctalia msg templates-apply"},
+  "style.settings": {"label":"Settings","action":"noctalia msg settings-open"},
+
+  // Toggle
+  "toggle.nightlight": {"label":"Night Light","action":"noctalia msg nightlight-force-toggle"},
+  "toggle.caffeine": {"label":"Stay Awake","description":"inhibit idle","action":"noctalia msg caffeine-toggle"},
+  "toggle.dnd": {"label":"Do Not Disturb","describe":"noctalia msg notification-dnd-status","action":"noctalia msg notification-dnd-toggle"},
+  "toggle.bar": {"label":"Bar","action":"noctalia msg bar-toggle"},
+  "toggle.dock": {"label":"Dock","action":"noctalia msg dock-toggle"},
+  "toggle.osd": {"label":"OSD","action":"noctalia msg osd-toggle"},
+  "toggle.widgets": {"label":"Desktop Widgets","action":"noctalia msg desktop-widgets-toggle"},
+  "toggle.wifi": {"label":"Wi-Fi","describe":"noctalia msg wifi-status","action":"noctalia msg wifi-toggle"},
+  "toggle.bluetooth": {"label":"Bluetooth","describe":"noctalia msg bluetooth-status","action":"noctalia msg bluetooth-toggle"},
+
+  // Capture
+  "capture.region": {"label":"Region","action":"noctalia msg screenshot-region"},
+  "capture.screen": {"label":"Screen","description":"focused monitor","action":"noctalia msg screenshot-fullscreen"},
+  "capture.pick": {"label":"Pick Monitor","action":"noctalia msg screenshot-fullscreen pick"},
+  "capture.all": {"label":"All Outputs","action":"noctalia msg screenshot-fullscreen all"},
+
+  // Setup
+  "setup.settings": {"label":"Noctalia Settings","action":"noctalia msg settings-open"},
+  "setup.config": {"label":"Noctalia Config","description":"settings.toml","action":"kitty -e ${EDITOR:-nvim} ~/.local/state/noctalia/settings.toml"},
+  "setup.menu": {"label":"Menu Config","description":"this menu","action":"kitty -e ${EDITOR:-nvim} ~/.config/noctalia-menu/menu.jsonc"},
+  "setup.reload": {"label":"Reload Config","action":"noctalia msg config-reload"},
+  "setup.plugins": {"label":"Plugins","description":"open an enabled plugin's settings","list":"noctalia msg plugins list | awk '$4==\"enabled\"{print $1}'","exec":"noctalia msg settings-open-plugin {selection}"},
+  "setup.hypr": {"label":"Hyprland"},
+  "setup.hypr.main": {"label":"hyprland.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/hyprland.lua"},
+  "setup.hypr.binds": {"label":"binds.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/binds.lua"},
+  "setup.hypr.monitors": {"label":"monitors.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/monitors.lua"},
+  "setup.hypr.input": {"label":"input.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/input.lua"},
+  "setup.hypr.looknfeel": {"label":"looknfeel.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/looknfeel.lua"},
+  "setup.hypr.windowrules": {"label":"windowrules.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/windowrules.lua"},
+  "setup.hypr.reload": {"label":"Reload Hyprland","action":"hyprctl reload"},
+
+  // Learn
+  "learn.keybinds": {"label":"Keybindings","description":"binds.lua","action":"kitty -e ${EDITOR:-nvim} ~/.config/hypr/lua/binds.lua"},
+  "learn.noctalia": {"label":"Noctalia Docs","action":"xdg-open https://docs.noctalia.dev"},
+  "learn.hyprland": {"label":"Hyprland Wiki","action":"xdg-open https://wiki.hypr.land"},
+  "learn.arch": {"label":"Arch Wiki","action":"xdg-open https://wiki.archlinux.org"},
+
+  // System
+  "system.lock": {"label":"Lock","action":"noctalia msg session lock"},
+  "system.suspend": {"label":"Suspend","action":"noctalia msg session suspend"},
+  "system.lock-suspend": {"label":"Lock and Suspend","action":"noctalia msg session lock-and-suspend"},
+  "system.logout": {"label":"Logout","action":"noctalia msg session logout"},
+  "system.reboot": {"label":"Reboot","action":"noctalia msg session reboot"},
+  "system.shutdown": {"label":"Shutdown","action":"noctalia msg session shutdown"},
+}
