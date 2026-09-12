@@ -38,4 +38,15 @@
     "light": "Ayu Light",
     "dark": "Catppuccin Macchiato",
   },
-}
+    "lsp": {
+      "lua-language-server": {
+        "settings": {
+          "Lua": {
+            "diagnostics": {
+              "globals": ["vim", "hl"]
+            }
+          }
+        }
+      }
+    }
+  }

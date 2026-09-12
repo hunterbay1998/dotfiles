@@ -15,7 +15,13 @@ window-rule {
     }
 }
 
-//chromium
+//update.sh for kitty
+window-rule {
+    match app-id="kitty" title="^update\\.sh$"
+    open-floating true
+}
+
+//maximized apps
 window-rule {
     match app-id="chromium"
     match app-id="steam"
