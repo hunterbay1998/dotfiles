@@ -1,0 +1,14 @@
+[plugin_settings."tordex/system-updater"]
+panel_placement = "floating"
+
+[plugins]
+enabled = [
+    "jrohland/claudecode",
+    "kenn/keybind-cheatsheet",
+    "ashur-d/nvim-projects",
+    "tmelik/system-monitor",
+    "yocraft/web-launcher",
+    "noctalia/wallhaven",
+    "aabidk20/yt-music",
+    "tordex/system-updater"
+]

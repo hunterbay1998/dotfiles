@@ -8,7 +8,7 @@ fi
 # typeset -U keeps duplicates out, so nested shells and `exec zsh` can't stack
 # up copies of the same directory (the old config did this twice).
 typeset -U path PATH
-path=(~/.local/bin $path)
+path=(~/.local/bin ~/dotfiles/scripts $path)
 export PATH
 
 # ─── Environment ──────────────────────────────────────────────────────────────

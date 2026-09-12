@@ -1,0 +1,86 @@
+[widget.Update]
+glyph = "chevrons-up"
+icon_color = "outline"
+tooltip = "Update"
+type = "custom_button"
+
+    [widget.Update.actions]
+    left = "exec /home/bailey/.local/bin/update-launch.sh"
+    right = "exec /home/bailey/.local/bin/update-launch.sh"
+
+[widget.active_window]
+scale = 0.80000000000000004
+
+[widget.battery]
+capsule_radius = "auto"
+color = "tertiary"
+display_mode = "graphic"
+show_label = false
+
+[widget.bluetooth]
+color = "on_secondary"
+icon_color = "outline"
+scale = 0.90000000000000013
+
+[widget.brightness]
+color = "outline"
+icon_color = "#DB902D"
+scale = 1.1500000000000001
+show_label = false
+
+[widget.clipboard]
+color = "on_secondary"
+icon_color = "outline"
+scale = 0.90000000000000013
+
+[widget.clock]
+anchor = true
+scale = 1.1500000000000001
+
+[widget.control-center]
+glyph = "adjustments"
+scale = 1.1500000000000001
+
+[widget.media]
+enabled = false
+hide_when_no_media = true
+
+[widget.network]
+color = "outline"
+icon_color = "primary"
+scale = 1.1500000000000001
+show_label = false
+
+[widget.nightlight]
+icon_color = "secondary"
+scale = 0.85000000000000009
+
+[widget.notifications]
+color = "outline"
+icon_color = "on_surface"
+
+[widget.session]
+color = "outline"
+icon_color = "error"
+scale = 1.1500000000000001
+
+[widget.taskbar]
+workspace_group_capsule = false
+
+[widget.tray]
+detached_panel = true
+drawer = true
+
+[widget.volume]
+color = "outline"
+icon_color = "secondary"
+scale = 1.1500000000000001
+show_label = false
+
+[widget.wallpaper]
+color = "on_secondary"
+icon_color = "outline"
+scale = 0.90000000000000013
+
+[widget.workspaces]
+font_family = "Adwaita Mono"

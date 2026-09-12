@@ -1,0 +1,34 @@
+[calendar]
+enabled = true
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 5
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 60.0
+
+[location]
+auto_locate = true
+
+[nightlight]
+enabled = true
+
+[notification]
+show_actions = false
+
+[osd]
+position = "top_right"
+position_vertical = "top_right"

@@ -1,0 +1,37 @@
+[shell]
+corner_radius_scale = 0.5000000074505806
+polkit_agent = true
+
+    [shell.animation]
+    speed = 0.65000000968575478
+
+    [shell.launcher]
+    categories = false
+    compact = true
+    show_app_actions = true
+
+        [shell.launcher.providers.wallpaper]
+        global = false
+
+    [shell.panel]
+    clipboard_position = "auto"
+    control_center_placement = "floating"
+    floating_layer = "top"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    open_near_click_session = true
+    open_near_click_wallpaper = true
+    polkit_position = "auto"
+    session_placement = "floating"
+    transparency_mode = "soft"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.session]
+    grid = true
+    grid_columns = 5
+    show_shortcuts = false
+
+    [shell.shadow]
+    alpha = 0.59999998658895493

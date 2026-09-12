@@ -1,0 +1,29 @@
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    border_width = 0.5
+    center = [ "Update", "bluetooth", "clipboard", "wallpaper", "clock" ]
+    contact_shadow = true
+    end = [ "media", "tray", "group:g1" ]
+    hover_highlight = false
+    margin_edge = -1
+    margin_ends = -1
+    radius = 3
+    radius_bottom_left = 0
+    radius_bottom_right = 0
+    radius_top_right = 0
+    scale = 1.1000000089406967
+    shadow = false
+    start = [ "control-center", "workspaces", "active_window" ]
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "volume", "network", "notifications", "brightness", "battery", "session" ]
+        opacity = 0.64999997615814209
+        padding = 8.0
+        radius = 6.0

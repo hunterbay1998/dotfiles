@@ -1,0 +1,39 @@
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Tokyo Night Storm"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "niri" ]
+
+[wallpaper]
+directory = "/home/bailey/Pictures/war"
+transition_on_startup = true
+
+    [wallpaper.automation]
+    interval_seconds = 60
+
+    [wallpaper.default]
+    path = "/home/bailey/Pictures/war/dominik-mayer-10.jpg"
+
+    [wallpaper.last]
+    path = "/home/bailey/Pictures/war/dominik-mayer-10.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/bailey/Pictures/war/dominik-mayer-10.jpg"
+
+    [[wallpaper.favorite]]
+    path = "/home/bailey/Pictures/war/dominik-mayer-2.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/bailey/Pictures/war/dominik-mayer-1.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    builtin_palette = "Tokyo-Night"
+    palette_source = "builtin"
+    path = "/home/bailey/Pictures/war/dominik-mayer-9.jpg"
+    theme_mode = "dark"
