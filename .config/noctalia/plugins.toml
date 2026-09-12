@@ -1,6 +1,12 @@
 [plugin_settings."tordex/system-updater"]
 panel_placement = "floating"
 
+[plugin_settings."yocraft/web-launcher"]
+links = [
+    "Noctalia wiki|https://docs.noctalia.dev",
+    "Arch Wiki|https://wiki.archlinux.org"
+]
+
 [plugins]
 enabled = [
     "jrohland/claudecode",

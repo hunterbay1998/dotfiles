@@ -27,6 +27,9 @@
   "vim_mode": true,
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "mode": "auto"
+      },
       "type": "registry"
     }
   },

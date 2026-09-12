@@ -13,6 +13,10 @@ polkit_agent = true
         [shell.launcher.providers.wallpaper]
         global = false
 
+        [shell.launcher.providers."yocraft/web-launcher:web-launcher"]
+        prefix = "w"
+        global = true
+
     [shell.panel]
     clipboard_position = "auto"
     control_center_placement = "floating"
