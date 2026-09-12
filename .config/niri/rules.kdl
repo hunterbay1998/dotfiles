@@ -27,5 +27,6 @@ window-rule {
     match app-id="steam"
     match app-id="discord"
     match app-id="zed"
+    match app-id="btop"
     open-maximized true
 }

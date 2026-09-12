@@ -15,6 +15,7 @@ binds {
 
     // ─── #"Noctalia" ───────────────────────────────────────────
     Mod+SPACE   hotkey-overlay-title="Open the Noctalia launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+Shift+SPACE hotkey-overlay-title="Open the launcher in web-links mode" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/ "; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }
 
     // ─── #"Volume" ─────────────────────────────────────────────

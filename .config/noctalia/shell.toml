@@ -6,7 +6,7 @@ polkit_agent = true
     speed = 0.65000000968575478
 
     [shell.launcher]
-    categories = false
+    categories = true
     compact = true
     show_app_actions = true
 
