@@ -1,0 +1,12 @@
+{
+  "links": [
+    { "name": "GitHub",          "url": "https://github.com",                      "glyph": "", "tags": "git code repo" },
+    { "name": "Niri Wiki",       "url": "https://yalter.github.io/niri/",           "glyph": "", "tags": "wm compositor docs" },
+    { "name": "Quickshell Docs", "url": "https://quickshell.org/docs/",             "glyph": "", "tags": "qml shell docs" },
+    { "name": "Arch Wiki",       "url": "https://wiki.archlinux.org",               "glyph": "", "tags": "linux docs" },
+    { "name": "Arch Packages",   "url": "https://archlinux.org/packages/",          "glyph": "", "tags": "pacman aur search" },
+    { "name": "YouTube",         "url": "https://youtube.com",                      "glyph": "", "tags": "video media" },
+    { "name": "Reddit",          "url": "https://reddit.com",                       "glyph": "", "tags": "social" },
+    { "name": "Claude",          "url": "https://claude.ai",                        "glyph": "", "tags": "ai chat" }
+  ]
+}

@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": "Catppuccin Frappé",
+  "cli_default_open_behavior": "existing_window",
   "project_panel": {
     "dock": "left"
   },
@@ -28,7 +30,7 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
-        "fast": true,
+        "fast": false,
         "mode": "auto"
       },
       "type": "registry"
@@ -37,20 +39,58 @@
   "base_keymap": "JetBrains",
   "ui_font_size": 16,
   "buffer_font_size": 15,
+  // Alpha on the theme backgrounds makes the window see-through;
+  // niri applies the blur (see .config/niri/rules.kdl).
+  "experimental.theme_overrides": {
+    "background": "#30344680",
+    "editor.background": "#30344680",
+    "editor.gutter.background": "#30344680",
+    "surface.background": "#292c3c80",
+    "panel.background": "#292c3c80",
+    "tab_bar.background": "#292c3c80",
+    "tab.inactive_background": "#292c3c80",
+    "tab.active_background": "#30344680",
+    "toolbar.background": "#30344680",
+    "status_bar.background": "#292c3c80",
+    "title_bar.background": "#292c3c80",
+    "terminal.background": "#30344680"
+  },
   "theme": {
     "mode": "system",
     "light": "Ayu Light",
-    "dark": "Catppuccin Macchiato",
+    "dark": "One Dark"
   },
-    "lsp": {
-      "lua-language-server": {
-        "settings": {
-          "Lua": {
-            "diagnostics": {
-              "globals": ["vim", "hl"]
-            }
+  "languages": {
+    "Python": {
+      "language_servers": [
+        // Only ty (types) and ruff (lint/format); disable the rest
+        // so diagnostics aren't duplicated.
+        "ty",
+        "ruff",
+        "!basedpyright",
+        "!pyright",
+        "!pylsp"
+      ],
+      // Format with ruff and sort imports on save.
+      "formatter": {
+        "language_server": {
+          "name": "ruff"
+        }
+      },
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true
+      }
+    }
+  },
+  "lsp": {
+    "lua-language-server": {
+      "settings": {
+        "Lua": {
+          "diagnostics": {
+            "globals": ["vim", "hl"]
           }
         }
       }
     }
   }
+}

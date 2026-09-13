@@ -21,6 +21,7 @@ input {
 //  STARTUP
 // ───────────────────────────────────────────────────────────────
 spawn-at-startup "noctalia" "--daemon"
+spawn-at-startup "qs" "-d" "-n"
 spawn-at-startup "/home/bailey/.local/bin/laptop-screen" "watch"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
 

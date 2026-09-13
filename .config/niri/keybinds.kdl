@@ -13,9 +13,9 @@ binds {
     // ─── #"Applications" ───────────────────────────────────────
     Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 
-    // ─── #"Noctalia" ───────────────────────────────────────────
-    Mod+SPACE   hotkey-overlay-title="Open the Noctalia launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-    Mod+Shift+SPACE hotkey-overlay-title="Open the launcher in web-links mode" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/ "; }
+    // ─── #"Shell" ──────────────────────────────────────────────
+    Mod+SPACE   hotkey-overlay-title="Open the start menu" { spawn "qs" "ipc" "call" "launcher" "toggle"; }
+    Mod+Shift+SPACE hotkey-overlay-title="Open the start menu in web-links mode" { spawn "qs" "ipc" "call" "launcher" "open" "weblinks"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }
 
     // ─── #"Volume" ─────────────────────────────────────────────
