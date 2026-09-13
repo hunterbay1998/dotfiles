@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 
 def run_command(cmd):
     result = subprocess.run(
@@ -15,6 +16,7 @@ def check_device(dev):
         print("Device is mounted")
     else:
         print("Device is not mounted")
+        sys.exit(1)
 
 check_device("/dev/sda1")
 
@@ -30,4 +32,3 @@ if cmd.returncode == 0:
     print("Directory created successfully")
 else:
     print("Failed to create directory")
-
