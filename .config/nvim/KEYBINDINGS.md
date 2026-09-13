@@ -78,6 +78,15 @@ Shift+Tab — Previous item (or jump back in a snippet)
 Alt+j — Next item
 Alt+k — Previous item
 
+## Copilot (insert mode, Python files)
+Alt+l — Accept suggestion
+Alt+w — Accept next word only
+Alt+] / Alt+[ — Next / previous suggestion
+Ctrl+] — Dismiss suggestion
+,ct — Toggle suggestions on/off (current file)
+:Copilot auth — Sign in to GitHub (first time only)
+:Copilot status — Check it's connected
+
 ## Commands (no keybind)
 :LazyGit — Full git UI inside Neovim
 :Lazy — Plugin manager
