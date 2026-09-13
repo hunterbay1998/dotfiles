@@ -1,0 +1,86 @@
+// ╔═══════════════════════════════════════════════════════════════╗
+// ║                         NIRI CONFIG                           ║
+// ║        https://niri-wm.github.io/niri/Configuration           ║
+// ╚═══════════════════════════════════════════════════════════════╝
+include "noctalia.kdl"
+include "rules.kdl"
+include "keybinds.kdl"
+include "laptop-screen.kdl"
+
+// ───────────────────────────────────────────────────────────────
+//  INPUT
+// ───────────────────────────────────────────────────────────────
+
+input {
+    touchpad {
+        tap
+    }
+}
+
+// ───────────────────────────────────────────────────────────────
+//  STARTUP
+// ───────────────────────────────────────────────────────────────
+spawn-at-startup "noctalia" "--daemon"
+spawn-at-startup "qs" "-d" "-n"
+spawn-at-startup "/home/bailey/.local/bin/laptop-screen" "watch"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
+
+// ───────────────────────────────────────────────────────────────
+//  DISPLAY
+// ───────────────────────────────────────────────────────────────
+output "HDMI-A-1" {
+    mode "2560x1440@143.969"
+    scale 1.6
+    transform "normal"
+    position x=0 y=0
+}
+
+output "DP-1" {
+    mode "2560x1440@59.951"
+    scale 2
+    transform "normal"
+    position x=0 y=0
+}
+
+// ───────────────────────────────────────────────────────────────
+//  LAYOUT
+// ───────────────────────────────────────────────────────────────
+layout {
+    gaps 16
+    center-focused-column "never"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // Border is always visible, so the focus ring is redundant.
+    focus-ring {
+        off
+    }
+
+    // Colors come from noctalia.kdl (included at the bottom).
+    border {
+        width 2
+    }
+}
+
+// ───────────────────────────────────────────────────────────────
+//  MISC
+// ───────────────────────────────────────────────────────────────
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+
+// ───────────────────────────────────────────────────────────────
+//  BLUR
+// ───────────────────────────────────────────────────────────────
+// Parameters only. Windows opt in via background-effect below.
+blur {
+    passes 3
+    offset 5
+    noise 0.02
+    saturation 1.1
+}

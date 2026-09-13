@@ -1,0 +1,41 @@
+// ───────────────────────────────────────────────────────────────
+//  WINDOW RULES
+// ───────────────────────────────────────────────────────────────
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// kitty
+window-rule {
+    match app-id="kitty"
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
+
+//update.sh for kitty
+window-rule {
+    match app-id="kitty" title="^update\\.sh$"
+    open-floating true
+}
+
+//maximized apps
+window-rule {
+    match app-id="chromium"
+    match app-id="steam"
+    match app-id="discord"
+    match app-id="zed"
+    match app-id="btop"
+    open-maximized true
+}
+
+// zed
+window-rule {
+    match app-id="dev.zed.Zed"
+    draw-border-with-background false
+    background-effect {
+        blur true
+    }
+}
