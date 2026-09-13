@@ -1,12 +1,13 @@
-import subprocess
 
 
-def run_command(command):
-    subprocess.run(
-        command,
-        shell=True,
-        check=True,
-    )
+x = ["Bailey", "John", "Jane"]
 
 
-run_command("pacman -Que")
+greater = input("what is your name? ")
+
+for name in x:
+    if greater == name:
+        print("Hello, " + name + "!")
+    
+    elif greater != name:
+        print("I don't know you,")
