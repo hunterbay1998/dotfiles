@@ -69,16 +69,16 @@ names = ["ana", "ben", "cleo"]
 # A6. Print the first letter of each name in `names`.
 # EXPECTED: a b c
 
-for name in names:
-    print(name[0], end=" ")
-print()
+#for name in names:
+#    print(name[0], end=" ")
+#print()
 
 # A7. Print each name in uppercase. (hint: .upper())
 # EXPECTED: ANA BEN CLEO
 
-for name in names:
-    print(name.upper(), end=" ")
-print()
+#for name in names:
+#    print(name.upper(), end=" ")
+#print()
 
 # =============================================================================
 # SECTION B - THE ACCUMULATOR
@@ -86,30 +86,41 @@ print()
 # This is the single most important loop pattern.
 # =============================================================================
 
-prices = [4, 7, 2, 9]
+#prices = [4, 7, 2, 9]
 
 # B1. Add up all the prices into a variable called `total`, then print it.
 # EXPECTED: 22
 
-total = 0
-for price in prices:
-    total += price
-print(total)
+#total = 0
+#for price in prices:
+#    total += price
+#print(total)
 
 # B2. Count how many numbers in [3, 8, 12, 5, 6] are even.
 # Start a counter at 0 and add 1 each time you find one.
 # EXPECTED: 3
 
+#numbers = [3, 8, 12, 5, 6]
+#count = 0
+#for num in numbers:
+#    if num % 2 == 0:
+#        count += 1
+#print(count)
 
 # B3. Multiply [2, 3, 4] together. Careful: what should the accumulator start at?
 # EXPECTED: 24
 
+numbers = [2, 3, 4]
+total = 1
+
+for num in numbers:
+    total *= num
+print(total)
 
 # B4. Count the total number of characters across all of `names`.
-# EXPECTED: 10
+# EXPECTED:
 
-
-numbers = [12, 45, 7, 89, 23]
+#numbers = [12, 45, 7, 89, 23]
 
 # B5. Find the largest number without using max().
 # Start with `best = numbers[0]`, then compare each item and replace if bigger.

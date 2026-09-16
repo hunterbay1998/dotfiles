@@ -6,7 +6,10 @@
 //                         and in niri's hotkey overlay (Mod+Shift+/).
 binds {
 
-    // ─── #"Help" ───────────────────────────────────────────────
+    Mod+SPACE       hotkey-overlay-title="Open the Noctalia launcher" { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Mod+Shift+SPACE hotkey-overlay-title="Open the launcher in web-links mode" { spawn "noctalia" "msg" "panel-toggle" "launcher" "/ "; }
+
+  // ─── #"Help" ───────────────────────────────────────────────
     Mod+Shift+Slash hotkey-overlay-title="Show niri hotkey overlay" { show-hotkey-overlay; }
     Mod+Slash       hotkey-overlay-title="Keybind cheatsheet (searchable)" { spawn "noctalia" "msg" "panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"; }
 
@@ -14,9 +17,11 @@ binds {
     Mod+RETURN hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 
     // ─── #"Shell" ──────────────────────────────────────────────
-    Mod+SPACE   hotkey-overlay-title="Open the start menu" { spawn "qs" "ipc" "call" "launcher" "toggle"; }
-    Mod+Shift+SPACE hotkey-overlay-title="Open the start menu in web-links mode" { spawn "qs" "ipc" "call" "launcher" "open" "weblinks"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "noctalia" "msg" "session" "lock"; }
+
+    // ─── #"Keyboard" ───────────────────────────────────────────
+    // Layouts themselves are declared in config.kdl (input > keyboard > xkb).
+    Mod+Alt+SPACE hotkey-overlay-title="Toggle keyboard layout (US ANSI / UK ISO)" { switch-layout "next"; }
 
     // ─── #"Volume" ─────────────────────────────────────────────
     XF86AudioRaiseVolume hotkey-overlay-title="Volume up"       allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
