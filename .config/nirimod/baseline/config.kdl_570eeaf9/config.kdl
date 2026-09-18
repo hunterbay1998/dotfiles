@@ -12,14 +12,6 @@ include "laptop-screen.kdl"
 // ───────────────────────────────────────────────────────────────
 
 input {
-    keyboard {
-        xkb {
-            // First entry is the default at startup.
-            // Toggle between them with Mod+Alt+Space (see keybinds.kdl).
-            layout "gb,us"
-        }
-    }
-
     touchpad {
         tap
     }
@@ -32,7 +24,7 @@ spawn-at-startup "noctalia" "--daemon"
 spawn-at-startup "qs" "-d" "-n"
 spawn-at-startup "/home/bailey/.local/bin/laptop-screen" "watch"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
-spawn-at-startup "kitty" "--start" "fastfetch"
+
 // ───────────────────────────────────────────────────────────────
 //  DISPLAY
 // ───────────────────────────────────────────────────────────────
@@ -44,8 +36,8 @@ output "HDMI-A-1" {
 }
 
 output "DP-1" {
-    mode "2560x1440@359.979"
-    scale 1.6
+    mode "2560x1440@59.951"
+    scale 2
     transform "normal"
     position x=0 y=0
 }
@@ -92,6 +84,3 @@ blur {
     noise 0.02
     saturation 1.1
 }
-
-
-

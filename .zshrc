@@ -63,6 +63,11 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format '%F{#7aa2f7}%d%f' # blue group headings
 
+# ─── Aliases: rsync ───────────────────────────────────────────────────────────
+alias rs="rsync --compress --verbose --human-readable --partial --progress"
+
+rss() { rsync -ah --partial --info=progress2 --rsh 'ssh -p 22' "bailey@server:$1" "${2:-.}" }
+
 # ─── Aliases: pacman ──────────────────────────────────────────────────────────
 alias install="sudo pacman -S"
 alias update="sudo pacman -Syu"

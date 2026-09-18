@@ -1,0 +1,10 @@
+// Laptop screen. Mod+Shift+M adds/removes the `off` line via
+// ~/.local/bin/laptop-screen, which also removes it when no
+// other monitor is connected. Edit mode/scale/position freely.
+
+output "eDP-1" {
+    mode "2560x1600@165.000"
+    scale 2
+    transform "normal"
+    position x=0 y=0
+}

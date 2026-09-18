@@ -39,26 +39,3 @@ window-rule {
         blur true
     }
 }
-
-// ───────────────────────────────────────────────────────────────
-//  WORKSPACES
-// ───────────────────────────────────────────────────────────────
-
-workspace ""
-workspace ""
-workspace ""
-
-// Steam client, games (games run as steam_app_<id>) and Discord
-window-rule {
-    match app-id="^steam$"
-    match app-id="^steam_app_"
-    match app-id="^discord$"
-    open-on-workspace "\u{f1b6}" // steam icon
-}
-
-// Chromium
-window-rule {
-    match app-id="^chromium$"
-    open-on-workspace "\u{f268}" // chrome icon
-}
-
