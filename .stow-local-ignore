@@ -5,3 +5,7 @@ README.md
 scripts
 docs
 packages
+python
+rust
+\.ropeproject
+\.claude
