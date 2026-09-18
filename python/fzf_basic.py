@@ -18,11 +18,20 @@ def prompt_fzf(choices):
     except subprocess.CalledProcessError:
         return None
 
-options = ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+options = ["nordvpn", "update", "power"]
 selected_option = prompt_fzf(options)
 
-if selected_option:
-    print(f"You selected: {selected_option}")
-else:
-    print("No selection made.")
+menu = {"nordvpn": {
+    
+    "connect": ["nordvpn", "connect"],
+    
+    "select a contry": {
+        "UK": ["nordvpn", "connect", "United Kingdom"],
+        "US": ["nordvpn", "connect", "United States"],
+        
+        },
+    },
+    
+}
+
 
