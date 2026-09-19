@@ -10,3 +10,14 @@ desc = "Edit as root (sudoedit)"
 on   = [ "R", "e" ]
 run  = 'shell --block -- sudo -E ${EDITOR:-nano} %s'
 desc = "Edit as root (editor runs as root)"
+
+# toggle-pane.yazi: press again to restore the normal layout.
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = "<C-p>"
+run  = "plugin toggle-pane min-preview"
+desc = "Hide or show the preview pane"

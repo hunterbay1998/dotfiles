@@ -19,3 +19,32 @@ edit = [
   { run = 'sudo -e %s',                 desc = "sudoedit (root)",   for = "unix", block = true },
   { run = 'sudo -E ${EDITOR:-nano} %s', desc = "sudo $EDITOR (root)", for = "unix", block = true },
 ]
+# PDFs and EPUBs. `orphan` keeps zathura open if yazi/the terminal closes.
+zathura = [
+  { run = 'zathura %s', orphan = true, desc = "Zathura", for = "unix" },
+]
+# Videos
+mpv = [
+  { run = 'mpv %s', orphan = true, desc = "mpv", for = "unix" },
+]
+# Images. Opens the whole folder starting at this file, so ←/→ flips through it.
+imv = [
+  { run = 'imv -n %s1 "$(dirname %s1)"', orphan = true, desc = "imv (browse folder)", for = "unix" },
+  { run = 'imv %s',                      orphan = true, desc = "imv (selected only)", for = "unix" },
+]
+
+[open]
+# Checked before yazi's built-in rules. Archives use the built-in rule
+# (Enter extracts via 7zip).
+prepend_rules = [
+  { mime = "application/{pdf,epub+zip}", use = [ "zathura", "reveal" ] },
+  { mime = "video/*",                    use = [ "mpv", "reveal" ] },
+  { mime = "image/*",                    use = [ "imv", "reveal" ] },
+]
+
+[plugin]
+# git.yazi: fetch git status for files and folders
+prepend_fetchers = [
+  { url = "*",  run = "git", group = "git" },
+  { url = "*/", run = "git", group = "git" },
+]

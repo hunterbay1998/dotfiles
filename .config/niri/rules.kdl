@@ -9,6 +9,7 @@ window-rule {
 // kitty
 window-rule {
     match app-id="kitty"
+    match app-id="yazi"
     draw-border-with-background false
     background-effect {
         blur true
@@ -28,7 +29,24 @@ window-rule {
     match app-id="discord"
     match app-id="zed"
     match app-id="btop"
-    open-maximized true
+    match app-id="yazi"
+    match app-id="zathura"
+    match app-id="^mpv$"
+    match app-id="^imv$"
+    // fill the screen edge to edge, like Mod+M
+    // (`open-maximized` only makes the column full-width, like Mod+F)
+    open-maximized-to-edges true
+}
+
+// nautilus + pavucontrol: floating, 800x550
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    match app-id="org.pulseaudio.pavucontrol"
+    open-floating true
+    // nautilus remembers being maximized and asks for it on open; refuse that
+    open-maximized-to-edges false
+    default-column-width { fixed 800; }
+    default-window-height { fixed 550; }
 }
 
 // zed

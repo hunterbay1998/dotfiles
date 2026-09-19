@@ -87,7 +87,7 @@ if command -v eza >/dev/null; then
   alias ll='eza --icons=auto --group-directories-first -lah --git'
   alias lt='eza --icons=auto --tree --level=2'
 fi
-command -v zoxide >/dev/null && alias cd='z'   # z is a superset of cd
+#command -v zoxide >/dev/null && alias cd='z'   # z is a superset of cd
 command -v dust  >/dev/null && alias du='dust'
 command -v duf   >/dev/null && alias df='duf'
 command -v btop  >/dev/null && alias top='btop'

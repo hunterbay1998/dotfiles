@@ -1,0 +1,47 @@
+# Catppuccin Frappé (matches nvim)
+set default-fg                "#c6d0f5"
+set default-bg                "#303446"
+
+set completion-bg             "#414559"
+set completion-fg             "#c6d0f5"
+set completion-highlight-bg   "#575268"
+set completion-highlight-fg   "#c6d0f5"
+set completion-group-bg       "#414559"
+set completion-group-fg       "#8caaee"
+
+set statusbar-fg              "#c6d0f5"
+set statusbar-bg              "#292c3c"
+
+set notification-bg           "#414559"
+set notification-fg           "#c6d0f5"
+set notification-error-bg     "#414559"
+set notification-error-fg     "#e78284"
+set notification-warning-bg   "#414559"
+set notification-warning-fg   "#e5c890"
+
+set inputbar-fg               "#c6d0f5"
+set inputbar-bg               "#292c3c"
+
+set index-fg                  "#c6d0f5"
+set index-bg                  "#303446"
+set index-active-fg           "#c6d0f5"
+set index-active-bg           "#414559"
+
+set render-loading-bg         "#303446"
+set render-loading-fg         "#c6d0f5"
+
+set highlight-color           "rgba(229,200,144,0.4)"
+set highlight-fg              "rgba(244,184,228,0.5)"
+set highlight-active-color    "rgba(244,184,228,0.5)"
+
+# Dark mode for pages (Ctrl+R toggles it)
+set recolor                   true
+set recolor-keephue           true
+set recolor-lightcolor        "#303446"
+set recolor-darkcolor         "#c6d0f5"
+
+# Quality of life
+set font                      "JetBrainsMono Nerd Font 11"
+set selection-clipboard       clipboard
+set guioptions                s
+set adjust-open               width
